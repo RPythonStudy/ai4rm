@@ -1,6 +1,4 @@
-=======================================================   
-Artificial Intelligence for Radiation Medicine (AI4RM)   
-=======================================================
+# Artificial Intelligence for Radiation Medicine (AI4RM)   
 
 ## 개요
 
