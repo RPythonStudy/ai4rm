@@ -2,6 +2,9 @@
 
 set -e
 
+info() { echo -e "\033[32m[INFO]\033[0m $1"; }
+fail() { echo -e "\033[31m[FAIL]\033[0m $1"; exit 1; }
+
 # [1] 디렉토리 생성 및 권한 설정
 sudo mkdir -p \
   /opt/ai4rm/vault/docker/config \
@@ -29,7 +32,7 @@ sudo chmod -R 750 \
 
 info "### [3/4] Vault 임시 인증서 (존재 시 skip)"
 
-CERT_DIR=./docker/vault/certs
+CERT_DIR="/opt/ai4rm/vault/docker/certs"
 CERT_KEY=${CERT_DIR}/vault.key
 CERT_CRT=${CERT_DIR}/vault.crt
 
@@ -56,11 +59,6 @@ else
     fi
 fi
 
-# 5. 인증서/키/체인 권한 및 소유자 설정 (이 구간은 변경하지 않음)
-sudo chown 100:100 "$SVC_KEY" "$SVC_CSR" "$SVC_CRT" "$SVC_CHAIN"
-sudo chmod 640 "$SVC_KEY"
-sudo chmod 600 "$SVC_CSR"
-sudo chmod 644 "$SVC_CRT" "$SVC_CHAIN"
 
 # [3] Vault 설정 파일/컴포즈 파일 복사 (존재 시 skip)
 if [ -f /opt/ai4rm/vault/docker-compose.yml ]; then
