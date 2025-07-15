@@ -1,6 +1,6 @@
 #!/bin/bash
 # ------------------------------------------------------------------------------
-# File: generate_certs.sh (디버깅·동기화·등록 진단 버전)
+# File: generate_certs.sh (임시 extfile로 v3_ca 확장 자동주입, 완전 자동화)
 # Description: Root CA + Intermediate CA 생성, 신뢰 anchor 등록(리눅스/WSL2) 자동화
 # Author: BenKorea <benkorea.ai@gmail.com>
 # Usage: sudo bash generate_certs.sh
@@ -20,7 +20,7 @@ CA_BASENAME="ai4rm_rootCA.crt"
 TRUST_DIR="/usr/local/share/ca-certificates"
 BUNDLE_FILE="/etc/ssl/certs/ca-certificates.crt"
 
-echo "[DEBUG] === 디버깅용 generate_certs.sh 시작 ==="
+echo "[DEBUG] === generate_certs.sh(extfile v3_ca 자동주입) 시작 ==="
 
 # 1. CA 디렉토리 생성 및 권한 설정
 echo "[DEBUG] CA 디렉토리 확인/생성: $CA_DIR"
@@ -31,14 +31,29 @@ ls -ld "$CA_DIR"
 
 # 2. Root CA 생성(존재 시 skip)
 if [ ! -f "$CA_KEY" ] && [ ! -f "$CA_CRT" ]; then
-  echo "[INFO] Root CA 생성 중..."
+  echo "[INFO] Root CA(v3_ca 확장 extfile) 생성 중..."
   sudo openssl genrsa -out "$CA_KEY" 4096
-  sudo openssl req -x509 -new -nodes -key "$CA_KEY" -sha256 -days $CA_DAYS -out "$CA_CRT" \
-    -subj "/CN=ai4rm-root-ca"
+
+  # 임시 extfile에 v3_ca 확장 명시
+  cat > /tmp/v3ca_ext.cnf <<EOF
+basicConstraints = critical,CA:TRUE
+keyUsage = critical, digitalSignature, cRLSign, keyCertSign
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid:always,issuer
+EOF
+
+  sudo openssl req -x509 -new -nodes -key "$CA_KEY" -sha256 -days $CA_DAYS \
+    -out "$CA_CRT" \
+    -subj "/CN=ai4rm-root-ca" \
+    -extensions v3_ca \
+    -extfile /tmp/v3ca_ext.cnf
+
+  sudo rm -f /tmp/v3ca_ext.cnf
+
   sudo chown root:root "$CA_KEY" "$CA_CRT"
   sudo chmod 600 "$CA_KEY"
   sudo chmod 644 "$CA_CRT"
-  echo "[OK] Root CA 생성 완료"
+  echo "[OK] Root CA(v3_ca extfile) 생성 완료"
 else
   echo "[SKIP] Root CA가 이미 존재합니다."
   ls -l "$CA_KEY" "$CA_CRT"
@@ -117,3 +132,4 @@ echo " - Root CA: $CA_CRT"
 echo " - Intermediate CA: $INT_CRT"
 echo " - 신뢰 anchor 등록: $TRUST_DIR/$CA_BASENAME"
 echo "[DEBUG] === generate_certs.sh 종료 ==="
+
