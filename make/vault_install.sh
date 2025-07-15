@@ -7,32 +7,32 @@ fail() { echo -e "\033[31m[FAIL]\033[0m $1"; exit 1; }
 
 # [1] 디렉토리 생성 및 권한 설정
 sudo mkdir -p \
-  /opt/ai4rm/vault/docker/config \
-  /opt/ai4rm/vault/docker/file \
-  /opt/ai4rm/vault/docker/certs \
-  /opt/ai4rm/vault/docker/logs \
-  /opt/ai4rm/vault/docker/agent/config \
-  /opt/ai4rm/vault/docker/agent/sink
+  /opt/ai4rm/docker/vault/config \
+  /opt/ai4rm/docker/vault/file \
+  /opt/ai4rm/docker/vault/certs \
+  /opt/ai4rm/docker/vault/logs \
+  /opt/ai4rm/docker/vault/agent/config \
+  /opt/ai4rm/docker/vault/agent/sink
 
 sudo chown -R 100:100 \
-  /opt/ai4rm/vault/docker/config \
-  /opt/ai4rm/vault/docker/file \
-  /opt/ai4rm/vault/docker/certs \
-  /opt/ai4rm/vault/docker/logs \
-  /opt/ai4rm/vault/docker/agent/config \
-  /opt/ai4rm/vault/docker/agent/sink
+  /opt/ai4rm/docker/vault/config \
+  /opt/ai4rm/docker/vault/file \
+  /opt/ai4rm/docker/vault/certs \
+  /opt/ai4rm/docker/vault/logs \
+  /opt/ai4rm/docker/vault/agent/config \
+  /opt/ai4rm/docker/vault/agent/sink
 
 sudo chmod -R 750 \
-  /opt/ai4rm/vault/docker/config \
-  /opt/ai4rm/vault/docker/file \
-  /opt/ai4rm/vault/docker/certs \
-  /opt/ai4rm/vault/docker/logs \
-  /opt/ai4rm/vault/docker/agent/config \
-  /opt/ai4rm/vault/docker/agent/sink
+  /opt/ai4rm/docker/vault/config \
+  /opt/ai4rm/docker/vault/file \
+  /opt/ai4rm/docker/vault/certs \
+  /opt/ai4rm/docker/vault/logs \
+  /opt/ai4rm/docker/vault/agent/config \
+  /opt/ai4rm/docker/vault/agent/sink
 
 info "### [3/4] Vault 임시 인증서 (존재 시 skip)"
 
-CERT_DIR="/opt/ai4rm/vault/docker/certs"
+CERT_DIR="/opt/ai4rm/docker/vault/certs"
 CERT_KEY=${CERT_DIR}/vault.key
 CERT_CRT=${CERT_DIR}/vault.crt
 
@@ -61,26 +61,26 @@ fi
 
 
 # [3] Vault 설정 파일/컴포즈 파일 복사 (존재 시 skip)
-if [ -f /opt/ai4rm/vault/docker-compose.yml ]; then
+if [ -f /opt/ai4rm/docker/vault/docker-compose.yml ]; then
     info "docker-compose.yml 이미 존재하여 복사하지 않음"
 else
-    sudo cp ./templates/vault/docker-compose.yml  /opt/ai4rm/vault/
+    sudo cp ./templates/vault/docker-compose.yml  /opt/ai4rm/docker/vault/
 fi
 
-if [ -f /opt/ai4rm/vault/docker/config/vault.hcl ]; then
+if [ -f /opt/ai4rm/docker/vault/config/vault.hcl ]; then
     info "vault.hcl 이미 존재하여 복사하지 않음"
 else
-    sudo cp ./templates/vault/conf/vault.hcl  /opt/ai4rm/vault/docker/config/
-    sudo chown 100:100 /opt/ai4rm/vault/docker/config/vault.hcl
-    sudo chmod 640     /opt/ai4rm/vault/docker/config/vault.hcl
+    sudo cp ./templates/vault/conf/vault.hcl  /opt/ai4rm/docker/vault/config/
+    sudo chown 100:100 /opt/ai4rm/docker/vault/config/vault.hcl
+    sudo chmod 640     /opt/ai4rm/docker/vault/config/vault.hcl
 fi
 
-if [ -f /opt/ai4rm/vault/docker/agent/config/config.hcl ]; then
+if [ -f /opt/ai4rm/docker/vault/agent/config/config.hcl ]; then
     info "config.hcl 이미 존재하여 복사하지 않음"
 else
-    sudo cp ./templates/vault/conf/config.hcl /opt/ai4rm/vault/docker/agent/config/
-    sudo chown 100:100 /opt/ai4rm/vault/docker/agent/config/config.hcl
-    sudo chmod 640     /opt/ai4rm/vault/docker/agent/config/config.hcl
+    sudo cp ./templates/vault/conf/config.hcl /opt/ai4rm/docker/vault/agent/config/
+    sudo chown 100:100 /opt/ai4rm/docker/vault/agent/config/config.hcl
+    sudo chmod 640     /opt/ai4rm/docker/vault/agent/config/config.hcl
 fi
 
 echo "[OK] Vault 서비스 프로비저닝 및 인증서(Intermediate CA 서명) 배포 완료."

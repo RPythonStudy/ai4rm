@@ -12,9 +12,9 @@ services:
       VAULT_API_ADDR: "https://vault:8200"
       TZ: Asia/Seoul
     volumes:
-      - ./docker/file:/vault/file
-      - ./docker/config:/vault/config
-      - ./docker/certs:/vault/certs
+      - ./file:/vault/file
+      - ./config:/vault/config
+      - ./certs:/vault/certs
       - /etc/localtime:/etc/localtime:ro
       - /usr/share/zoneinfo:/usr/share/zoneinfo:ro
     command: >
@@ -27,8 +27,8 @@ services:
     image: hashicorp/vault:latest
     command: vault agent -config=/agent/config.hcl
     volumes:
-      - ./docker/agent/config:/agent
-      - ./docker/agent/sink:/sink
+      - ./agent/config:/agent
+      - ./agent/sink:/sink
     environment:
       VAULT_ADDR: "https://vault:8200"
     depends_on:
