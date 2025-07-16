@@ -5,7 +5,7 @@
 # 설명: Vault 서버를 자동으로 언실하는 유틸리티
 #
 # 실행 예시:
-#   $ python3 src/pseudonymizer/vault_utils/auto_unseal.py
+#   $ python src/pseudonymizer/vault_utils/auto_unseal.py
 #
 # 환경변수:
 #   VAULT_ADDR         → Vault 서버 주소 (예: https://vault:8200)
@@ -13,13 +13,16 @@
 #
 # 요구 사항:
 #   - requests
-#   - logger (src/pseudonymizer/logger.py 사용)
+#   - logger (logger 패키지 사용)
 # ========================================================
 
 import os
 import json
 import requests
+import sys
+print("sys.path:", sys.path)
 from logger import get_logger
+import sys
 
 logger = get_logger("auto_unseal")
 
