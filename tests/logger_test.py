@@ -1,5 +1,5 @@
 # tests/logger_test.py
-from logger.logger import get_logger
+from logger import get_logger
 
 import time
 
