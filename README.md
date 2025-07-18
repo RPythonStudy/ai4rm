@@ -74,10 +74,6 @@ projects/ai4rm/
       │   └── ...
       ├── infra/
       │   └── ...
-      ├── bitwarden/ # Bitwarden만 서비스명/docker 구조
-      │   └── bwdata
-      │       └── docker/
-      │           └── dock-compose.yml
       ├── docker/
           ├── all.services-init
           ├── elk/
@@ -94,7 +90,7 @@ projects/ai4rm/
           ├── openldap/
           │   ├── data/
           │   └── config/
-          └── ...
+          └── bitwarden
 ```
 
 ## 5. 기타 안내 및 주의사항
