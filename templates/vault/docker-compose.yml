@@ -2,6 +2,7 @@ services:
   vault:
     image: hashicorp/vault:latest
     container_name: vault
+    restart: always
     cap_add:
       - IPC_LOCK
     mem_limit: 640m
@@ -25,6 +26,7 @@ services:
       "
   agent:
     image: hashicorp/vault:latest
+    restart: always
     command: vault agent -config=/agent/config.hcl
     volumes:
       - ./agent/config:/agent

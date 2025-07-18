@@ -1,0 +1,20 @@
+{
+    "python.envFile": "${workspaceFolder}/.env",
+    "github.copilot.chat.customPrompts": {
+        "medical": {
+            "path": "${workspaceFolder}/.github/copilot/prompts/medical-expert.json"
+        },
+        "security": {
+            "path": "${workspaceFolder}/.github/copilot/prompts/security-specialist.json"
+        },
+        "vault": {
+            "path": "${workspaceFolder}/.github/copilot/prompts/vault-integration.json"
+        },
+        "devops": {
+            "path": "${workspaceFolder}/.github/copilot/prompts/devops-engineer.json"
+        },
+        "compliance": {
+            "path": "${workspaceFolder}/.github/copilot/prompts/compliance-auditor.json"
+        }
+    }
+}

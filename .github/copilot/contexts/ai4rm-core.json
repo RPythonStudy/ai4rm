@@ -1,0 +1,59 @@
+{
+  "name": "AI4RM 프로젝트 컨텍스트",
+  "description": "AI4RM 의료 데이터 익명화 플랫폼 컨텍스트",
+  "version": "1.0",
+  "project": {
+    "name": "AI4RM",
+    "description": "의료 데이터 가명처리 및 익명화 플랫폼",
+    "domain": "Healthcare Data Privacy",
+    "compliance": ["GDPR", "HIPAA", "ISO 27001", "ISO 27799"],
+    "techStack": [
+      "Python 3.11+",
+      "HashiCorp Vault",
+      "Docker & Docker Compose",
+      "ELK Stack (Elasticsearch, Logstash, Kibana)",
+      "Bitwarden Password Manager",
+      "OpenLDAP Directory Service",
+      "PostgreSQL Database",
+      "Redis Cache"
+    ]
+  },
+  "architecture": {
+    "pattern": "Microservices with Container Orchestration",
+    "security": "Zero Trust with Defense in Depth",
+    "deployment": "Docker-first with Infrastructure as Code",
+    "monitoring": "Comprehensive logging and metrics collection"
+  },
+  "codeStructure": {
+    "src/": "메인 애플리케이션 소스 코드",
+    "logger/": "통합 로깅 시스템 (6-level hierarchy)",
+    "config/": "설정 파일 및 권한 관리",
+    "templates/": "Docker 및 서비스 템플릿",
+    "scripts/": "자동화 및 배포 스크립트",
+    "tests/": "단위 테스트 및 통합 테스트",
+    "wiki/": "프로젝트 문서화 (Git submodule)"
+  },
+  "developmentStandards": {
+    "imports": "PYTHONPATH 기반, sys.path 조작 금지",
+    "logging": "from logger import get_logger 패턴 사용",
+    "configuration": "환경변수 및 .env 파일 활용",
+    "secrets": "HashiCorp Vault 통합",
+    "testing": "pytest 기반 단위 테스트",
+    "documentation": "Sphinx 기반 API 문서"
+  },
+  "securityPrinciples": {
+    "dataMinimization": "필요 최소한의 데이터만 처리",
+    "purposeLimitation": "명시된 목적에만 데이터 사용",
+    "storageMinimization": "최소 보존 기간 준수",
+    "transparency": "모든 처리 과정 문서화",
+    "accountability": "처리 책임자 명확화",
+    "integrity": "데이터 무결성 보장",
+    "confidentiality": "승인된 사용자만 접근"
+  },
+  "workflowPatterns": {
+    "development": "Feature branch → Code review → Testing → Merge",
+    "deployment": "Development → Staging → Production",
+    "monitoring": "Real-time alerts → Log analysis → Performance metrics",
+    "incident": "Detection → Response → Recovery → Post-mortem"
+  }
+}
