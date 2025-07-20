@@ -22,18 +22,32 @@ src/
 - **Bitwarden**: Password Manager 연동
 - **OpenLDAP**: Directory Service
 
+
+## 프로젝트 전반 지침
+
+**이모지/이모티콘 사용 금지:**
+AI4RM 프로젝트의 모든 코드, 문서, 커밋 메시지, 로그, 주석, 출력 등에서 이모지(emoji) 및 이모티콘(emoticon)은 사용하지 않습니다. 
+의료/컴플라이언스 환경에 맞는 전문적이고 일관된 표현만 허용합니다.
+
 ## 필수 개발 표준
 
-### 1. 로깅 시스템 (Mandatory)
 
-AI4RM은 의료데이터 처리 특성상 상세한 로깅과 감사 추적이 필수입니다.
 
+### 1. 로깅/감사 시스템 (필수)
+
+**이모지/이모티콘 사용 금지:**
+로깅 메시지, 감사 로그, 출력 등 모든 곳에서 이모지/이모티콘을 포함하지 않습니다.
+
+AI4RM 프로젝트는 의료데이터 처리 특성상 **운영 로그와 감사 로그(Audit Logging)를 모두 중복 기록**해야 하며, 컴플라이언스(개인정보보호법/GDPR) 준수와 감사 추적이 필수입니다.
+
+#### 1.1 표준 로거 사용
 ```python
-# 모든 코드에서 필수 사용 패턴
 from logger import get_logger
 logger = get_logger("service_name")
+```
 
-# 6단계 로그 레벨 사용
+#### 1.2 6단계 로그 레벨
+```python
 logger.critical("시스템 중단 수준 오류")  # DB 연결실패, 암호화 키 손실
 logger.error("오류 발생")              # 파일 처리 실패, API 호출 오류  
 logger.warning("주의 필요")            # 권한 부족, 설정 누락
@@ -42,15 +56,70 @@ logger.debug("디버깅 정보")             # 변수 값, 함수 호출 흐름
 logger.trace("상세 추적")              # 데이터 변환 과정
 ```
 
-**로깅 보안 원칙**:
+#### 1.3 감사 로그(Audit Log) 중복 기록 패턴
+모든 개인정보 처리, 인증서 생성, 주요 이벤트는 운영 로그와 별도로 감사 로그로도 기록해야 합니다.
+감사 로그에는 반드시 아래 정보가 포함되어야 합니다:
+- action(이벤트명)
+- user(처리자)
+- process_id, server_id
+- timestamp(UTC)
+- compliance_check(예: 개인정보보호법 제28조)
+예시:
 ```python
-# ✅ 올바른 로깅 - 개인정보 제외
+import logging
+from datetime import datetime, timezone
+import os, socket
+
+def audit_log(action: str, detail: dict = None, compliance: str = "개인정보보호법 제28조"):
+    audit_logger = logging.getLogger("audit")
+    user = os.getenv("USER") or "unknown"
+    log = {
+        "action": action,
+        "user": user,
+        "process_id": os.getpid(),
+        "server_id": socket.gethostname(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "compliance_check": compliance
+    }
+    if detail:
+        log.update(detail)
+    audit_logger.info(log)
+```
+
+#### 1.4 감사 로그 핸들러 분리 (logging.yaml 예시)
+감사 로그는 별도 파일(`logs/audit.log`) 또는 ELK Stack으로 전송되도록 핸들러를 분리합니다.
+```yaml
+handlers:
+  audit_file:
+    class: logging.FileHandler
+    level: INFO
+    formatter: json
+    filename: logs/audit.log
+loggers:
+  audit:
+    handlers: [audit_file]
+    level: INFO
+    propagate: False
+```
+
+#### 1.5 협업 개발자 체크리스트
+- 모든 서비스/유틸리티에서 표준 로거(get_logger) 사용
+- 개인정보 처리/중요 이벤트는 운영+감사 로그 중복 기록
+- 감사 로그에 사용자/프로세스/서버/컴플라이언스 정보 포함
+- 로그레벨/핸들러는 logging.yaml 또는 .env로 설정
+- 테스트 코드에서도 동일한 로깅 패턴 적용
+
+
+**로깅 보안 원칙** (이모지/이모티콘 금지):
+```python
+# 올바른 로깅 - 개인정보 제외
 logger.info(f"환자데이터 처리 완료: 건수={count}, 소요시간={duration}초")
 
-# ❌ 금지된 로깅 - 개인정보 포함 절대 금지
+# 금지된 로깅 - 개인정보 포함 절대 금지
 logger.info(f"환자ID: {patient_id}")  # 개인정보보호법 위반
 logger.debug(f"환자명: {patient_name}")  # GDPR 위반
 ```
+
 
 ### 2. import 및 Module 구조
 
@@ -74,6 +143,7 @@ vault = VaultManager()
 secrets = vault.get_secrets("pseudonymize/ff3")
 encryption_key = secrets["key"]
 ```
+
 
 ### 4. 환자데이터 처리 표준
 
@@ -114,7 +184,7 @@ def anonymize_patient_data(data: dict) -> dict:
 ### 금지 사항 (Security Rules)
 
 ```python
-# ❌ 절대 금지
+# 절대 금지
 - 개인정보를 로그에 기록
 - 하드코딩된 비밀번호/키 
 - sys.path 직접 조작
@@ -124,7 +194,7 @@ def anonymize_patient_data(data: dict) -> dict:
 ### 필수 체크리스트
 
 ```python
-# ✅ 모든 코드에서 확인 필요
+# 모든 코드에서 확인 필요
 - Vault 연동 검증
 - 로그 레벨 설정 확인
 - 개인정보보호법 준수 
@@ -153,6 +223,7 @@ services:
 - **운영환경**: `/opt/ai4rm/`  
 - **일관성 유지**: 개발-테스트-운영 동일 경로
 
+
 ## 테스트 전략
 
 ### pytest 기반 테스트 구조
@@ -172,6 +243,7 @@ def mock_vault():
     with patch('vault_utils.VaultClient') as mock:
         yield mock
 ```
+
 
 ## Service별 구현 패턴
 
@@ -242,6 +314,7 @@ def verify_data_consistency(original: dict, converted: dict) -> bool:
     return is_valid
 ```
 
+
 ## 운영 및 모니터링
 
 ### ELK Stack 활용
@@ -284,6 +357,7 @@ docker compose ps
 docker compose logs -f vault
 ```
 
+
 ## Git Workflow 및 협업 가이드
 
 ### 브랜치 전략
@@ -310,6 +384,7 @@ git commit -m "feat(pseudonymizer): FF3 암호화 성능 개선
 5. **문서화**: API 문서 및 주석 완성도
 
 ---
+
 
 ## 프로젝트 특수성 고려사항
 
