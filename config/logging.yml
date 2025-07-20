@@ -1,0 +1,44 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  simple:
+    format: '[%(asctime)s] [%(levelname)s] %(name)s - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+  json:
+    format: '{"timestamp": "%(asctime)s", "level": "%(levelname)s", "logger": "%(name)s", "message": "%(message)s", "pathname": "%(pathname)s", "lineno": %(lineno)d, "funcName": "%(funcName)s"}'
+    datefmt: '%Y-%m-%dT%H:%M:%S'
+    
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+    stream: ext://sys.stdout
+  service_file:
+    class: logging.FileHandler
+    level: INFO
+    formatter: json
+    filename: /var/log/ai4rm/service.log
+    encoding: utf-8
+  audit_file:
+    class: logging.FileHandler
+    level: INFO
+    formatter: json
+    filename: /var/log/ai4rm/audit.log
+    encoding: utf-8
+
+root:
+  level: INFO
+  handlers: [console, service_file]
+
+loggers:
+  # 서브모듈 별도로 세부 설정 가능
+  ai4rm:
+    level: INFO
+    handlers: [console, service_file]
+    propagate: no
+  audit:
+    level: INFO
+    handlers: [audit_file]
+    propagate: no
