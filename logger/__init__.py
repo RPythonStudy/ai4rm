@@ -7,7 +7,7 @@ AI4RM 프로젝트 표준 로깅 시스템
 - 파일: JSON 형태 (ELK Stack 호환)
 """
 
-from .logger import get_logger
+from .logger import get_logger, audit_log
 
-__all__ = ['get_logger']
-__version__ = '1.0.0'
+__all__ = ['get_logger', 'audit_log']
+__version__ = '0.1.0'

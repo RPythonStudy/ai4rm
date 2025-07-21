@@ -137,3 +137,29 @@ def get_logger(name: str = "ai4rm", cli_log_level=None) -> logging.Logger:
     if not root_logger.hasHandlers():
         setup_logging(cli_log_level)
     return logging.getLogger(name)
+
+
+# 표준 감사로그 함수
+import socket
+from datetime import datetime, timezone
+
+def audit_log(action: str, detail: dict = None, compliance: str = "개인정보보호법 제28조"):
+    """
+    AI4RM 표준 감사 로그 기록 함수
+    - action: 이벤트명 (필수)
+    - detail: dict (추가 상세정보, 선택)
+    - compliance: 컴플라이언스 조항명 (기본값: 개인정보보호법 제28조)
+    """
+    audit_logger = get_logger("audit")
+    user = os.getenv("USER") or "unknown"
+    log = {
+        "action": action,
+        "user": user,
+        "process_id": os.getpid(),
+        "server_id": socket.gethostname(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "compliance_check": compliance
+    }
+    if detail:
+        log.update(detail)
+    audit_logger.info(log)
