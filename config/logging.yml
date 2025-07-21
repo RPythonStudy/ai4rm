@@ -42,3 +42,7 @@ loggers:
     level: INFO
     handlers: [audit_file]
     propagate: no
+  pseudonymizer:
+    level: INFO
+    handlers: [console, service_file]
+    propagate: no

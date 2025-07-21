@@ -152,28 +152,48 @@ def vault_unseal(unseal_key, vault_addr=VAULT_ADDR):
         return False
 
 def main():
-    accounts = get_bw_accounts_and_passwords(USB_PATH)
-    print(f"\n[INFO] 감지된 계정/비밀번호 쌍 {len(accounts)}개\n")
-    for account, password in accounts:
-        print(f"[INFO] Bitwarden login 시도: {account}")
-        login_ok = login_bw_account(account, password)
-        if not login_ok:
-            continue
-        print(f"[INFO] Bitwarden unlock 시도: {account}")
-        bw_session = unlock_bw_account(account, password)
-        if not bw_session:
-            continue
-        print(f"[INFO] {account} 언실키 추출 시도")
-        unseal_key = extract_unseal_key(bw_session)
-        if unseal_key:
-            print(f"[UNSEAL KEY] {account}: {unseal_key[:8]}... (길이 {len(unseal_key)})")
-            print(f"[INFO] {account} 언실 시도")
-            unsealed = vault_unseal(unseal_key, VAULT_ADDR)
-            if unsealed:
-                print("[SUCCESS] Vault가 언실되었습니다. 루프를 중단합니다.\n")
-                break
-        else:
-            print(f"[FAIL] {account} 언실키 추출 실패\n")
+    logger.info("Vault Auto-unseal 프로세스 시작")
+    
+    try:
+        accounts = get_bw_accounts_and_passwords(USB_PATH)
+        logger.info(f"감지된 계정/비밀번호 쌍: {len(accounts)}개")
+        
+        if not accounts:
+            logger.warning("USB 경로에서 계정 파일을 찾을 수 없습니다")
+            return
+            
+        for account, password in accounts:
+            logger.info(f"Bitwarden login 시도: {account}")
+            login_ok = login_bw_account(account, password)
+            if not login_ok:
+                logger.warning(f"{account} 로그인 실패 - 다음 계정으로 진행")
+                continue
+                
+            logger.info(f"Bitwarden unlock 시도: {account}")
+            bw_session = unlock_bw_account(account, password)
+            if not bw_session:
+                logger.error(f"{account} unlock 실패 - 세션 획득 불가")
+                continue
+                
+            logger.info(f"{account} 언실키 추출 시도")
+            unseal_key = extract_unseal_key(bw_session)
+            if unseal_key:
+                logger.debug(f"언실키 길이 확인: {len(unseal_key)} 문자")
+                logger.info(f"{account} 언실 시도")
+                unsealed = vault_unseal(unseal_key, VAULT_ADDR)
+                if unsealed:
+                    logger.info("Vault 언실 성공 - 프로세스 완료")
+                    break
+                else:
+                    logger.error(f"{account} Vault 언실 실패")
+            else:
+                logger.warning(f"{account} 언실키 추출 실패")
+                
+        logger.info("Vault Auto-unseal 프로세스 종료")
+        
+    except Exception as e:
+        logger.critical(f"Auto-unseal 프로세스 중대 오류: {str(e)}")
+        raise
 
 if __name__ == "__main__":
     main()
