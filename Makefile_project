@@ -10,7 +10,7 @@ valid:
 	python src/pseudonymizer/validate_depseudonymization.py
 
 excel:
-	python src/pseudonymizer/excel_pseudonymizer.py
+	python src/pseudonymizer/pseudonymizer_excel.py
 
 patho:
 	python src/pseudonymizer/pseudonymizer_pathology_report.py
