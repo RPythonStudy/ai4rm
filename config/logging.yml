@@ -1,6 +1,11 @@
 version: 1
 disable_existing_loggers: false
 
+# (참고) 경로와 프로젝트명은 .env에서 설정합니다.
+#   PROJECT_NAME=myproject
+#   LOG_PATH=/var/log/myproject/logs
+#   (로그 파일명은 핸들러에서 /service.log, /audit.log 등으로 조합)
+
 formatters:
   simple:
     format: '[%(asctime)s] [%(levelname)s] %(name)s - %(message)s'
@@ -8,37 +13,41 @@ formatters:
   json:
     format: '{"timestamp": "%(asctime)s", "level": "%(levelname)s", "logger": "%(name)s", "message": "%(message)s", "pathname": "%(pathname)s", "lineno": %(lineno)d, "funcName": "%(funcName)s"}'
     datefmt: '%Y-%m-%dT%H:%M:%S'
-    
+
 handlers:
   console:
     class: logging.StreamHandler
-    level: INFO
+    level: NOTSET
     formatter: simple
     stream: ext://sys.stdout
+
   service_file:
     class: logging.FileHandler
-    level: INFO
+    level: NOTSET
     formatter: json
-    filename: /var/log/ai4rm/service.log
+    filename: ${LOG_PATH}/service.log
     encoding: utf-8
+    delay: true
+
   audit_file:
     class: logging.FileHandler
-    level: INFO
+    level: NOTSET
     formatter: json
-    filename: /var/log/ai4rm/audit.log
+    filename: ${LOG_PATH}/audit.log
     encoding: utf-8
+    delay: true
 
 root:
   level: INFO
   handlers: [console, service_file]
 
 loggers:
-  # 서브모듈 별도로 세부 설정 가능
-  ai4rm:
+  ${PROJECT_NAME}:
     level: INFO
-    handlers: [console, service_file]
-    propagate: no
+    propagate: true   # 콘솔/서비스 로그는 루트 핸들러로 전달
+
+  # 개인정보보호정책: audit_log는 전용 파일에만 기록, 절대 stdout에 출력하지 않음
   audit:
     level: INFO
     handlers: [audit_file]
-    propagate: no
+    propagate: false

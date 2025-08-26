@@ -2,7 +2,7 @@
 
 import sys
 from pathlib import Path
-from common.logger import log_info, log_debug
+from common.logger import log_info
 
 log_info("=== Python 모듈 검색 경로 (sys.path) ===")
 for i, path in enumerate(sys.path):

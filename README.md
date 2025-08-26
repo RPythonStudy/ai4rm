@@ -1,6 +1,5 @@
 # 프로젝트 목적
-R과 Python, Quarto 기반 웹사이트 개발 프로젝트 준비과정에서 반복적으로 생성되는 파일과 설정을 template로 제공합니다. 
-
+의료정보가명화 및 가명화데이터베이스 구축
 # 프로젝트 개요
 - 로컬참조는 github상태에서는 링크되지 않으므로 사용자분들은 원격참조를 사용하시기 바랍니다.
 - AI Agent를 위한 로컬참조: [Project-Overview](wiki/Project-Overview.md)
