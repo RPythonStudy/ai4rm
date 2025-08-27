@@ -1,6 +1,0 @@
-version: 1
-disable_existing_loggers: false
-
-pathology_report:
-  input_dir: data/raw/pathology_report
-  output_dir: data/pseudonymized/pathology_report
