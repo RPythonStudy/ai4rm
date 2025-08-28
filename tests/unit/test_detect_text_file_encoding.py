@@ -1,5 +1,10 @@
 # tests/test_detect_text_file_encoding.py
 # GS 인증: 기능 정확성/일관성 검증
+# utf-8, euc-kr, cp949, utf-16, ascii에 대해서 인코딩이 올바르게 감지되는지 assert (반환값에 flexibility 인정하여 두 개의 후보 인코딩을 반환할 수 있음)
+# binary로 열었는지에 대해서도 assert
+# iso2022_kr에 대해서도 assert
+# edge 빈 파일에 대해서도 assert
+
 import os
 import tempfile
 import pytest
