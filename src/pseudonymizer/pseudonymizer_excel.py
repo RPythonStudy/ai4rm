@@ -4,17 +4,9 @@ import pandas as pd
 from ff3 import FF3Cipher
 from common.logger import log_info, log_error, log_critical
 from pathlib import Path
+from common.get_cipher import get_cipher
 
-load_dotenv()
-KEY = os.getenv("FF3_KEY")
-TWEAK = os.getenv("FF3_TWEAK")
-ALPHABET = os.getenv("FF3_ALPHABET")
-
-if not KEY or not TWEAK or not ALPHABET:
-    log_critical("필수 환경변수(FF3_KEY, FF3_TWEAK, FF3_ALPHABET)가 누락되었습니다.")
-    raise RuntimeError("필수 환경변수(FF3_KEY, FF3_TWEAK, FF3_ALPHABET)가 누락되었습니다.")
-
-cipher = FF3Cipher.withCustomAlphabet(KEY, TWEAK, ALPHABET)
+cipher = get_cipher()
 
 def pseudonymize_ptid(ptid):
     return cipher.encrypt(str(ptid).rjust(6, '0'))

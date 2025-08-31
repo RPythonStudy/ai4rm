@@ -17,6 +17,8 @@ if not KEY or not TWEAK or not ALPHABET:
     raise RuntimeError("필수 환경변수(FF3_KEY, FF3_TWEAK, FF3_ALPHABET)가 설정되어 있지 않습니다.")
 cipher = FF3Cipher.withCustomAlphabet(KEY, TWEAK, ALPHABET)
 
+
+
 ROOT = Path(__file__).resolve().parents[2]
 RAW_DIR = ROOT / "data/raw"
 PSEUDO_DIR = ROOT / "data/pseudonymized"
