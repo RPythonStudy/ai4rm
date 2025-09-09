@@ -1,21 +1,14 @@
-# {PROJECT_ROOT}/src/pseudonymizer/pseudonymizer_pathology_report.py
-# last modified: 2025-08-28
+# src/pseudonymizer/pseudonymizer_pathology_report.py
+# last modified: 2025-09-10
+# get_cipher() 함수로 FF3 암호화 적용
 
 import os
 import re
 import yaml
 import chardet
-from ff3 import FF3Cipher
 from dotenv import load_dotenv
 from common.logger import log_debug
-
-# ------------------------
-# 환경 변수 로딩 (.env → 운영시 Vault로 대체)
-# ------------------------
-load_dotenv()
-FF3_KEY = os.getenv("FF3_KEY")
-FF3_TWEAK = os.getenv("FF3_TWEAK")
-FF3_ALPHABET = os.getenv("FF3_ALPHABET", "0123456789")
+from common.get_cipher import get_cipher
 
 
 # ------------------------
@@ -89,9 +82,7 @@ def pseudonymize_patient_id(content: str, fname: str = None):
         return ""
 
     # FF3 암호화 준비
-    if not FF3_KEY or not FF3_TWEAK:
-        raise RuntimeError("FF3_KEY / FF3_TWEAK 환경변수가 설정되지 않았습니다.")
-    cipher = FF3Cipher.withCustomAlphabet(FF3_KEY, FF3_TWEAK, FF3_ALPHABET)
+    cipher = get_cipher()
 
     ids = re.findall(regex, content)
     pseudonymized_content = content
