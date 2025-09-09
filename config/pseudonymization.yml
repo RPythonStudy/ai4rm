@@ -1,0 +1,16 @@
+# {PROJECT_ROOT}/config/pseudonymization.yml
+# instruction for ai agent
+# “Python의 r'…' 표기는 쓰지 말고, YAML에서는 작은따옴표로 감싸서 정규식 백슬래시는 그대로 적는다”가 정확한 가이드입니다
+# last-modified: 2025-08-27
+
+version: 1
+disable_existing_loggers: false
+
+pathology_report:
+  input_dir: data/raw/pathology_report
+  output_dir: data/pseudonymized/pathology_report
+  patient_id:
+    pattern_description: "등록번호 공백 아라비아숫자8개 공백"
+    regular_expression: '(?<!\S)등록번호\s*[:：]?\s*(?P<pid>[0-9]{8})(?!\S)'
+    anonymization_policy: pseudonymization # pseudonymization/anonymization/no_apply
+
