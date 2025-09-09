@@ -47,4 +47,7 @@ check:
 backup:
 	python scripts/setup/backup.py
 
+freeze:
+	pip freeze > requirements.txt
+
 include Makefile_project
