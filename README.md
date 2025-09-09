@@ -1,5 +1,5 @@
 # 프로젝트 목적
-R과 Python, Quarto 기반 웹사이트 개발 프로젝트 준비과정에서 반복적으로 생성되는 파일과 설정을 template로 제공합니다. 
+병리보고서·영상판독 등 의료데이터를 가명화·정형화해 연구용으로 제공하는 플랫폼으로, AI4INFRA(공통 인프라: Vault·Bitwarden·OpenLDAP·Keycloak·ELK(Filebeat 포함)·DCM4CHEE·PostgreSQL)를 활용하며 ISMS-P·GS·ISO·SaMD 준수를 목표로 하고 있습니다.
 
 # 프로젝트 개요
 - 로컬참조는 github상태에서는 링크되지 않으므로 사용자분들은 원격참조를 사용하시기 바랍니다.
