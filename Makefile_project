@@ -1,16 +1,16 @@
 ## Python 환경 및 로그 자동화 Makefile
 
 pseudo:
-	python src/pseudonymizer/pseudonymize_files.py
+	python src/deidentifier/pseudonymize_files.py
 
 depseudo:
-	python src/pseudonymizer/depseudonymize_files.py
+	python src/deidentifier/depseudonymize_files.py
 
 valid:
-	python src/pseudonymizer/validate_depseudonymization.py
+	python src/deidentifier/validate_depseudonymization.py
 
 excel:
-	python src/pseudonymizer/pseudonymizer_excel.py
+	python src/deidentifier/pseudonymizer_excel.py
 
 patho:
-	python src/pseudonymizer/pseudonymizer_pathology_report.py
+	python -m src.deidentifier.deidentify_pathology_report

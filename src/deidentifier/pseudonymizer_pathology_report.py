@@ -1,3 +1,61 @@
+# src/pseudonymizer/pseudonymizer_pathology_report.py
+# 병리보고서 비식별화 모듈
+# last updated: 2025-09-17
+
+def deidentify_date_field(content: str, field_conf: dict, fname: str = None):
+    """
+    날짜형 비식별화 범용 함수
+    :param content: 원본 텍스트
+    :param field_conf: yml에서 읽은 해당 필드 설정(dict)
+    :param fname: 파일명(옵션, 로그용)
+    :return: 비식별화된 텍스트
+    """
+    import re
+    regex = field_conf.get("regular_expression", r'\d{4}-\d{2}-\d{2}')
+    policy = field_conf.get("deidentification_policy", "no_apply")
+    anonymization_value = field_conf.get("anonymization_value", "XXXX-XX-XX")
+    pseudo_type = field_conf.get("pseudonymization_values", "month_to_first_day")
+
+    if content is None:
+        if fname:
+            log_debug(f"{fname}: [읽기 실패]")
+        else:
+            log_debug("[읽기 실패]")
+        return ""
+
+    def month_to_first_day(date_str):
+        parts = date_str.split("-")
+        if len(parts) == 3:
+            return f"{parts[0]}-{parts[1]}-01"
+        return date_str
+
+    def year_to_january_first(date_str):
+        parts = date_str.split("-")
+        if len(parts) == 3:
+            return f"{parts[0]}-01-01"
+        return date_str
+
+    def replace_date(match):
+        date_str = match.group(1) if match.lastindex else match.group(0)
+        if policy == "anonymization":
+            log_debug(f"date 원본: {date_str}, 익명화 결과: {anonymization_value}")
+            return match.group(0).replace(date_str, anonymization_value)
+        elif policy == "pseudonymization":
+            if pseudo_type == "month_to_first_day":
+                new_date = month_to_first_day(date_str)
+            elif pseudo_type == "year_to_january_first":
+                new_date = year_to_january_first(date_str)
+            else:
+                new_date = date_str
+            log_debug(f"date 원본: {date_str}, 가명화 결과: {new_date}")
+            return match.group(0).replace(date_str, new_date)
+        else:
+            return match.group(0)
+
+    result = re.sub(regex, replace_date, content)
+    log_debug(f"[date_field] 적용 결과 preview: {result[:80]}")
+    return result
+
 # ------------------------
 # pathologists(병리전문의) 비식별화 (정책에 따라 익명화/가명화/원본 반환)
 # ------------------------
@@ -829,6 +887,62 @@ def anonymize_patient_name(content: str, fname: str = None):
 # src/pseudonymizer/pseudonymizer_pathology_report.py
 # last modified: 2025-09-10
 # get_cipher() 함수로 FF3 암호화 적용
+def deidentify_date_field(content: str, field_conf: dict, fname: str = None):
+    """
+    날짜형 비식별화 범용 함수
+    :param content: 원본 텍스트
+    :param field_conf: yml에서 읽은 해당 필드 설정(dict)
+    :param fname: 파일명(옵션, 로그용)
+    :return: 비식별화된 텍스트
+    """
+    import re
+    regex = field_conf.get("regular_expression", r'\d{4}-\d{2}-\d{2}')
+    policy = field_conf.get("deidentification_policy", "no_apply")
+    anonymization_value = field_conf.get("anonymization_value", "XXXX-XX-XX")
+    pseudo_type = field_conf.get("pseudonymization_values", "month_to_first_day")
+
+    if content is None:
+        if fname:
+            log_debug(f"{fname}: [읽기 실패]")
+        else:
+            log_debug("[읽기 실패]")
+        return ""
+
+    def month_to_first_day(date_str):
+        parts = date_str.split("-")
+        if len(parts) == 3:
+            return f"{parts[0]}-{parts[1]}-01"
+        return date_str
+
+    def year_to_january_first(date_str):
+        parts = date_str.split("-")
+        if len(parts) == 3:
+            return f"{parts[0]}-01-01"
+        return date_str
+
+    def replace_date(match):
+        if hasattr(match, 'groupdict') and match.groupdict():
+            date_str = next(iter(match.groupdict().values()))
+        else:
+            date_str = match.group(0)
+        if policy == "anonymization":
+            log_debug(f"date 원본: {date_str}, 익명화 결과: {anonymization_value}")
+            return match.group(0).replace(date_str, anonymization_value)
+        elif policy == "pseudonymization":
+            if pseudo_type == "month_to_first_day":
+                new_date = month_to_first_day(date_str)
+            elif pseudo_type == "year_to_january_first":
+                new_date = year_to_january_first(date_str)
+            else:
+                new_date = date_str
+            log_debug(f"date 원본: {date_str}, 가명화 결과: {new_date}")
+            return match.group(0).replace(date_str, new_date)
+        else:
+            return match.group(0)
+
+    result = re.sub(regex, replace_date, content)
+    log_debug(f"[date_field] 적용 결과 preview: {result[:80]}")
+    return result
 
 import os
 import re
@@ -947,10 +1061,14 @@ if __name__ == "__main__":
             file_content = raw.decode(enc)
             file_content = redact_kirams_line(file_content, fname)
 
+            # 날짜군 비식별화 적용
+            for date_field in ["print_date", "receipt_date", "result_date"]:
+                field_conf = config_pathology_report.get(date_field, {})
+                file_content = deidentify_date_field(file_content, field_conf, fname)
+
+            # 기존 함수 적용
             file_content = deidentification_printer_id(file_content, fname)
             file_content = deidentification_pgm_id(file_content, fname)
-            file_content = deidentification_print_date(file_content, fname)
-            file_content = deidentification_receipt_date(file_content, fname)
             file_content = deidentification_pathology_id(file_content, fname)
             file_content = deidentification_patient_name(file_content, fname)
             file_content = deidentification_referring_physician(file_content, fname)
@@ -961,19 +1079,11 @@ if __name__ == "__main__":
             file_content = deidentification_age(file_content, fname)
             file_content = deidentification_ward_room(file_content, fname)
             file_content = deidentification_out_inpatient(file_content, fname)
-            file_content = deidentification_result_date(file_content, fname)
             file_content = deidentification_phone_number(file_content, fname)
             file_content = deidentification_gross_id(file_content, fname)
             file_content = deidentification_result_inputter(file_content, fname)
             file_content = deidentification_pathologists(file_content, fname)
 
-            # # patient_id 가명화 → printer_id 비식별화 → pathology_id 익명화 → PGM_ID 익명화 → print_id 정책 적용 → patient_name 익명화 순서로 적용
-            # file_content = pseudonymize_patient_id(file_content, fname)
-            # file_content = anonymize_pathology_id(file_content, fname)
-            # file_content = anonymize_pgm_id(file_content, fname)
-            # file_content = pseudonymize_print_id(file_content, fname)
-            # file_content = anonymize_patient_name(file_content, fname)
-            # output_dir에 pseudonymized_파일이름으로 저장
             output_fname = f"pseudonymized_{fname}"
             output_path = os.path.join(output_dir, output_fname)
             with open(output_path, "w", encoding=enc if enc else "utf-8") as out_f:

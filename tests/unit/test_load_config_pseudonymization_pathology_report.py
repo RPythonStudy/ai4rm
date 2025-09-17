@@ -7,7 +7,7 @@
 import os
 import pytest
 import yaml
-from pseudonymizer.pseudonymizer_pathology_report import load_config_pseudonymization_pathology_report
+from deidentifier.pseudonymizer_pathology_report import load_config_pseudonymization_pathology_report
 
 
 def test_load_config_success(tmp_path):

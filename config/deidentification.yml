@@ -5,6 +5,10 @@
 pathology_report:
   input_dir: data/raw/pathology_report
   output_dir: data/pseudonymized/pathology_report
+  patient_id_column_name: patient_id
+  result_date_column_name: result_date
+  pathology_id_column_name: pathology_id
+  pathology_report_column_name: pathology_report
 
   printer_id:
     pattern_description: "출력자ID:숫자4~8자리"
@@ -54,7 +58,8 @@ pathology_report:
     pattern_description: "등록번호: 숫자8개"
     regular_expression: '등록번호\s*:\s*(?P<pid>[0-9]{8})'
     deidentification_policy: pseudonymization # pseudonymization/anonymization/no_apply
-    anonymization_value: "OOOOOOOO"
+    pseudonymization_policy: format_preserve_encryption
+    anonymization_policy: serial_number
 
   referring_department:
     pattern_description: "의 뢰 과: 한글문자열"
@@ -91,7 +96,7 @@ pathology_report:
     pattern_description: "결 과 일: yyyy-mm-dd"
     regular_expression: '결 과 일\s*:\s*(?P<result_date>\d{4}-\d{2}-\d{2})'
     deidentification_policy: anonymization # pseudonymization/anonymization/no_apply
-    pseudonymization_values: year_to_january_first # month_to_first_day/year_to_january_first
+    pseudonymization_policy: year_to_january_first # month_to_first_day/year_to_january_first
     anonymization_value: "yyyy-mm-dd"
 
   attending_physician:

@@ -13,7 +13,7 @@ import tempfile
 import psutil
 
 import pytest
-from pseudonymizer.pseudonymizer_pathology_report import detect_text_file_encoding
+from deidentifier.pseudonymizer_pathology_report import detect_text_file_encoding
 
 
 @pytest.mark.parametrize("encoding,text,expect_candidates", [
