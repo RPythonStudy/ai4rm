@@ -6,7 +6,7 @@ import yaml
 import os
 import pandas as pd
 from common.logger import log_debug
-from deidentifier.deidentify import *
+from deidentifier.functions import *
 
 # ------------------------
 # YAML 설정 로딩

@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 from src.common.get_cipher import get_cipher
-from deidentifier.deidentify import deidentify_patient_id_value
+from deidentifier.functions import deidentify_patient_id_value
 
 def test_patient_id_pseudonymization_reversible():
     config = {"deidentification_policy": "pseudonymization"}

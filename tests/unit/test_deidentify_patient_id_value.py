@@ -1,5 +1,5 @@
 # test_deidentify_patient_id_value.py
-from deidentifier.deidentify import deidentify_patient_id_value
+from deidentifier.functions import deidentify_patient_id_value
 
 def test_anonymization():
     config = {"deidentification_policy": "anonymization", "anonymization_value": "XXXXXX"}
