@@ -95,7 +95,7 @@ pathology_report:
   result_date:
     pattern_description: "결 과 일: yyyy-mm-dd"
     regular_expression: '결 과 일\s*:\s*(?P<result_date>\d{4}-\d{2}-\d{2})'
-    deidentification_policy: anonymization # pseudonymization/anonymization/no_apply
+    deidentification_policy: pseudonymization # pseudonymization/anonymization/no_apply
     pseudonymization_policy: year_to_january_first # month_to_first_day/year_to_january_first
     anonymization_value: "yyyy-mm-dd"
 
