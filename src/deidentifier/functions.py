@@ -13,15 +13,28 @@ from common.get_cipher import get_cipher
 import pandas as pd
 
 
-def deidentify_patient_id_in_column(df, field: str, config: dict):
-    deidentification_policy = config.get("deidentification_policy", "anonymization")
-    if deidentification_policy == "pseudonymization":
-        cipher = get_cipher()
-        df[field] = df[field].apply(lambda x: cipher.encrypt(str(x)))
-    elif deidentification_policy == "anonymization":
-        df[field] = [str(i+1) for i in range(len(df))]
-    elif deidentification_policy == "no_apply":
-        pass
+def pseudonymize_patient_id(patient_id, cipher):
+    pid_str = str(patient_id).zfill(8)  # 0패딩으로 8자리 맞춤
+    return cipher.encrypt(pid_str)
+
+def deidentify_patient_id_within_text(text, patient_id_regex, patient_id_deidentification_policy, cipher=None):
+    if patient_id_deidentification_policy == "pseudonymization":
+        def repl(match):
+            pid = match.group(0)
+            return pseudonymize_patient_id(pid, cipher)
+    elif patient_id_deidentification_policy == "anonymization":
+        def repl(match):
+            return "OOOOOOOO"  # 익명화 값(필요시 config에서 받아올 수 있음)
+    else:
+        def repl(match):
+            return match.group(0)  # no_apply 등 원본 반환
+    return re.sub(patient_id_regex, repl, str(text))
+
+def deidentify_patient_id_in_column(df, patient_id_column_name, patient_id_deidentification_policy, cipher=None):
+    if patient_id_deidentification_policy == "pseudonymization":
+        df[patient_id_column_name] = df[patient_id_column_name].apply(lambda x: pseudonymize_patient_id(x, cipher) if pd.notnull(x) else x)
+    elif patient_id_deidentification_policy == "anonymization":
+        df[patient_id_column_name] = [str(i+1) for i in range(len(df))]
     return df
 
 
@@ -274,7 +287,10 @@ def deidentify_report_text(text, config):
 
     return text
 
-def pseudonymize_date_value(date_str, deidentification_policy, pseudonymization_policy, anonymization_value):
+
+
+
+def deidentify_date_value(date_str, deidentification_policy, pseudonymization_policy, anonymization_value):
     if deidentification_policy == "pseudonymization":
         if pseudonymization_policy == "month_to_first_day":
             parts = date_str.split("-")
@@ -289,14 +305,14 @@ def pseudonymize_date_value(date_str, deidentification_policy, pseudonymization_
     else:
         return date_str
     
-def pseudonymize_date_in_text(text, regex, deidentification_policy, pseudonymization_policy, anonymization_value, group_name=None):
+def deidentify_date_within_text(text, regex, deidentification_policy, pseudonymization_policy, anonymization_value, group_name=None):
     def repl(match):
         date_str = match.group(group_name) if group_name else match.group(1)
-        new_date = pseudonymize_date_value(date_str, deidentification_policy, pseudonymization_policy, anonymization_value)
+        new_date = deidentify_date_value(date_str, deidentification_policy, pseudonymization_policy, anonymization_value)
         return match.group(0).replace(date_str, new_date)
     return re.sub(regex, repl, text)
 
-def pseudonymize_date_in_column(df, field, policy, pseudonymization_policy, anonymization_value):
-    df[field] = df[field].apply(lambda x: pseudonymize_date_value(str(x), policy, pseudonymization_policy, anonymization_value) if pd.notnull(x) else x)
+def deidentify_date_in_column(df, field, policy, pseudonymization_policy, anonymization_value):
+    df[field] = df[field].apply(lambda x: deidentify_date_value(str(x), policy, pseudonymization_policy, anonymization_value) if pd.notnull(x) else x)
     return df
 

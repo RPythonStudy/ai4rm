@@ -5,6 +5,7 @@ import yaml
 import os
 import pandas as pd
 from common.logger import log_debug
+from common.get_cipher import get_cipher
 from deidentifier.functions import *
 
 def load_config_deidentification_pathology_report(yml_path="config/deidentification.yml"):
@@ -83,8 +84,9 @@ if __name__ == "__main__":
     referring_physician_anonymization_value = referring_physician_conf.get("anonymization_value", "OOO")
 
     patient_id_conf = config_pathology_report.get("patient_id", {})
-    patient_id_regex = patient_id_conf.get("regular_expression", r'\b\d{8}\b')
-    patient_id_policy = patient_id_conf.get("deidentification_policy", "anonymization")
+    patient_id_regex = patient_id_conf.get("regular_expression", r'등록번호\s*:\s*(?P<pid>[0-9]{8})')
+    patient_id_deidentification_policy = patient_id_conf.get("deidentification_policy", "anonymization")
+    patient_id_pseudonymization_policy = patient_id_conf.get("pseudonymization_policy", "format_preserve_encryption")
     patient_id_anonymization_value = patient_id_conf.get("anonymization_value", "OOOOOOOO")
 
     referring_department_conf = config_pathology_report.get("referring_department", {})
@@ -150,6 +152,8 @@ if __name__ == "__main__":
     excel_files = find_excel_files(input_dir)
     log_debug(f"총 {len(excel_files)}개 엑셀파일 발견")
     dfs = read_excel_files(excel_files)
+
+    cipher = get_cipher()
 
     for fname, df in dfs.items():
         deid_df = deidentify_patient_id_in_column(df, patient_id_column_name, patient_id_regex, patient_id_policy, patient_id_anonymization_value)
