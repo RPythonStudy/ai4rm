@@ -14,27 +14,49 @@ import pandas as pd
 
 
 def pseudonymize_patient_id(patient_id, cipher):
-    pid_str = str(patient_id).zfill(8)  # 0패딩으로 8자리 맞춤
-    return cipher.encrypt(pid_str)
+    patient_id_zfilled = str(patient_id).zfill(8)
+    pseudonymized_patient_id = cipher.encrypt(patient_id_zfilled)
+    return pseudonymized_patient_id
 
-def deidentify_patient_id_within_text(text, patient_id_regex, patient_id_deidentification_policy, cipher=None):
-    if patient_id_deidentification_policy == "pseudonymization":
-        def repl(match):
-            pid = match.group(0)
-            return pseudonymize_patient_id(pid, cipher)
-    elif patient_id_deidentification_policy == "anonymization":
-        def repl(match):
-            return "OOOOOOOO"  # 익명화 값(필요시 config에서 받아올 수 있음)
+def serialize_patient_id(df, column_name):
+    df[column_name] = [str(i+1).zfill(8) for i in range(len(df))]
+    return df
+
+def deidentify_patient_id_in_column(df, column_name, deidentification_policy, cipher=None):
+    if deidentification_policy == "pseudonymization":
+        df[column_name] = df[column_name].apply(lambda x: pseudonymize_patient_id(x, cipher) if pd.notnull(x) else x)
+    elif deidentification_policy == "anonymization":
+        df = serialize_patient_id(df, column_name)
     else:
-        def repl(match):
-            return match.group(0)  # no_apply 등 원본 반환
-    return re.sub(patient_id_regex, repl, str(text))
+        pass
+    return df
 
-def deidentify_patient_id_in_column(df, patient_id_column_name, patient_id_deidentification_policy, cipher=None):
-    if patient_id_deidentification_policy == "pseudonymization":
-        df[patient_id_column_name] = df[patient_id_column_name].apply(lambda x: pseudonymize_patient_id(x, cipher) if pd.notnull(x) else x)
-    elif patient_id_deidentification_policy == "anonymization":
-        df[patient_id_column_name] = [str(i+1) for i in range(len(df))]
+def pseudonymize_patient_id_within_text(text, regex, cipher=None):
+    patient_ids = re.findall(regex, text)
+    for patient_id in patient_ids:
+        try:
+            pseudonymized_patient_id = pseudonymize_patient_id(patient_id, cipher)
+            text = text.replace(patient_id, pseudonymized_patient_id)
+        except Exception as e:
+            pass
+    return text
+
+def serialize_patient_id_within_text(text, regex, serialized_patient_id, cipher=None):
+    patient_ids = re.findall(regex, text)
+    for patient_id in patient_ids:
+        try:
+            text = text.replace(patient_id, serialized_patient_id)
+        except Exception as e:
+            pass
+    return text
+
+
+def deidentify_patient_id_in_dataframe(df, column_name, regex, deidentification_policy, cipher=None, serialized_column=None):
+    if deidentification_policy == "pseudonymization":
+        df[column_name] = df[column_name].apply(lambda x: pseudonymize_patient_id_within_text(x, regex, cipher) if pd.notnull(x) else x)
+    elif deidentification_policy == "anonymization":
+        df[column_name] = [serialize_patient_id_within_text(text, regex, serialized_pid) if pd.notnull(text) else text
+                           for text, serialized_pid in zip(df[column_name], df[serialized_column])]
     return df
 
 
@@ -74,7 +96,7 @@ def deidentify_pathology_id_in_column(df, field: str, config: dict):
     return df
 
 
-def deidentify_pathology_report_in_column(df, field, config_pathology_report):
+def deidentify_pathology_report_in_column(df, column_name, config_pathology_report, cipher=None):
 
     printer_id_conf = config_pathology_report.get("printer_id", {})
     printer_id_regex = printer_id_conf.get("regular_expression", r'출력자ID\s*:\s*(?P<printer_id>[0-9]{4,8})')
@@ -115,8 +137,7 @@ def deidentify_pathology_report_in_column(df, field, config_pathology_report):
 
     patient_id_conf = config_pathology_report.get("patient_id", {})
     patient_id_regex = patient_id_conf.get("regular_expression", r'\b\d{8}\b')
-    patient_id_policy = patient_id_conf.get("deidentification_policy", "anonymization")
-    patient_id_anonymization_value = patient_id_conf.get("anonymization_value", "OOOOOOOO")
+    patient_id_deidentification_policy = patient_id_conf.get("deidentification_policy", "anonymization")
 
     referring_department_conf = config_pathology_report.get("referring_department", {})
     referring_department_regex = referring_department_conf.get("regular_expression", r'의뢰과\s*:\s*(?P<ref_department>[가-힣]+)')
@@ -176,12 +197,20 @@ def deidentify_pathology_report_in_column(df, field, config_pathology_report):
     pathologists_anonymization_value = pathologists_conf.get("anonymization_value", "OOO/OOO")
 
 
-    df[field] = df[field].apply(redact_kirams_line)
-    df[field] = df[field].apply(lambda x: deidentification_printer_id(x, printer_id_regex, printer_id_policy, printer_id_anonymization_value))
-    df[field] = df[field].apply(lambda x: deidentification_pgm_id(x, pgm_id_regex, pgm_id_policy, pgm_id_anonymization_value))
-    df[field] = df[field].apply(lambda x: deidentification_print_date(x, print_date_regex, print_date_policy, print_date_anonymization_value, pseudonymization_policy=print_date_pseudonymization_values))
-
-
+    # df[field] = df[field].apply(redact_kirams_line)
+    # df[field] = df[field].apply(lambda x: deidentification_printer_id(x, printer_id_regex, printer_id_policy, printer_id_anonymization_value))
+    # df[field] = df[field].apply(lambda x: deidentification_pgm_id(x, pgm_id_regex, pgm_id_policy, pgm_id_anonymization_value))
+    # df[field] = df[field].apply(lambda x: deidentification_print_date(x, print_date_regex, print_date_policy, print_date_anonymization_value, pseudonymization_policy=print_date_pseudonymization_values))
+  
+    # 익명화 정책일 때 serialized_column 인자 추가
+    if patient_id_deidentification_policy == "anonymization":
+        patient_id_column_name = config_pathology_report.get("patient_id_column_name", "patient_id")
+        df = deidentify_patient_id_in_dataframe(
+            df, column_name, patient_id_regex, patient_id_deidentification_policy, cipher,
+            serialized_column=patient_id_column_name
+        )
+    else:
+        df = deidentify_patient_id_in_dataframe(df, column_name, patient_id_regex, patient_id_deidentification_policy, cipher)
     return df
 
 # ------------------------

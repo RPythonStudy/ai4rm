@@ -6,7 +6,7 @@ import os
 import pandas as pd
 from common.logger import log_debug
 from common.get_cipher import get_cipher
-from deidentifier.functions import *
+from deidentifier.func import *
 
 def load_config_deidentification_pathology_report(yml_path="config/deidentification.yml"):
     with open(yml_path, encoding="utf-8") as f:
@@ -150,11 +150,13 @@ if __name__ == "__main__":
     if output_dir and not os.path.exists(output_dir):
         os.makedirs(output_dir, exist_ok=True)
     excel_files = find_excel_files(input_dir)
+    log_debug(f"총 {len(excel_files)}개 엑셀파일 발견")
     dfs = read_excel_files(excel_files)
 
     cipher = get_cipher()
 
     for fname, df in dfs.items():
+        log_debug(f"[my]patient_id_deidentification_policy: {patient_id_deidentification_policy}")
         deid_df = deidentify_patient_id_in_column(df, patient_id_column_name, patient_id_deidentification_policy, cipher)
         log_debug(f"[가명화] {fname}: patient_id preview → {deid_df[patient_id_column_name].head().tolist()}")
 
@@ -166,8 +168,6 @@ if __name__ == "__main__":
 
         # deid_df = deidentify_pathology_report_in_column(deid_df, pathology_report_column_name, config_pathology_report, cipher)
         # log_debug(f"[가명화] {fname}: pathology_report preview → {deid_df[pathology_report_column_name].head().tolist()}")
-
-        deid_df = deidentify_patient_id_in_dataframe(df, pathology_report_column_name, patient_id_regex, patient_id_deidentification_policy, cipher, patient_id_column_name)
 
         base_fname = os.path.basename(fname)
         if base_fname.endswith('.xls'):

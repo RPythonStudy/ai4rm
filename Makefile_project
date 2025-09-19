@@ -13,4 +13,4 @@ excel:
 	python src/deidentifier/pseudonymizer_excel.py
 
 patho:
-	python -m src.deidentifier.deidentify_pathology_report
+	python -m src.deidentifier.pathology_report
