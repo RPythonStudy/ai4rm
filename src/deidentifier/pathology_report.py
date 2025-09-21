@@ -11,6 +11,8 @@ from deidentifier.functions import *
 def load_config_deidentification_pathology_report(yml_path="config/deidentification.yml"):
     with open(yml_path, encoding="utf-8") as f:
         yaml_config = yaml.safe_load(f)
+    log_debug(f"[load_config_deidentification_pathology_report] config 로딩 완료: {yml_path}")
+
     return yaml_config.get("pathology_report", {})
 
 
@@ -29,7 +31,7 @@ def read_excel_files(file_list):
         try:
             df = pd.read_excel(f)
             dfs[f] = df
-            log_debug(f"[OK] {f}: shape={df.shape}")
+            log_debug(f"[read_excel_files] excel reading 완료: {f}: shape={df.shape}")
         except Exception as e:
             log_debug(f"[FAIL] {f}: {e}")
     return dfs
@@ -58,19 +60,19 @@ if __name__ == "__main__":
 
     print_date_conf = config_pathology_report.get("print_date", {})
     print_date_regex = print_date_conf.get("regular_expression", r'출력일\s*:\s*(?P<print_date>\d{4}-\d{2}-\d{2})')
-    print_date_policy = print_date_conf.get("deidentification_policy", "pseudonymization")
-    print_date_pseudonymization_values = print_date_conf.get("pseudonymization_values", "year_to_january_first")
+    print_date_deidentification_policy = print_date_conf.get("deidentification_policy", "pseudonymization")
+    print_date_pseudonymization_policy = print_date_conf.get("pseudonymization_policy", "year_to_january_first")
     print_date_anonymization_value = print_date_conf.get("anonymization_value", "yyyy-mm-dd")
 
     pathology_id_conf = config_pathology_report.get("pathology_id", {})
     pathology_id_regex = pathology_id_conf.get("regular_expression", r'병리번호\s*:\s*(?P<pathology_id>[A-Za-z0-9]{3,4}-[0-9]{4,5})')
-    pathology_id_policy = pathology_id_conf.get("deidentification_policy", "pseudonymization")
+    pathology_id_deidentification_policy = pathology_id_conf.get("deidentification_policy", "pseudonymization")
     pathology_id_anonymization_value = pathology_id_conf.get("anonymization_value", "OOO-OOOOO")
 
     receipt_date_conf = config_pathology_report.get("receipt_date", {})
     receipt_date_regex = receipt_date_conf.get("regular_expression", r'접 수 일\s*:\s*(?P<receipt_date>\d{4}-\d{2}-\d{2})')
-    receipt_date_policy = receipt_date_conf.get("deidentification_policy", "pseudonymization")
-    receipt_date_pseudonymization_values = receipt_date_conf.get("pseudonymization_values", "year_to_january_first")
+    receipt_date_deidentification_policy = receipt_date_conf.get("deidentification_policy", "pseudonymization")
+    receipt_date_pseudonymization_policy = receipt_date_conf.get("pseudonymization_policy", "year_to_january_first")
     receipt_date_anonymization_value = receipt_date_conf.get("anonymization_value", "yyyy-mm-dd")
 
     patient_name_conf = config_pathology_report.get("patient_name", {})
@@ -117,7 +119,7 @@ if __name__ == "__main__":
 
     result_date_conf = config_pathology_report.get("result_date", {})
     result_date_regex = result_date_conf.get("regular_expression", r'결 과 일\s*:\s*(?P<result_date>\d{4}-\d{2}-\d{2})')
-    result_date_policy = result_date_conf.get("deidentification_policy", "anonymization")
+    result_date_deidentification_policy = result_date_conf.get("deidentification_policy", "anonymization")
     result_date_pseudonymization_policy = result_date_conf.get("pseudonymization_policy", "year_to_january_first")
     result_date_anonymization_value = result_date_conf.get("anonymization_value", "yyyy-mm-dd")
 
@@ -128,22 +130,22 @@ if __name__ == "__main__":
     
     phone_number_conf = config_pathology_report.get("phone_number", {})
     phone_number_regex = phone_number_conf.get("regular_expression", r'검사실\s*:\s*(?P<phone_number>[0-9]{3}-[0-9]{4})')
-    phone_number_policy = phone_number_conf.get("deidentification_policy", "anonymization")
+    phone_number_deidentification_policy = phone_number_conf.get("deidentification_policy", "anonymization")
     phone_number_anonymization_value = phone_number_conf.get("anonymization_value", "OOO-OOOO") 
     
     gross_id_conf = config_pathology_report.get("gross_id", {})
     gross_id_regex = gross_id_conf.get("regular_expression", r'(?P<gross_id>[A-Za-z0-9]{4}-[0-9]{4})\s*육안사진촬영')
-    gross_id_policy = gross_id_conf.get("deidentification_policy", "pseudonymization")
+    gross_id_deidentification_policy = gross_id_conf.get("deidentification_policy", "pseudonymization")
     gross_id_anonymization_value = gross_id_conf.get("anonymization_value", "OOOO-OOOO")
     
     result_inputter_conf = config_pathology_report.get("result_inputter", {})
     result_inputter_regex = result_inputter_conf.get("regular_expression", r'결과 입력\s*:\s*(?P<result_inputter>[가-힣]+)')
-    result_inputter_policy = result_inputter_conf.get("deidentification_policy", "anonymization")
+    result_inputter_deidentification_policy = result_inputter_conf.get("deidentification_policy", "anonymization")
     result_inputter_anonymization_value = result_inputter_conf.get("anonymization_value", "OOO")
     
     pathologists_conf = config_pathology_report.get("pathologists", {})
     pathologists_regex = pathologists_conf.get("regular_expression", r'병리전문의\s*:\s*(?P<pathologists>[가-힣\s*/\s*가-힣]+)$')
-    pathologists_policy = pathologists_conf.get("deidentification_policy", "anonymization")
+    pathologists_deidentification_policy = pathologists_conf.get("deidentification_policy", "anonymization")
     pathologists_anonymization_value = pathologists_conf.get("anonymization_value", "OOO/OOO")
 
 
@@ -153,22 +155,21 @@ if __name__ == "__main__":
     dfs = read_excel_files(excel_files)
 
     cipher = get_cipher()
+    cipher_digit = get_cipher(alphabet_type="digit")  # 숫자 전용 alphabet
 
     for fname, df in dfs.items():
-        deid_df = deidentify_patient_id_in_column(df, patient_id_column_name, patient_id_deidentification_policy, cipher)
-        log_debug(f"[가명화] {fname}: patient_id preview → {deid_df[patient_id_column_name].head().tolist()}")
+        deid_df = deidentify_id_in_column(df, patient_id_column_name, patient_id_deidentification_policy, cipher_digit)
+        log_debug(f"[deidentify_id_in_column]: patient_id 가명화 결과 → {deid_df[patient_id_column_name].tolist()}")
+    
+        deid_df = deidentify_date_in_column(deid_df, result_date_column_name, result_date_deidentification_policy, result_date_pseudonymization_policy)
+        log_debug(f"[deidentify_date_in_column]: result_date 가명화 결과 → {deid_df[result_date_column_name].tolist()}")
 
-        # deid_df = deidentify_result_date_in_column(deid_df, result_date_column_name, result_date_regex, result_date_policy, result_date_anonymization_value)
-        # log_debug(f"[가명화] {fname}: result_date preview → {deid_df[result_date_column_name].head().tolist()}")
+        deid_df = deidentify_id_in_column(deid_df, pathology_id_column_name, pathology_id_deidentification_policy, cipher)
+        log_debug(f"[deidentify_id_in_column]: pathology_id 가명화 결과 → {deid_df[pathology_id_column_name].tolist()}")
 
-        # deid_df = deidentify_pathology_id_in_column(deid_df, pathology_id_column_name, pathology_id_regex, pathology_id_policy, pathology_id_anonymization_value)
-        # log_debug(f"[가명화] {fname}: pathology_id preview → {deid_df[pathology_id_column_name].head().tolist()}")
-
-        # deid_df = deidentify_pathology_report_in_column(deid_df, pathology_report_column_name, config_pathology_report, cipher)
-        # log_debug(f"[가명화] {fname}: pathology_report preview → {deid_df[pathology_report_column_name].head().tolist()}")
-
-        deid_df = deidentify_patient_id_in_dataframe(df, pathology_report_column_name, patient_id_regex, patient_id_deidentification_policy, cipher, patient_id_column_name)
-
+        deid_df = deidentify_pathology_report_in_column(deid_df, config_pathology_report, cipher, cipher_digit)
+            
+        
         base_fname = os.path.basename(fname)
         if base_fname.endswith('.xls'):
             base_fname = base_fname[:-4] + '.xlsx'
