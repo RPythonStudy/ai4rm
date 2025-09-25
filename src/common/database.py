@@ -1,6 +1,13 @@
-# src/common/database.py
-# last updated: 2025-090-01
-# 스크립트 이름에 대해서는 변경 고려 중
+"""
+파일명: src/common/database.py
+목적: 데이터베이스 연결 및 쿼리 실행 담당
+기능: 
+- PostgreSQL 데이터베이스에 연결
+- SQL 쿼리 실행 및 결과 반환
+- 에러 발생 시 로깅
+변경이력:
+  - 2025-09-01: 최초 생성 (BenKorea)
+"""
 
 import psycopg2
 import os

@@ -1,8 +1,12 @@
-# scripts/setup/setup_env.py
-# .env.example을 복사하여 .env 생성 후, 프로젝트 폴더명과 경로 자동 치환
-# _environment 파일까지 생성
-# last modified: 2025-09-07
-# 경로의 \ -> \\ 치환 추가
+"""
+파일명: scripts/setup/setup_env.py
+목적: .env 및 _environment 생성 스크립트
+설명: .env 파일 생성 및 _environment 복사
+변경이력:
+  - 2025-09-24: 모듈 메타데이터 추가 (BenKorea)
+  - 2025-09-07: 경로의 \ -> \\ 치환 추가 (BenKorea)
+"""
+
 
 import shutil
 import re
@@ -10,7 +14,7 @@ from pathlib import Path
 import platform
 
 os_name = platform.system()
-print(f"운영체제: {os_name}")
+print(f"[setup_env] 운영체제: {os_name}")
 
 ROOT = Path.cwd()
 CUR_DIR_NAME = ROOT.name
@@ -19,7 +23,7 @@ dst = ROOT / '.env'
 env_file = ROOT / '_environment'
 
 if not src.is_file():
-    print(f"[ERROR] .env.example 파일이 없습니다. 경로: {src}")
+    print(f"[setup_env] .env.example 파일이 없습니다. 경로: {src}")
     exit(1)
 
 shutil.copyfile(src, dst)
@@ -41,16 +45,10 @@ else:
 content = re.sub(r'^LOG_PATH=.*', f'LOG_PATH={log_path.replace("\\", r"\\\\")}', content, flags=re.MULTILINE)
 
 dst.write_text(content, encoding='utf-8')
-print("[INFO] .env 파일이 생성되고, 경로 및 프로젝트명이 현재 폴더명으로 자동 치환되었습니다.")
-
-try:
-    shutil.copyfile(dst, src)
-    print("[INFO] .env.example 파일이 .env로부터 복사 생성되었습니다.")
-except Exception as e:
-    print(f"[ERROR] .env.example 복사 실패: {e}")
+print("[setup_env] .env 파일이 생성되고, 경로 및 프로젝트명이 현재 폴더명으로 자동 치환되었습니다.")
 
 try:
     shutil.copyfile(dst, env_file)
-    print("[INFO] _environment 파일이 .env로부터 복사 생성되었습니다.")
+    print("[setup_env] _environment 파일이 .env로부터 복사 생성되었습니다.")
 except Exception as e:
-    print(f"[ERROR] _environment 복사 실패: {e}")
+    print(f"[setup_env] _environment 복사 실패: {e}")

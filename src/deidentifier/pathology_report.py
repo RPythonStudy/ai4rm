@@ -67,6 +67,7 @@ if __name__ == "__main__":
     pathology_id_conf = config_pathology_report.get("pathology_id", {})
     pathology_id_regex = pathology_id_conf.get("regular_expression", r'병리번호\s*:\s*(?P<pathology_id>[A-Za-z0-9]{3,4}-[0-9]{4,5})')
     pathology_id_deidentification_policy = pathology_id_conf.get("deidentification_policy", "pseudonymization")
+    pathology_id_anonymization_policy = pathology_id_conf.get("anonymization_policy", "serial_number")
     pathology_id_anonymization_value = pathology_id_conf.get("anonymization_value", "OOO-OOOOO")
 
     receipt_date_conf = config_pathology_report.get("receipt_date", {})
@@ -89,6 +90,7 @@ if __name__ == "__main__":
     patient_id_regex = patient_id_conf.get("regular_expression", r'등록번호\s*:\s*(?P<pid>[0-9]{8})')
     patient_id_deidentification_policy = patient_id_conf.get("deidentification_policy", "anonymization")
     patient_id_pseudonymization_policy = patient_id_conf.get("pseudonymization_policy", "format_preserve_encryption")
+    patient_id_anonymization_policy = patient_id_conf.get("anonymization_policy", "serial_number")
     patient_id_anonymization_value = patient_id_conf.get("anonymization_value", "OOOOOOOO")
 
     referring_department_conf = config_pathology_report.get("referring_department", {})
@@ -158,16 +160,34 @@ if __name__ == "__main__":
     cipher_digit = get_cipher(alphabet_type="digit")  # 숫자 전용 alphabet
 
     for fname, df in dfs.items():
-        deid_df = deidentify_id_in_column(df, patient_id_column_name, patient_id_deidentification_policy, cipher_digit)
-        log_debug(f"[deidentify_id_in_column]: patient_id 가명화 결과 → {deid_df[patient_id_column_name].tolist()}")
+        deid_df = deidentify_id_in_column(df, 
+                                          patient_id_column_name, 
+                                          patient_id_conf, 
+                                          cipher_digit
+                                          )
+        log_debug(f"[deidentify_id_in_column]: {patient_id_column_name} → {deid_df[patient_id_column_name].tolist()[0]}")
     
-        deid_df = deidentify_date_in_column(deid_df, result_date_column_name, result_date_deidentification_policy, result_date_pseudonymization_policy)
-        log_debug(f"[deidentify_date_in_column]: result_date 가명화 결과 → {deid_df[result_date_column_name].tolist()}")
+        # deid_df = deidentify_date_in_column(deid_df, 
+        #                                     result_date_column_name, 
+        #                                     result_date_deidentification_policy, 
+        #                                     result_date_pseudonymization_policy
+        #                                     )
+        # log_debug(f"[deidentify_id_in_column]: {result_date_column_name} - {result_date_deidentification_policy} → {deid_df[result_date_column_name].tolist()[0]}")
 
-        deid_df = deidentify_id_in_column(deid_df, pathology_id_column_name, pathology_id_deidentification_policy, cipher)
-        log_debug(f"[deidentify_id_in_column]: pathology_id 가명화 결과 → {deid_df[pathology_id_column_name].tolist()}")
+        # deid_df = deidentify_id_in_column(deid_df, 
+        #                                   pathology_id_column_name, 
+        #                                   pathology_id_deidentification_policy, 
+        #                                   pathology_id_anonymization_policy, 
+        #                                   pathology_id_anonymization_value, 
+        #                                   cipher
+        #                                   )
+        # log_debug(f"[deidentify_id_in_column]: {pathology_id_column_name} - {pathology_id_deidentification_policy} → {deid_df[pathology_id_column_name].tolist()[0]}")
 
-        deid_df = deidentify_pathology_report_in_column(deid_df, config_pathology_report, cipher, cipher_digit)
+        deid_df = deidentify_pathology_report_in_column(deid_df, 
+                                                        config_pathology_report, 
+                                                        cipher, 
+                                                        cipher_digit
+                                                        )
             
         
         base_fname = os.path.basename(fname)

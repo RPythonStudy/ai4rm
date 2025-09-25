@@ -1,6 +1,6 @@
 # config/pseudonymization.yml
 # “Python의 r'…' 표기는 쓰지 말고, YAML에서는 작은따옴표로 감싸서 정규식 백슬래시는 그대로 적는다”가 정확한 가이드입니다
-# last-modified: 2025-08-27
+# last-modified: 2025-09-23
 
 pathology_report:
   input_dir: data/raw/pathology_report
@@ -13,122 +13,151 @@ pathology_report:
   printer_id:
     pattern_description: "출력자ID:숫자4~8자리"
     regular_expression: '출력자ID\s*:\s*(?P<printer_id>[0-9]{4,8})'
-    deidentification_policy: pseudonymization # pseudonymization/anonymization/no_apply
-    anonymization_policy: masking # masking
+    deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
+    pseudonymization_policy: fpe  # [fpe|hash]
+    anonymization_policy: masking # [masking]
     anonymization_value: "OOOOOOOO"
 
   PGM_ID:
     pattern_description: "PGM_ID : 영문숫자8자리"
     regular_expression: 'PGM_ID\s*:\s*(?P<pgm_id>[A-Za-z0-9]{8})'
-    deidentification_policy: pseudonymization # pseudonymization/anonymization/no_apply
-    anonymization_policy: masking # masking
+    deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
+    pseudonymization_policy: fpe  # [fpe|hash]
+    anonymization_policy: masking # [masking]
     anonymization_value: "OOOOOOOO"
 
   print_date:
     pattern_description: "출력일 : yyyy-mm-dd"
     regular_expression: '출력일\s*:\s*(?P<print_date>\d{4}-\d{2}-\d{2})'
-    deidentification_policy: pseudonymization # pseudonymization/anonymization/no_apply
-    pseudonymization_policy: year_to_january_first # month_to_first_day/year_to_january_first
+    deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
+    pseudonymization_policy: year_to_january_first # [month_to_first_day|year_to_january_first]
+    anonymization_policy: masking # [masking]
     anonymization_value: "yyyy-mm-dd"
 
   pathology_id:
     pattern_description: "병리번호: 영문숫자3or4개-숫자4or5개 "
     regular_expression: '병리번호\s*:\s*(?P<pathology_id>[A-Za-z0-9]{3,4}-[0-9]{4,5})'
-    deidentification_policy: anonymization # pseudonymization/anonymization/no_apply
-    anonymization_policy: masking # serial_number/masking 
+    deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
+    pseudonymization_policy: fpe  # [fpe|hash]
+    anonymization_policy: masking # [serial_number|masking]
     anonymization_value: "OOO-OOOOO"
 
   receipt_date:
     pattern_description: "접 수 일: yyyy-mm-dd"
     regular_expression: '접 수 일\s*:\s*(?P<receipt_date>\d{4}-\d{2}-\d{2})'
-    deidentification_policy: pseudonymization # pseudonymization/anonymization/no_apply
-    pseudonymization_policy: year_to_january_first # month_to_first_day/year_to_january_first
+    deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
+    pseudonymization_policy: year_to_january_first # [month_to_first_day|year_to_january_first]
+    anonymization_policy: masking # [masking]
     anonymization_value: "yyyy-mm-dd"
 
   patient_name:
     pattern_description: "환 자 명: 한글문자열"
     regular_expression: '환 자 명\s*:\s*(?P<pname>[가-힣]+)'
-    deidentification_policy: anonymization # anonymization/no_apply  
+    deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
+    pseudonymization_policy: fpe  # [fpe|hash]
+    anonymization_policy: masking # [masking]
     anonymization_value: "OOOO"
 
   referring_physician:
     pattern_description: "의뢰의사: 한글문자열"
     regular_expression: '의뢰의사\s*:\s*(?P<ref_physician>[가-힣]+)'
-    deidentification_policy: anonymization # anonymization/no_apply
+    deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
+    pseudonymization_policy: fpe  # [fpe|hash]
+    anonymization_policy: masking # [masking]
     anonymization_value: "OOOO"
 
   patient_id:
     pattern_description: "등록번호: 숫자8개"
     regular_expression: '등록번호\s*:\s*(?P<pid>[0-9]{8})'
-    deidentification_policy: pseudonymization # pseudonymization/anonymization/no_apply
-    pseudonymization_policy: format_preserve_encryption
-    anonymization_policy: serial_number # serial_number
+    deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
+    pseudonymization_policy: fpe  # [fpe|hash]
+    anonymization_policy: serial_number # [serial_number|masking]
+    anonymization_value: "OOOOOOOO"
 
   referring_department:
     pattern_description: "의 뢰 과: 한글문자열"
     regular_expression: '의 뢰 과\s*:\s*(?P<ref_department>[가-힣]+)'
-    deidentification_policy: anonymization # anonymization/no_apply
+    deidentification_policy: anonymization # [anonymization|no_apply]
+    pseudonymization_policy: not_supported  # [not_supported]
+    anonymization_policy: masking # [masking]
     anonymization_value: "OOOOOOOO"
 
   sex:
     pattern_description: "성별/나이: F|M"
     regular_expression: '성별/나이\s*:\s*(?P<sex>[FM])'
-    deidentification_policy: anonymization # anonymization/no_apply
+    deidentification_policy: anonymization # [anonymization|no_apply]
+    pseudonymization_policy: not_supported  # [not_supported]
+    anonymization_policy: masking # [masking]
     anonymization_value: "O"
 
   age:
     pattern_description: "성별/나이: F or M / 숫자3개이하"
     regular_expression: '성별/나이\s*:\s*(?P<sex>[FM])\s*/\s*(?P<age>\d{1,3})'
-    deidentification_policy: pseudonymization # pseudonymization/anonymization/no_apply
+    deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
     pseudonymization_policy: age_to_5year_group # age_to_5year_group/age_to_10year_group
-    anonymization_value: "OOO"  
+    anonymization_policy: masking # [masking]
+    anonymization_value: "OOO"
 
   ward_room:
     pattern_description: "병동/병실: 영문1숫자1 / 숫자2"
     regular_expression: '병동/병실\s*:\s*(?P<ward>[A-Z][0-9]+)\s*/\s*(?P<room>[0-9]{2})'
-    deidentification_policy: anonymization # anonymization/no_apply
-    anonymization_value: "OO / OO"
+    deidentification_policy: anonymization # [anonymization|no_apply]
+    pseudonymization_policy: not_supported  # [not_supported]
+    anonymization_policy: masking # [masking]
+    anonymization_value: "OO/OO"
 
   out_inpatient:
     pattern_description: "외래/입원: (입원|외래)"
     regular_expression: '외래/입원\s*:\s*(?P<oi>입원|외래)'
-    deidentification_policy: anonymization # anonymization/no_apply
+    deidentification_policy: anonymization # [anonymization|no_apply]
+    pseudonymization_policy: not_supported  # [not_supported]
+    anonymization_policy: masking # [masking]
     anonymization_value: "OO"
 
   result_date:
     pattern_description: "결 과 일: yyyy-mm-dd"
     regular_expression: '결 과 일\s*:\s*(?P<result_date>\d{4}-\d{2}-\d{2})'
-    deidentification_policy: pseudonymization # pseudonymization/anonymization/no_apply
-    pseudonymization_policy: year_to_january_first # month_to_first_day/year_to_january_first
+    deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
+    pseudonymization_policy: year_to_january_first # [month_to_first_day|year_to_january_first]
+    anonymization_policy: masking # [masking]
     anonymization_value: "yyyy-mm-dd"
 
   attending_physician:
     pattern_description: "담당의사 : 한글문자열"
     regular_expression: '담당의사\s*:\s*(?P<attending_physician>[가-힣]+)'
-    deidentification_policy: anonymization # anonymization/no_apply
+    deidentification_policy: anonymization # [anonymization|no_apply]
+    pseudonymization_policy: not_supported  # [not_supported]
+    anonymization_policy: masking # [masking]
     anonymization_value: "OOOO"
 
   phone_number:
     pattern_description: "검사실 : ddd-dddd"
     regular_expression: '검사실\s*:\s*(?P<phone_number>[0-9]{3}-[0-9]{4})'
-    deidentification_policy: anonymization # anonymization/no_apply
+    deidentification_policy: anonymization # [anonymization|no_apply]
+    pseudonymization_policy: not_supported  # [not_supported]
+    anonymization_policy: masking # [masking]
     anonymization_value: "OOO-OOOO"    
 
   gross_id:
     pattern_description: "영문숫자4자리-숫자4자리 육안사진촬영 (예: SA16-3492   육안사진촬영)"
     regular_expression: '(?P<gross_id>[A-Za-z0-9]{4}-[0-9]{4})\s*육안사진촬영'
-    deidentification_policy: pseudonymization # pseudonymization/anonymization/no_apply
-    anonymization_policy: masking # serial_number/masking
+    deidentification_policy: anonymization # [pseudonymization|anonymization|no_apply]
+    pseudonymization_policy: fpe  # [fpe|hash]
+    anonymization_policy: serial_number # [serial_number|masking]
     anonymization_value: "OOOO-OOOO" 
 
   result_inputter:
     pattern_description: "결과 입력 : 한글이름 (예: 결과 입력 : 홍길동 )"
     regular_expression: '결과 입력\s*:\s*(?P<result_inputter>[가-힣]+)'
-    deidentification_policy: anonymization # anonymization/no_apply
-    anonymization_value: "OOO"
+    deidentification_policy: anonymization # [anonymization|no_apply]
+    pseudonymization_policy: not_supported  # [not_supported]
+    anonymization_policy: masking # [masking]
+    anonymization_value: "OOOO"
 
   pathologists:
     pattern_description: "병리전문의 : 한글이름/한글이름(예: 병리전문의 : 홍길동/이순신 )"
     regular_expression: '병리전문의\s*:\s*(?P<pathologists>[가-힣\s*/\s*가-힣]+)$'
-    deidentification_policy: anonymization # anonymization/no_apply
+    deidentification_policy: anonymization # [anonymization|no_apply]
+    pseudonymization_policy: not_supported  # [not_supported]
+    anonymization_policy: masking # [masking]
     anonymization_value: "OOO/OOO"
