@@ -59,13 +59,20 @@ if __name__ == "__main__":
 
     config_pathology_report = load_config_deidentification_pathology_report()
 
-    anonymization_policy = config_pathology_report.get("anonymization_policy", "")
-    input_dir = config_pathology_report.get("input_dir", "")
-    output_dir = config_pathology_report.get("output_dir", "")
-    patient_id_column_name = config_pathology_report.get("patient_id_column_name", "")
-    result_date_column_name = config_pathology_report.get("result_date_column_name", "")
-    pathology_id_column_name = config_pathology_report.get("pathology_id_column_name", "")
-    pathology_report_column_name = config_pathology_report.get("pathology_report_column_name", "")
+    # 경로 설정 추출
+    paths = config_pathology_report.get("paths", {})
+    input_dir = paths.get("input_dir", "")
+    output_dir = paths.get("output_dir", "")
+    
+    # 컬럼 설정 추출
+    report_column_name = config_pathology_report.get("report_column_name", "pathology_report")
+    
+    # 비식별화 대상 키들 추출
+    targets = config_pathology_report.get("targets", {})
+    target_keys = list(targets.keys())
+    
+    log_debug(f"[load_config] input_dir: {input_dir}, output_dir: {output_dir}")
+    log_debug(f"[load_config] report_column: {report_column_name}, targets: {len(target_keys)}개")
 
     cipher = get_cipher()
     cipher_digit = get_cipher(alphabet_type="digit")  # 숫자 전용 alphabet
@@ -73,17 +80,15 @@ if __name__ == "__main__":
     dfs = read_excels(input_dir)
     deid_dfs = {}  # 딕셔너리 미리 선언
     for fname, df in dfs.items():
-        deid_df = deidentify_id_in_column(df, 
-                                          patient_id_column_name, 
-                                          config_pathology_report.get("patient_id", {}), 
-                                          cipher_digit
-                                          )
-
-        # deid_df = deidentify_pathology_report_in_column(deid_df, 
-        #                                                 config_pathology_report, 
-        #                                                 cipher, 
-        #                                                 cipher_digit
-        #                                                 )
+        # 병리보고서 비식별화 함수 호출: 데이터프레임과 전체 config를 전달
+        # 함수 내부에서 targets 키들을 순회하며 각 정책에 따라 처리
+        # YAML 설정만으로 모든 비식별화 대상을 자동 처리
+        deid_df = deidentify_pathology_report_in_column(
+            df,
+            config_pathology_report,
+            cipher,
+            cipher_digit
+        )
         deid_dfs[fname] = deid_df  # 결과를 딕셔너리에 저장
 
     save_deidentified_excels(output_dir, deid_dfs)

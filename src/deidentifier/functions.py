@@ -87,10 +87,12 @@ def deidentify_id_in_dataframe(df, column_name, config, cipher=None, source_colu
         df[column_name] = df[column_name].apply(lambda x: pseudonymize_id_within_text(x, regex, cipher) if pd.notnull(x) else x)
         log_debug(f"[deidentify_id_in_dataframe]: '{source_column}' with policy '{deidentification_policy}'.")
     elif deidentification_policy == "anonymization":
+        anonymization_policy = config.get("anonymization_policy")
+        anonymization_value = config.get("anonymization_value")
         if anonymization_policy == "serial_number":
             df = serialize_id(df, column_name)
         elif anonymization_policy == "masking":
-            df[column_name] = [replace_within_text(x, regex, y) if pd.notnull(x) else x for x, y in zip(df[column_name], df[source_column])]
+            df[column_name] = [replace_within_text(x, regex, anonymization_value) if pd.notnull(x) else x for x, y in zip(df[column_name], df[source_column])]
     else:
         pass
     
@@ -132,6 +134,11 @@ def pseudonymize_date_within_text(text, regex, pseudonymization_policy):
 
 def deidentify_date_in_dataframe(df, column_name, config, cipher=None, source_column=None):
     regex = config.get("regular_expression")
+    deidentification_policy = config.get("deidentification_policy")
+    pseudonymization_policy = config.get("pseudonymization_policy")
+    anonymization_policy = config.get("anonymization_policy")
+    anonymization_value = config.get("anonymization_value")
+    
     if source_column is not None:
         df[column_name] = df[column_name].combine_first(df[source_column])
     if deidentification_policy == "pseudonymization":
@@ -139,9 +146,9 @@ def deidentify_date_in_dataframe(df, column_name, config, cipher=None, source_co
         log_debug(f"[deidentify_date_in_dataframe]: '{source_column}' with policy '{pseudonymization_policy}'.")
 
     elif deidentification_policy == "anonymization":
-        df[column_name] = [replace_within_text(text, regex, serialized_id) if pd.notnull(text) else text
+        df[column_name] = [replace_within_text(text, regex, anonymization_value) if pd.notnull(text) else text
                            for text, serialized_id in zip(df[column_name], df[source_column])]
-        log_debug(f"[deidentify_date_in_dataframe]: '{source_column}' with policy '{pseudonymization_policy}'.")
+        log_debug(f"[deidentify_date_in_dataframe]: '{source_column}' with policy '{anonymization_policy}'.")
     return df
 
 #########################################
@@ -159,41 +166,97 @@ def redact_kirams_line(content: str):
 # pathology_report 래핑함수
 ##############################
 def deidentify_pathology_report_in_column(df, config_pathology_report, cipher, cipher_digit):
-    patient_id_column_name = config_pathology_report.get("patient_id_column_name", {})
-    pathology_id_column_name = config_pathology_report.get("pathology_id_column_name", {})
-    result_date_column_name = config_pathology_report.get("result_date_column_name", "result_date")
-    pathology_report_column_name = config_pathology_report.get("pathology_report_column_name", "pathology_report")
+    # 현재 YAML 구조에 맞게 컬럼명 추출
+    report_column_name = config_pathology_report.get("report_column_name", "pathology_report")
+    
+    # targets 섹션에서 비식별화 대상들 추출
+    targets = config_pathology_report.get("targets", {})
+    
+    # 데이터프레임 복사
+    deid_df = df.copy()
+    
+    # 각 비식별화 대상에 대해 순회 처리
+    for target_name, target_config in targets.items():
+        deid_df = process_text_pattern_in_column(
+            deid_df, 
+            report_column_name, 
+            target_config, 
+            cipher, 
+            cipher_digit
+        )
+        log_debug(f"[processed_target] {target_name}")
+    
+    return deid_df
 
-    patient_id_conf = config_pathology_report.get("patient_id", {})
-    patient_id_regex = patient_id_conf.get("regular_expression", r'\b\d{8}\b')
-    patient_id_deidentification_policy = patient_id_conf.get("deidentification_policy", "anonymization")
-    patient_id_anonymization_policy = patient_id_conf.get("anonymization_policy", "masking")
-    patient_id_anonymization_value = patient_id_conf.get("anonymization_value", "OOOO")
 
-    pathology_id_conf = config_pathology_report.get("pathology_id", {})
-    pathology_id_regex = pathology_id_conf.get("regular_expression", r'병리번호\s*:\s*(?P<pathology_id>[A-Za-z0-9]{3,4}-[0-9]{4,5})')
-    pathology_id_deidentification_policy = pathology_id_conf.get("deidentification_policy", "pseudonymization")
-    pathology_id_anonymization_policy = pathology_id_conf.get("anonymization_policy", "masking")
-    pathology_id_anonymization_value = pathology_id_conf.get("anonymization_value", "OOO-OOOOO")
+def process_text_pattern_in_column(df, column_name, pattern_config, cipher, cipher_digit):
+    """
+    텍스트 컬럼에서 특정 패턴을 찾아 비식별화하는 함수
+    """
+    regular_expression = pattern_config.get("regular_expression", "")
+    deidentification_policy = pattern_config.get("deidentification_policy", "")
+    
+    if not regular_expression or deidentification_policy == "no_apply":
+        return df
+    
+    def process_text_cell(text):
+        if pd.isna(text):
+            return text
+        
+        text = str(text)
+        
+        def replace_matched_item(match):
+            """매칭된 개별 아이템을 정책에 따라 처리"""
+            matched_value = match.group(0)
+            
+            if deidentification_policy == "pseudonymization":
+                return pseudonymize_item(matched_value, pattern_config, cipher, cipher_digit)
+            elif deidentification_policy == "anonymization":
+                return anonymize_item(matched_value, pattern_config)
+            else:
+                return matched_value
+        
+        return re.sub(regular_expression, replace_matched_item, text)
+    
+    df[column_name] = df[column_name].apply(process_text_cell)
+    return df
 
-    result_date_conf = config_pathology_report.get("result_date", {})
-    result_date_regex = result_date_conf.get("regular_expression", r'결 과 일\s*:\s*(?P<result_date>\d{4}-\d{2}-\d{2})')
-    result_date_deidentification_policy = result_date_conf.get("deidentification_policy", "pseudonymization")
-    result_date_pseudonymization_policy = result_date_conf.get("pseudonymization_policy", "year_to_january_first")
 
-    printer_id_conf = config_pathology_report.get("printer_id", {})
-    printer_id_regex = printer_id_conf.get("regular_expression", r'출력자ID\s*:\s*(?P<printer_id>[0-9]{4,8})')
-    printer_id_deidentification_policy = printer_id_conf.get("deidentification_policy", "anonymization")
-    printer_id_anonymization_policy = printer_id_conf.get("anonymization_policy", "masking")
-    printer_id_anonymization_value = printer_id_conf.get("anonymization_value", "OOOO")
+def pseudonymize_item(matched_value, pattern_config, cipher, cipher_digit):
+    """개별 아이템 가명화 함수"""
+    policy = pattern_config.get("pseudonymization_policy", "")
+    
+    if policy == "fpe":
+        # 숫자만 있으면 cipher_digit, 그 외는 cipher 사용
+        if re.search(r'\d+', matched_value):
+            return cipher_digit.encrypt(matched_value.zfill(8))[:len(matched_value)]
+        else:
+            return cipher.encrypt(matched_value)
+    elif policy == "year_to_january_first":
+        # 날짜를 1월 1일로 변경
+        return re.sub(r'(\d{4})-\d{2}-\d{2}', r'\1-01-01', matched_value)
+    elif policy == "age_to_5year_group":
+        # 나이를 5세 단위로 그룹화
+        def age_group(match):
+            age = int(match.group(0))
+            return str((age // 5) * 5)
+        return re.sub(r'\d+', age_group, matched_value)
+    
+    return matched_value
 
-    deid_df = deidentify_id_in_dataframe(
-        df=df, 
-        column_name=pathology_report_column_name, 
-        config=patient_id_conf, 
-        cipher=cipher_digit, 
-        source_column=patient_id_column_name
-    )
+
+def anonymize_item(matched_value, pattern_config):
+    """개별 아이템 익명화 함수"""
+    policy = pattern_config.get("anonymization_policy", "")
+    anonymization_value = pattern_config.get("anonymization_value", "")
+    
+    if policy == "masking":
+        return anonymization_value
+    elif policy == "serial_number":
+        # 연번은 컬럼 레벨에서 처리해야 함
+        return matched_value
+    
+    return matched_value
 
 
 #    deid_df = deidentify_date_in_dataframe(df, pathology_report_column_name, result_date_regex, result_date_deidentification_policy, result_date_pseudonymization_policy, result_date_column_name)
