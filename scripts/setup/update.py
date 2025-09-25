@@ -22,7 +22,7 @@ def update_from_template(template_path: Path, target_path: Path, update_list=Non
         log_error(f"[update.py] 타겟 경로가 존재하지 않습니다: {target_path}")
         return
     if update_list is None:
-        update_list = ["src", "config", "scripts", "tests", "Makefile"]
+        update_list = ["src", "config", "scripts", "tests"]
     for item in update_list:
         src_item = template_path / item
         dst_item = target_path / item
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     projects_root = script_path.parent.parent.parent.parent
     template_path = projects_root / 'rpy-quarto-template'
     target_path = Path(project_root)
-    update_list = ["config", "scripts", "src", "tests", "Makefile"]
+    update_list = ["config", "scripts", "src", "tests"]
     log_info(f"[update.py] template_path: {template_path}")
     log_info(f"[update.py] target_path: {target_path}")
     log_info(f"[update.py] update_list: {update_list}")

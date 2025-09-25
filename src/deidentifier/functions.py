@@ -39,14 +39,17 @@ def deidentify_id_in_column(df, column_name, config, cipher=None):
 
     if deidentification_policy == "pseudonymization":
         df[column_name] = df[column_name].apply(lambda x: pseudonymize_id(x, cipher) if pd.notnull(x) else x)
+        log_debug(f"[in_column] '{column_name}' & {deidentification_policy} → 1st result: {df[column_name].iloc[0] if len(df) > 0 else 'N/A'}")
     elif deidentification_policy == "anonymization":
         if anonymization_policy == "serial_number":
             df = serialize_id(df, column_name)
+            log_debug(f"[in_column] '{column_name}' & {anonymization_policy} → 1st result: {df[column_name].iloc[0] if len(df) > 0 else 'N/A'}")
         elif anonymization_policy == "masking":
             df[column_name] = df[column_name].apply(lambda x: anonymization_value if pd.notnull(x) else x)
-            log_debug(f"[deidentify_id_in_column]: '{column_name}' with policy '{anonymization_policy}'.")
+            log_debug(f"[in_column] '{column_name}' & {anonymization_policy} → 1st result: {df[column_name].iloc[0] if len(df) > 0 else 'N/A'}")
     else:
-        pass
+        log_debug(f"[in_column] '{column_name}' & {deidentification_policy} → no change applied.")
+                  
     return df
 
 def pseudonymize_id_within_text(text, regex, cipher=None):

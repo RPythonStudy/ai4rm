@@ -13,7 +13,7 @@ import inspect
 from pathlib import Path
 import pandas as pd
 from typing import Dict
-from common.logger import log_error
+from common.logger import log_error, log_debug
 
 def read_excels(input_dir: str) -> Dict[str, pd.DataFrame]:
   excel_files = Path(input_dir).rglob("*.xls*")
@@ -22,6 +22,7 @@ def read_excels(input_dir: str) -> Dict[str, pd.DataFrame]:
     try:
       df = pd.read_excel(file)
       dfs[file.name] = df
+      log_debug(f"[read_excels] from: {file.name} (shape={df.shape})")
     except Exception as e:
       log_error(f"[{inspect.currentframe().f_code.co_name}] 엑셀 파일 읽기 오류: {file} - {e}")
   return dfs
