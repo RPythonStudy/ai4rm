@@ -74,8 +74,8 @@ if __name__ == "__main__":
     log_debug(f"[load_config] input_dir: {input_dir}, output_dir: {output_dir}")
     log_debug(f"[load_config] report_column: {report_column_name}, targets: {len(target_keys)}개")
 
-    cipher = get_cipher()
-    cipher_digit = get_cipher(alphabet_type="digit")  # 숫자 전용 alphabet
+    cipher_alphanumeric = get_cipher(alphabet_type="alphanumeric")
+    cipher_numeric = get_cipher(alphabet_type="numeric")  # 숫자 전용 alphabet
 
     dfs = read_excels(input_dir)
     deid_dfs = {}  # 딕셔너리 미리 선언
@@ -83,12 +83,23 @@ if __name__ == "__main__":
         # 병리보고서 비식별화 함수 호출: 데이터프레임과 전체 config를 전달
         # 함수 내부에서 targets 키들을 순회하며 각 정책에 따라 처리
         # YAML 설정만으로 모든 비식별화 대상을 자동 처리
-        deid_df = deidentify_pathology_report_in_column(
-            df,
-            config_pathology_report,
-            cipher,
-            cipher_digit
+        deid_df = deidentify_columns(
+            df = df,
+            targets = targets,
+            target_keys = target_keys,
+            cipher_alphanumeric = cipher_alphanumeric,
+            cipher_numeric = cipher_numeric
         )
+
+        deid_df = deidentify_report_column(
+            df = df,
+            report_column_name = report_column_name,
+            targets = targets,
+            target_keys = target_keys,
+            cipher_alphanumeric = cipher_alphanumeric,
+            cipher_numeric = cipher_numeric
+        )
+
         deid_dfs[fname] = deid_df  # 결과를 딕셔너리에 저장
 
     save_deidentified_excels(output_dir, deid_dfs)

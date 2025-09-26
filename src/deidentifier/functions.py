@@ -27,6 +27,16 @@ def pseudonymize_id(id_value, cipher):
     else:
         id_padded = id_str.zfill(8)
         return cipher.encrypt(id_padded)
+    
+def replace_with_pseudonymized_id(text, regex, cipher):
+    matches = re.findall(regex, text)
+    if not matches:
+        return text
+    first_id = matches[0]
+    pseudo_id = pseudonymize_id(first_id, cipher)
+    text = text.replace(first_id, pseudo_id)
+    log_debug(f"[replace_id] with {regex} → {pseudo_id}")
+    return text    
 
 def serialize_id(df, column_name):
     df[column_name] = [str(i+1).zfill(8) for i in range(len(df))]
@@ -101,6 +111,28 @@ def deidentify_id_in_dataframe(df, column_name, config, cipher=None, source_colu
 #############################
 # date 관련 함수들
 #############################
+def pseudonymize_date(date_value, policy):
+    # date_value가 Timestamp일 경우 문자열로 변환
+    date_str = str(date_value)
+    parts = date_str.split("-")
+    if policy == "month_to_first_day" and len(parts) == 3:
+        return f"{parts[0]}-{parts[1]}-01"
+    elif policy == "year_to_january_first" and len(parts) == 3:
+        return f"{parts[0]}-01-01"
+    else:
+        return date_str
+    
+def pseudonymize_age(age_value, policy):
+    # age_value가 Timestamp일 경우 문자열로 변환
+    age_str = str(age_value)
+    if policy == "age_to_5year_group":
+        return f"{age_str[:-1]}0"
+    elif policy == "age_to_10year_group":
+        return f"{age_str[:-2]}00"
+    else:
+        return age_str
+
+
 def pseudonymize_date_by_policy(date_value, policy):
     # date_value가 Timestamp일 경우 문자열로 변환
     date_str = str(date_value)
@@ -265,3 +297,57 @@ def anonymize_item(matched_value, pattern_config):
 #    deid_df = deidentify_id_in_dataframe(df, pathology_report_column_name, printer_id_regex, printer_id_deidentification_policy, printer_id_anonymization_policy, printer_id_anonymization_value, cipher_digit)
 
     return deid_df
+
+def deidentify_columns(df, targets, target_keys, cipher_alphanumeric, cipher_numeric):
+    for key in target_keys:
+        if key not in df.columns:
+            log_debug(f"[deidentify_columns] 컬럼 '{key}'가 DataFrame에 존재하지 않음. 건너뜀.")
+            continue
+        policy = targets[key]["deidentification_policy"]
+        if policy == "pseudonymization":
+            pseudo_policy = targets[key].get("pseudonymization_policy", "")
+            if pseudo_policy == "fpe_numeric":
+                df[key] = df[key].apply(lambda x: pseudonymize_id(x, cipher_numeric))
+                log_debug(f"[deidentify_columns] 컬럼 '{key}''{ pseudo_policy }' → 1st result: {df[key].iloc[0] if len(df) > 0 else 'N/A'}")
+            elif pseudo_policy == "fpe_alphanumeric":
+                df[key] = df[key].apply(lambda x: pseudonymize_id(x, cipher_alphanumeric))
+                log_debug(f"[deidentify_columns] 컬럼 '{key}''{ pseudo_policy }' → 1st result: {df[key].iloc[0] if len(df) > 0 else 'N/A'}")
+            elif pseudo_policy in ("year_to_january_first", "month_to_first_day"):
+                df[key] = df[key].apply(lambda x: pseudonymize_date(x, pseudo_policy))
+                log_debug(f"[deidentify_columns] 컬럼 '{key}''{ pseudo_policy }' → 1st result: {df[key].iloc[0] if len(df) > 0 else 'N/A'}")    
+            elif pseudo_policy in ("age_to_5year_group", "age_to_10year_group"):
+                df[key] = df[key].apply(lambda x: pseudonymize_age_group(x, pseudo_policy))
+                log_debug(f"[deidentify_columns] 컬럼 '{key}''{ pseudo_policy }' → 1st result: {df[key].iloc[0] if len(df) > 0 else 'N/A'}")    
+
+        # elif policy == "anonymization":    
+        # elif policy == "anonymization":
+        #     df[key] = df[key].apply(lambda x: anonymize_item(x, targets[key]))
+        elif policy == "no_apply":
+            pass
+        else:
+            log_debug(f"[deidentify_columns] 지원하지 않는 정책: {policy} (컬럼: {key})")
+    return df
+
+def deidentify_report_column(df, report_column_name, targets, target_keys, cipher_alphanumeric, cipher_numeric):
+    for key in target_keys:
+        policy = targets[key]["deidentification_policy"]
+        if policy == "pseudonymization":
+            pseudo_policy = targets[key].get("pseudonymization_policy", "")
+            if pseudo_policy == "fpe_numeric":
+                df[report_column_name] = df[report_column_name].apply(lambda x: replace_with_pseudonymized_id(x, targets[key]["regular_expression"], cipher_numeric))
+                # log_debug(f"[deidentify_report_column] 컬럼 '{key}''{ pseudo_policy }' → 정규식을 이용한 정책에 따른 치환함수가 들어갑니다.")
+            # elif pseudo_policy == "fpe_alphanumeric":
+            #     log_debug(f"[deidentify_report_column] 컬럼 '{key}''{ pseudo_policy }' → 정규식을 이용한 정책에 따른 치환함수가 들어갑니다.")
+            # elif pseudo_policy in ("year_to_january_first", "month_to_first_day"):
+            #     log_debug(f"[deidentify_report_column] 컬럼 '{key}''{ pseudo_policy }' → 정규식을 이용한 정책에 따른 치환함수가 들어갑니다.")
+            # elif pseudo_policy in ("age_to_5year_group", "age_to_10year_group"):
+            #     log_debug(f"[deidentify_report_column] 컬럼 '{key}''{ pseudo_policy }'")    
+
+        # elif policy == "anonymization":    
+        # elif policy == "anonymization":
+        #     df[key] = df[key].apply(lambda x: anonymize_item(x, targets[key]))
+        elif policy == "no_apply":
+            pass
+
+    return df
+

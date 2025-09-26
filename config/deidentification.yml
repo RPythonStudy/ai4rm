@@ -35,15 +35,15 @@ pathology_report:
       pattern_description: "출력자ID:숫자4~8자리"
       regular_expression: '출력자ID\s*:\s*(?P<printer_id>[0-9]{4,8})'
       deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
-      pseudonymization_policy: fpe  # [fpe|hash]
+      pseudonymization_policy: fpe_numeric [fpe_numeric|hash]
       anonymization_policy: masking # [masking]
       anonymization_value: "OOOOOOOO"
 
-    PGM_ID:
+    pgm_id:
       pattern_description: "PGM_ID : 영문숫자8자리"
       regular_expression: 'PGM_ID\s*:\s*(?P<pgm_id>[A-Za-z0-9]{8})'
       deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
-      pseudonymization_policy: fpe  # [fpe|hash]
+      pseudonymization_policy: fpe_alphanumeric  # [fpe_alphanumeric|hash]
       anonymization_policy: masking # [masking]
       anonymization_value: "OOOOOOOO"
 
@@ -59,7 +59,7 @@ pathology_report:
       pattern_description: "병리번호: 영문숫자3or4개-숫자4or5개 "
       regular_expression: '병리번호\s*:\s*(?P<pathology_id>[A-Za-z0-9]{3,4}-[0-9]{4,5})'
       deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
-      pseudonymization_policy: fpe  # [fpe|hash]
+      pseudonymization_policy: fpe_alphanumeric  # [fpe_alphanumeric|hash]
       anonymization_policy: masking # [serial_number|masking]
       anonymization_value: "OOO-OOOOO"
 
@@ -74,24 +74,24 @@ pathology_report:
     patient_name:
       pattern_description: "환 자 명: 한글문자열"
       regular_expression: '환 자 명\s*:\s*(?P<pname>[가-힣]+)'
-      deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
-      pseudonymization_policy: fpe  # [fpe|hash]
+      deidentification_policy: anonymization # [anonymization|no_apply]
+      pseudonymization_policy: not_supported  # [not_supported]
       anonymization_policy: masking # [masking]
       anonymization_value: "OOOO"
 
     referring_physician:
       pattern_description: "의뢰의사: 한글문자열"
       regular_expression: '의뢰의사\s*:\s*(?P<ref_physician>[가-힣]+)'
-      deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
-      pseudonymization_policy: fpe  # [fpe|hash]
+      deidentification_policy: anonymization # [anonymization|no_apply]
+      pseudonymization_policy: not_supported  # [not_supported]
       anonymization_policy: masking # [masking]
       anonymization_value: "OOOO"
 
     patient_id:
       pattern_description: "등록번호: 숫자8개"
       regular_expression: '등록번호\s*:\s*(?P<pid>[0-9]{8})'
-      deidentification_policy: no_apply # [pseudonymization|anonymization|no_apply]
-      pseudonymization_policy: fpe  # [fpe|hash]
+      deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
+      pseudonymization_policy: fpe_numeric  # [fpe_numeric|hash]
       anonymization_policy: serial_number # [serial_number|masking]
       anonymization_value: "OOOOOOOO"
 
@@ -162,8 +162,8 @@ pathology_report:
     gross_id:
       pattern_description: "영문숫자4자리-숫자4자리 육안사진촬영 (예: SA16-3492   육안사진촬영)"
       regular_expression: '(?P<gross_id>[A-Za-z0-9]{4}-[0-9]{4})\s*육안사진촬영'
-      deidentification_policy: anonymization # [pseudonymization|anonymization|no_apply]
-      pseudonymization_policy: fpe  # [fpe|hash]
+      deidentification_policy: pseudonymization # [pseudonymization|anonymization|no_apply]
+      pseudonymization_policy: fpe_alphanumeric  # [fpe|hash]
       anonymization_policy: serial_number # [serial_number|masking]
       anonymization_value: "OOOO-OOOO" 
 
