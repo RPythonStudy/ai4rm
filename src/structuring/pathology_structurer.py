@@ -1,14 +1,12 @@
 """
-파일명: src/deindentifier/pathology_report.py
-목적: 병리보고서 비식별화
+파일명: src/structuring/pathology_structurer.py
+목적: 병리보고서 구조화
 기능: 
-  - 데이터프레임을 인자로 받아서 컬럼별로 정책에 따라 비식별화
-  - 데이터프레임의 pathology_report 컬럼은 텍스트내부의 개인정보를 비식별화
-  - config/deidentification.yml의 설정에서 검출정규식/비식별화정책/가명화정책/익명화정책을 참조
-  - 비식별화가 완료되면 deid_파일명.xlsx로 저장
+  - 데이터프레임을 인자로 받아서 병리보고서 컬럼을 구조화
+  - config/deidentification.yml의 설정에서 구조화 규칙 참조
+  - 구조화가 완료되면 structured_파일명.xlsx로 저장
 변경이력:
-  - 2025-09-25: 데이터프레임으로 읽어오는 것을 범용함수로 변경 (BenKorea)
-  - 2025-09-18: 최초 생성 (BenKorea)
+  - 2025-09-25: 최초 구현 (BenKorea)
 """
 
 import os
@@ -16,7 +14,7 @@ import os
 import pandas as pd
 import yaml
 
-from common.excel_io import read_excels, save_deidentified_excels, save_structured_excels
+from common.excel_io import read_excels
 from common.get_cipher import get_cipher
 from common.logger import log_debug
 from deidentifier.functions import *
@@ -30,7 +28,6 @@ def load_config_deidentification_pathology_report(yml_path="config/deidentificat
     return yaml_config.get("pathology_report", {})
 
 
-
 if __name__ == "__main__":
 
     config_pathology_report = load_config_deidentification_pathology_report()
@@ -38,8 +35,8 @@ if __name__ == "__main__":
     # 경로 설정 추출
     paths = config_pathology_report.get("paths", {})
     input_dir = paths.get("input_dir", "")
-    output_dir = paths.get("output_dir", "")
-    
+    structured_dir = paths.get("structured_dir", "")
+
     # 컬럼 설정 추출 (계층 구조 변경 반영)
     report_column_config = config_pathology_report.get("report_column", {})
     report_column_name = report_column_config.get("report_column_name", "pathology_report")
@@ -114,7 +111,7 @@ if __name__ == "__main__":
 
     # 구조화 결과 저장 (중간 단계 출력)
     if structured_dfs and structured_output_dir:
-        save_structured_excels(structured_output_dir, structured_dfs)
+        save_deidentified_excels(structured_output_dir, structured_dfs)
         log_debug(f"[구조화 완료] 저장 경로: {structured_output_dir}")
 
     save_deidentified_excels(output_dir, deid_dfs)
