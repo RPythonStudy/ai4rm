@@ -29,7 +29,7 @@ def read_excels(input_dir: str) -> Dict[str, pd.DataFrame]:
   return dfs
 
 
-def save_excel_files(output_dir: str, dataframes_dict: Dict[str, pd.DataFrame], 
+def save_excels(output_dir: str, dataframes_dict: Dict[str, pd.DataFrame], 
                     prefix: Optional[str] = None, suffix: Optional[str] = None) -> None:
     """
     데이터프레임 딕셔너리를 지정된 디렉토리에 엑셀 파일로 저장하는 일반화된 함수.

@@ -14,3 +14,6 @@ excel:
 
 patho:
 	python -m src.deidentifier.pathology_report
+
+struct:
+	python -m src.structuring.pathology_structurer	

@@ -246,6 +246,71 @@ def replace_with_masked_id(text: str, regex: str, anonymization_value: str) -> s
     log_debug(f"[replace_with_masked_id] with {regex} → {anonymization_value}")
     return result
 
+def extract_section_to_column(df: pd.DataFrame, report_column_name: str, section_key: str, regex: str, policy: str) -> pd.DataFrame:
+    """
+    텍스트에서 정규식 패턴을 추출하고 정책에 따라 삭제하거나 새로운 컬럼으로 추가하는 함수
+    
+    매개변수:
+        df: DataFrame
+        report_column_name: 텍스트가 있는 컬럼명
+        section_key: 타겟 키 (컬럼명 생성용)
+        regex: 추출할 정규식 패턴
+        policy: 'remove' 또는 'extraction' (삭제 또는 추출)
+    
+    반환값:
+        새 컬럼이 추가된 DataFrame
+    """
+    if policy == "extraction":
+        df = extract_target_to_column(df, report_column_name, section_key, regex)
+
+
+        log_debug(f"[extract_section_to_column] '{section_key}' 추출 → 컬럼")
+    elif policy == "remove":
+        # 삭제 대상 추출
+        to_remove = df[report_column_name].str.extract(regex, expand=False)
+        # 삭제 로그 남기기
+        log_debug(f"[extract_section_to_column] '{section_key}' 삭제 대상: {to_remove.dropna().tolist()}")
+        # 실제 삭제
+        df[report_column_name] = df[report_column_name].str.replace(regex, "", regex=True)
+        log_debug(f"[extract_section_to_column] '{section_key}' 패턴 삭제")
+    else:
+        log_debug(f"[extract_section_to_column] '{section_key}' 정책 미지원: {policy}")
+
+    return df
+
+def remove_target_from_report(df: pd.DataFrame, report_column_name: str, target_key: str, target_conf: dict) -> pd.DataFrame:
+    """
+    텍스트에서 특정 타겟 키에 해당하는 패턴을 찾아 삭제하는 함수
+    
+    매개변수:
+        df: DataFrame
+        report_column_name: 텍스트가 있는 컬럼명
+        target_key: 타겟 키 (로그용)
+        target_conf: 타겟 설정 딕셔너리 (정규식 포함)
+    
+    반환값:
+        패턴이 삭제된 DataFrame
+    """
+    regex = target_conf.get("regular_expression", "")   
+    if not regex:
+        log_debug(f"[remove_target_from_report] 경고: '{target_key}' 정규식이 설정되지 않음")
+        return df
+
+    working_column_name = f"working_{report_column_name}"
+    df[working_column_name] = df[report_column_name].copy()
+
+    
+    # 삭제 대상 추출
+    to_remove = df[working_column_name].str.extract(regex, expand=False, flags=re.MULTILINE)
+    # 삭제 로그 남기기
+    log_debug(f"[remove_target_from_report] '{target_key}' 삭제 대상: {to_remove.dropna().tolist()}")
+    df[working_column_name] = df[working_column_name].str.replace(regex, "", regex=True, flags=re.MULTILINE)
+    # 삭제 후 재 추출
+    to_remove = df[working_column_name].str.extract(regex, expand=False, flags=re.MULTILINE)
+    log_debug(f"[remove_target_from_report] '{target_key}' 삭제 후 결과: {to_remove.dropna().tolist()}")
+    
+    return df
+
 def extract_target_to_column(df: pd.DataFrame, report_column_name: str, target_key: str, regex: str) -> pd.DataFrame:
     """
     텍스트에서 정규식 패턴을 추출하여 새로운 컬럼으로 추가하는 함수
@@ -255,8 +320,6 @@ def extract_target_to_column(df: pd.DataFrame, report_column_name: str, target_k
         report_column_name: 텍스트가 있는 컬럼명
         target_key: 타겟 키 (컬럼명 생성용)
         regex: 추출할 정규식 패턴
-        new_column_prefix: 새 컬럼명 접두어 정책
-        policy: 비식별화 정책 (컬럼명에 접두어로 사용)
     
     반환값:
         새 컬럼이 추가된 DataFrame
