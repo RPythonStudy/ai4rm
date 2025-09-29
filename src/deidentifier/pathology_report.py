@@ -114,7 +114,7 @@ if __name__ == "__main__":
 
     # 구조화 결과 저장 (중간 단계 출력)
     if structured_dfs and structured_output_dir:
-        save_structured_excels(structured_output_dir, structured_dfs)
+        save_deidentified_excels(structured_output_dir, structured_dfs)
         log_debug(f"[구조화 완료] 저장 경로: {structured_output_dir}")
 
     save_deidentified_excels(output_dir, deid_dfs)

@@ -278,7 +278,7 @@ def extract_section_to_column(df: pd.DataFrame, report_column_name: str, section
 
     return df
 
-def remove_target_from_report(df: pd.DataFrame, report_column_name: str, target_key: str, target_conf: dict) -> pd.DataFrame:
+def remove_target_from_working(df: pd.DataFrame, working_column_name: str, target_key: str, target_conf: dict) -> pd.DataFrame:
     """
     텍스트에서 특정 타겟 키에 해당하는 패턴을 찾아 삭제하는 함수
     
@@ -293,22 +293,19 @@ def remove_target_from_report(df: pd.DataFrame, report_column_name: str, target_
     """
     regex = target_conf.get("regular_expression", "")   
     if not regex:
-        log_debug(f"[remove_target_from_report] 경고: '{target_key}' 정규식이 설정되지 않음")
+        log_debug(f"[remove_from_working] 경고: '{target_key}' 정규식이 설정되지 않음")
         return df
 
-    working_column_name = f"working_{report_column_name}"
-    df[working_column_name] = df[report_column_name].copy()
-
-    
+        
     # 삭제 대상 추출
     to_remove = df[working_column_name].str.extract(regex, expand=False, flags=re.MULTILINE)
     # 삭제 로그 남기기
-    log_debug(f"[remove_target_from_report] '{target_key}' 삭제 대상: {to_remove.dropna().tolist()}")
+    log_debug(f"[remove_from_working] '{target_key}' 삭제 대상: {to_remove.dropna().tolist()}")
     df[working_column_name] = df[working_column_name].str.replace(regex, "", regex=True, flags=re.MULTILINE)
     # 삭제 후 재 추출
     to_remove = df[working_column_name].str.extract(regex, expand=False, flags=re.MULTILINE)
-    log_debug(f"[remove_target_from_report] '{target_key}' 삭제 후 결과: {to_remove.dropna().tolist()}")
-    
+    log_debug(f"[remove_from_working] '{target_key}' 삭제 후 결과: {to_remove.dropna().tolist()}")
+
     return df
 
 def extract_target_to_column(df: pd.DataFrame, report_column_name: str, target_key: str, regex: str) -> pd.DataFrame:

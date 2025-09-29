@@ -46,12 +46,14 @@ if __name__ == "__main__":
     structured_dfs = {}  # 구조화 결과
 
     for fname, df in dfs.items():
+        working_column_name = f"working_{report_column_name}"
+        df[working_column_name] = df[report_column_name].copy()
         for key in targets_keys:
             target_conf = targets.get(key, {})
             structuralization_policy = target_conf.get("structuralization_policy", "extraction")
             if structuralization_policy == "remove":
-                remove_target_from_report(df=df,
-                                          report_column_name=report_column_name,
+                remove_target_from_working(df=df,
+                                          working_column_name=working_column_name,
                                           target_key=key,
                                           target_conf=target_conf
                                           )
