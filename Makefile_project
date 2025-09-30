@@ -13,7 +13,8 @@ excel:
 	python src/deidentifier/pseudonymizer_excel.py
 
 patho:
-	python -m src.deidentifier.pathology_report
+	python -m src.deidentifier.pathology_deidentifier
 
-struct:
-	python -m src.structuring.pathology_structurer	
+meta:
+	python -m src.deidentifier.preliminary_pathology_metafier
+	

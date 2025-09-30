@@ -5,10 +5,6 @@
 #   - "Python의 r'…' 표기는 쓰지 말고, YAML에서는 작은따옴표로 감싸서 정규식 백슬래시는 그대로 적는다"가 정확한 가이드입니다
 #   - 병리보고서(execl format) raw/structured/deidentified data 경로 지정
 #   - excel에서 병리보고서가 포함된 컬럼이름 지정
-#   - 데이터변화이후 각 컬럼의 이름에 접두사 지정
-#   - 병리보고서의 여러 section(섹션)을 검색하여 삭제할지 추출할지 지정  
-#   - section 중에서 gross_findings(육안소견)과 pathologic_diagnosis(병리진단)을 순서를 나중에 배치한 것은 다른 섹션을 삭제하고 남은 것 중에서 추출하는 것이 구현하기 쉽기 때문
-#   - target은 비식별화대상 항목임
 # 변경이력
 #  - 2025-09-28: 비정형보고서를 먼저 정향화(컬럼화)한후 진행하도록 전략을 수정 (BenKorea)
 #  - 2025-09-25: .key 메소드로 비식별화 대상 컬럼명을 리스트로 획득할 수 있도록 수정 (BenKorea)
@@ -21,9 +17,12 @@ pathology_report:
     output_dir: data/deidentified/pathology_report
     structured_dir: data/structured/pathology_report  # 1단계 구조화 결과
 
-  # 리포트 컬럼 매핑 설정
-  column_mapping:
-    report_column_name: pathology_report
+  # 기존 컬럼 매핑 (targets와 같은 설정으로 비식별화가 필요한 컬럼들을 매칭)
+  existing_column_mapping:
+    patient_id: patient_id
+    result_date: result_date
+    pathology_id: pathology_id
+    report_column: pathology_report # 병리보고서가 포함된 컬럼명
 
 
   targets:
@@ -31,39 +30,40 @@ pathology_report:
     # 삭제할 타겟
     title:
       pattern_description: "`조직병리 검사 결과지` 문구"
-      regular_expression: '^(조직병리\s*검사\s*결과지)'
+      regular_expression: '^(?P<title>조직병리\s*검사\s*결과지)'
       structuralization_policy: remove # [remove|extraction]
 
     signature:
       pattern_description: "이 결과지는 전자서명법에 의하여 전자서명된 문서입니다."
-      regular_expression: '(이\s*결과지는\s*전자서명법에\s*의하여\s*전자서명된\s*문서입니다.)'
+      regular_expression: '(?P<signature>이\s*결과지는\s*전자서명법에\s*의하여\s*전자서명된\s*문서입니다.)'
       structuralization_policy: remove # [remove|extraction]
 
     footer:
       pattern_description: "`한국원자력의학원`으로 시작하는 줄과 그 다음 줄"
-      regular_expression: '(?:^|\r?\n)(\s*한국원자력의학원[^\r\n]*\r?\n[^\r\n]*\r?\n)'
+      regular_expression: '(?P<footer>(?:^|\r?\n)\s*한국원자력의학원[^\r\n]*\r?\n[^\r\n]*\r?\n)'
       structuralization_policy: remove # [remove|extraction]
 
-    page:
-      pattern_description: "`줄 전체에 숫자 / 숫자 만 있는 경우"
-      regular_expression: '(\s+\d+\s+/\s+\d+\s+)'
-      structuralization_policy: remove # [remove|extraction]
+    page_number:
+      pattern_description: "줄 전체에 숫자 / 숫자만 있는 경우"
+      regular_expression: '^\s*(?P<page_number>\d+\s*/\s*\d+)\s*$'
+      structuralization_policy: remove
 
     # 추출할 타겟
     icd_code:
       pattern_description: "`상 병 :`로 시작하는 줄에서 나머지"
-      regular_expression: '^.*?(?=\s*검 체)(?P<ICDcode>[\s\S]*?)(?=\n\s*◎ 육 안 소 견)'
+      regular_expression: '^\s*상 병\s*:\s*(?P<ICDcode>.*)$'
       structuralization_policy: extraction # [remove|extraction]
 
     exam:
       pattern_description: "`검 사 :`로 시작하는 줄에서 나머지"
-      regular_expression: '\s*검 체[^\n]*\n(?P<exam>[\s\S]*?)(?=\n\s*◎ 육 안 소 견)'
+      regular_expression: '^\s*검 사\s*:\s*(?P<exam>.*)$'
       structuralization_policy: extraction # [remove|extraction]
 
     specimen:
       pattern_description: "`검 체 :`로 시작하는 줄에서 나머지"
-      regular_expression: '\s*검 체[^\n]*\n(?P<specimen>[\s\S]*?)(?=\n\s*◎ 육 안 소 견)'
+      regular_expression: '^\s*검 체\s*:\s*(?P<specimen>.*[^육])$'
       structuralization_policy: extraction # [remove|extraction]
+
     gross_findings:
       pattern_description: "` ◎ 육 안 소 견`으로 시작하는 줄에서 첫번째 ` ◎ 병 리 진 단`으로 시작되는 줄 이전까지 "
       regular_expression: '\s*◎ 육 안 소 견[^\n]*\n(?P<gross_findings>[\s\S]*?)(?=\n\s*◎ 병 리 진 단)'

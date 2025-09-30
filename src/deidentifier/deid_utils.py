@@ -278,60 +278,51 @@ def extract_section_to_column(df: pd.DataFrame, report_column_name: str, section
 
     return df
 
-def remove_target_from_working(df: pd.DataFrame, working_column_name: str, target_key: str, target_conf: dict) -> pd.DataFrame:
-    """
-    텍스트에서 특정 타겟 키에 해당하는 패턴을 찾아 삭제하는 함수
-    
-    매개변수:
-        df: DataFrame
-        report_column_name: 텍스트가 있는 컬럼명
-        target_key: 타겟 키 (로그용)
-        target_conf: 타겟 설정 딕셔너리 (정규식 포함)
-    
-    반환값:
-        패턴이 삭제된 DataFrame
-    """
-    regex = target_conf.get("regular_expression", "")   
-    if not regex:
-        log_debug(f"[remove_from_working] 경고: '{target_key}' 정규식이 설정되지 않음")
-        return df
 
-        
-    # 삭제 대상 추출
-    to_remove = df[working_column_name].str.extract(regex, expand=False, flags=re.MULTILINE)
-    # 삭제 로그 남기기
-    log_debug(f"[remove_from_working] '{target_key}' 삭제 대상: {to_remove.dropna().tolist()}")
-    df[working_column_name] = df[working_column_name].str.replace(regex, "", regex=True, flags=re.MULTILINE)
-    # 삭제 후 재 추출
-    to_remove = df[working_column_name].str.extract(regex, expand=False, flags=re.MULTILINE)
-    log_debug(f"[remove_from_working] '{target_key}' 삭제 후 결과: {to_remove.dropna().tolist()}")
 
-    return df
+def extract_targets(df, report_column, target_key, target_conf):
+    regex = target_conf.get("regular_expression", "")
+    extracted_all = df[report_column].str.extractall(regex, flags=re.M)
 
-def extract_target_to_column(df: pd.DataFrame, report_column_name: str, target_key: str, regex: str) -> pd.DataFrame:
-    """
-    텍스트에서 정규식 패턴을 추출하여 새로운 컬럼으로 추가하는 함수
-    
-    매개변수:
-        df: DataFrame
-        report_column_name: 텍스트가 있는 컬럼명
-        target_key: 타겟 키 (컬럼명 생성용)
-        regex: 추출할 정규식 패턴
-    
-    반환값:
-        새 컬럼이 추가된 DataFrame
-    """
-    # 정규식으로 값 추출 (named group 사용)
-    # 주의: str.extract()는 첫 번째 매치만 반환! 
-    # 여러 매치가 필요하면 str.extractall() 사용 고려
-    extracted_series = df[report_column_name].str.extract(regex, expand=False)
-    
+    # 캡처 그룹 검증
+    if extracted_all.shape[1] != 1:
+        raise ValueError(
+            f"[extract_targets] '{target_key}' 정규식은 반드시 캡처 그룹 하나만 포함해야 합니다. "
+            f"현재 컬럼 수={extracted_all.shape[1]}, regex={regex}"
+        )
+
+    colname = extracted_all.columns[0]
+
+    # 각 행당 첫 번째 매치만 사용
+    first_matches = (
+        extracted_all.groupby(level=0)[colname]
+        .first()
+        .reindex(df.index)
+    )
+
+    # 새로운 컬럼 추가
     new_column_name = f"extracted_{target_key}"
-    df[new_column_name] = extracted_series
+    df[new_column_name] = first_matches
 
-    log_debug(f"[extract_target_to_column] '{target_key}' 추출 → 컬럼 '{new_column_name}' ")
+    # specimen 전처리: "육" 포함 → NaN 처리
+    if target_key == "specimen":
+        mask = df[new_column_name].str.contains("육", na=False)
+        print("[DEBUG] specimen 필터링:", mask.value_counts().to_dict())
+        print(df.loc[mask, new_column_name])
+        df[new_column_name] = df[new_column_name].mask(mask)
+
+    # 로그 출력 (치환 후 데이터 기준)
+    print("\n")  # 단순 줄바꿈 출력
+    log_debug(
+        f"[extract_targets] {target_key} 추출: "
+        f"{len(df[report_column])}행, {len(extracted_all)}회\n"
+        f"정규식 {regex}\n"
+        f"각보고서 첫번째 추출결과:\n{df[new_column_name].to_string()}"
+    )
 
     return df
+
+
 
 def structure_pathology_reports(df: pd.DataFrame, report_column_name: str, structuring_config: dict) -> pd.DataFrame:
     """
@@ -500,44 +491,13 @@ def remove_page_headers_footers(content: str) -> str:
     result = re.sub(pattern, replace_line, content)
     return result
 
-def rename_deidentified_columns(df: pd.DataFrame, targets: dict, column_name_policy: str) -> pd.DataFrame:
-    """
-    비식별화된 컬럼들의 이름을 정책에 따라 변경하는 함수
-    
-    매개변수:
-        df: 처리할 DataFrame
-        targets: 비식별화 대상 딕셔너리
-        column_name_policy: 컬럼명 변경 정책
-    
-    반환값:
-        컬럼명이 변경된 DataFrame
-    """
-    if column_name_policy == "same_as_before":
-        return df  # 변경 없음
-    elif column_name_policy in ["d_", "deid_", "deidentified_"]:
-        # 접두사 추가 로직
-        prefix = column_name_policy
-        # targets에 있는 컬럼명만 변경
-        target_columns_in_df = [key for key in targets.keys() if key in df.columns]
-        rename_mapping = {col: f"{prefix}{col}" for col in target_columns_in_df}
-        df = df.rename(columns=rename_mapping)
-    elif column_name_policy == "custom":
-        # 사용자 정의 로직
-        pass  # to be implemented
-    else:
-        log_debug(f"[rename_deidentified_columns] 경고: 알 수 없는 column_name_policy '{column_name_policy}'. 컬럼명을 변경하지 않습니다.")
-    
-    log_debug(f"[rename_deidentified_columns] 정책: {column_name_policy}")
-    log_debug(f"[rename_deidentified_columns] 변경 대상 컬럼: {list(rename_mapping.keys()) if 'rename_mapping' in locals() else 'None'}")
-    log_debug(f"[rename_deidentified_columns] 변경 완료: {list(rename_mapping.items()) if 'rename_mapping' in locals() else 'None'}")
-    
-    return df
+
 
 
 ##############################
 # 래핑함수
 ##############################
-def deidentify_columns(df: pd.DataFrame, targets: dict, cipher_alphanumeric: Any, cipher_numeric: Any, column_name_policy: str = "same_as_before") -> pd.DataFrame:
+def deidentify_columns(df: pd.DataFrame, targets: dict, cipher_alphanumeric: Any, cipher_numeric: Any) -> pd.DataFrame:
     """
     데이터프레임의 개별 컬럼들을 비식별화하는 함수
     """
@@ -548,7 +508,7 @@ def deidentify_columns(df: pd.DataFrame, targets: dict, cipher_alphanumeric: Any
         if key not in df.columns:
             log_debug(f"[deidentify_columns] 컬럼 '{key}'가 DataFrame에 존재하지 않음. 건너뜀.")
             continue
-        policy = targets[key]["deidentification_policy"]
+        policy = targets[key].get("deidentification_policy", "no_apply")
         if policy == "pseudonymization":
             pseudo_policy = targets[key].get("pseudonymization_policy", "")
             if pseudo_policy == "fpe_numeric":
@@ -582,12 +542,10 @@ def deidentify_columns(df: pd.DataFrame, targets: dict, cipher_alphanumeric: Any
         else:
             log_debug(f"[deidentify_columns] 지원하지 않는 정책: {policy} (컬럼: {key})")
 
-    # 컬럼명 변경 (마지막에 실행)
-    df = rename_deidentified_columns(df, targets, column_name_policy)
 
     return df
 
-def deidentify_report_column(df: pd.DataFrame, report_column_name: str, targets: dict, cipher_alphanumeric: Any, cipher_numeric: Any, column_name_policy: str = "same_as_before", new_column_prefix: str = "same_as_before") -> pd.DataFrame:
+def deidentify_report_column(df: pd.DataFrame, report_column_name: str, targets: dict, cipher_alphanumeric: Any, cipher_numeric: Any) -> pd.DataFrame:
     """
     리포트 텍스트 컬럼 내부의 개인정보를 비식별화하는 함수
     targets 딕셔너리에서 키들을 자동으로 추출하여 처리
@@ -596,7 +554,7 @@ def deidentify_report_column(df: pd.DataFrame, report_column_name: str, targets:
     log_debug(f"[deidentify_report_column] 처리할 패턴: {len(target_keys)}개 - {target_keys}")
     
     for key in target_keys:
-        policy = targets[key]["deidentification_policy"]
+        policy = targets[key].get("deidentification_policy", "no_apply")
         if policy == "pseudonymization":
             pseudo_policy = targets[key].get("pseudonymization_policy", "")
             if pseudo_policy == "fpe_numeric":
@@ -636,12 +594,18 @@ def deidentify_report_column(df: pd.DataFrame, report_column_name: str, targets:
     df[report_column_name] = df[report_column_name].apply(lambda x: remove_page_headers_footers(x) if pd.notnull(x) else x)
     log_debug(f"[deidentify_report_column] 페이지 머릿글/바닥글 제거 완료")
 
-    # 리포트 컬럼명 변경 (마지막에 실행)
-    original_report_column = report_column_name
-    if column_name_policy != "same_as_before":
-        new_report_column_name = f"{column_name_policy}{report_column_name}"
-        df = df.rename(columns={report_column_name: new_report_column_name})
-        log_debug(f"[deidentify_report_column] 리포트 컬럼명 변경: '{original_report_column}' → '{new_report_column_name}'")
-
     return df
 
+def debug_regex_match(df, report_column, regex, target_key, n=5):
+    """정규식 매칭 결과를 앞 n개 행에 대해 디버깅 출력"""
+    pattern = re.compile(regex, flags=re.M)
+
+    for i, text in enumerate(df[report_column].head(n)):
+        print("=" * 50)
+        print(f"[{target_key}] 행 {i} 원본 텍스트 (repr): {repr(text)}")
+
+        # 줄 단위로 확인
+        lines = text.splitlines()
+        for j, line in enumerate(lines):
+            m = pattern.search(line)
+            print(f"  줄 {j}: {repr(line)} → 매치: {m.groups() if m else None}")
