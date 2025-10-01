@@ -47,6 +47,7 @@ from dotenv import load_dotenv
 from common.get_cipher import get_cipher
 from common.logger import log_debug
 
+
 #############################
 # deidentify 계열 함수들
 #############################
@@ -142,6 +143,7 @@ def serialize_id(id_value: Union[str, int]) -> str:
     # 매번 새로운 일련번호 할당
     _global_serial_counter += 1
     return str(_global_serial_counter).zfill(8)
+
 
 #############################
 # replace 계열 함수들
@@ -246,44 +248,45 @@ def replace_with_masked_id(text: str, regex: str, anonymization_value: str) -> s
     log_debug(f"[replace_with_masked_id] with {regex} → {anonymization_value}")
     return result
 
-def extract_section_to_column(df: pd.DataFrame, report_column_name: str, section_key: str, regex: str, policy: str) -> pd.DataFrame:
-    """
-    텍스트에서 정규식 패턴을 추출하고 정책에 따라 삭제하거나 새로운 컬럼으로 추가하는 함수
+
+#############################
+# extract 계열 함수들
+#############################
+def remove_non_targets(df, report_column, target_key, target_conf):
+    regex = target_conf.get("regular_expression", "")
+    extracted_all = df[report_column].str.extractall(regex, flags=re.M)
+    df[report_column] = df[report_column].str.replace(regex, '', regex=True, flags=re.M)
+
+    # 캡처 그룹 검증
+    if extracted_all.shape[1] != 1:
+        raise ValueError(
+            f"[ remvoe_non] '{target_key}' 정규식은 반드시 캡처 그룹 하나만 포함해야 합니다. "
+            f"현재 컬럼 수={extracted_all.shape[1]}, regex={regex}"
+        )
+
+    colname = extracted_all.columns[0]
+
+    # 각 행당 첫 번째 매치만 사용
+    first_matches = (
+        extracted_all.groupby(level=0)[colname]
+        .first()
+        .reindex(df.index)
+    )
+
+    # 새로운 컬럼 추가
+    new_column_name = f"extracted_{target_key}"
+    df[new_column_name] = first_matches
+
+#    log_debug(f"[extract_targets] '{target_key}' 삭제 후 전문:\n{df[report_column].iloc[1]}")
     
-    매개변수:
-        df: DataFrame
-        report_column_name: 텍스트가 있는 컬럼명
-        section_key: 타겟 키 (컬럼명 생성용)
-        regex: 추출할 정규식 패턴
-        policy: 'remove' 또는 'extraction' (삭제 또는 추출)
-    
-    반환값:
-        새 컬럼이 추가된 DataFrame
-    """
-    if policy == "extraction":
-        df = extract_target_to_column(df, report_column_name, section_key, regex)
-
-
-        log_debug(f"[extract_section_to_column] '{section_key}' 추출 → 컬럼")
-    elif policy == "remove":
-        # 삭제 대상 추출
-        to_remove = df[report_column_name].str.extract(regex, expand=False)
-        # 삭제 로그 남기기
-        log_debug(f"[extract_section_to_column] '{section_key}' 삭제 대상: {to_remove.dropna().tolist()}")
-        # 실제 삭제
-        df[report_column_name] = df[report_column_name].str.replace(regex, "", regex=True)
-        log_debug(f"[extract_section_to_column] '{section_key}' 패턴 삭제")
-    else:
-        log_debug(f"[extract_section_to_column] '{section_key}' 정책 미지원: {policy}")
-
     return df
-
-
 
 def extract_targets(df, report_column, target_key, target_conf):
     regex = target_conf.get("regular_expression", "")
     extracted_all = df[report_column].str.extractall(regex, flags=re.M)
-
+    # log_debug(f"[extract_targets] target: {target_key}' regex: {regex} \n{extracted_all}")
+    # df[report_column] = df[report_column].str.replace(regex, '', regex=True, flags=re.M)
+      
     # 캡처 그룹 검증
     if extracted_all.shape[1] != 1:
         raise ValueError(
@@ -304,194 +307,48 @@ def extract_targets(df, report_column, target_key, target_conf):
     new_column_name = f"extracted_{target_key}"
     df[new_column_name] = first_matches
 
-    # specimen 전처리: "육" 포함 → NaN 처리
     if target_key == "specimen":
+        # "육"이 포함된 경우는 "검 체 :"만 삭제, 아닌 경우는 정규식으로 삭제
         mask = df[new_column_name].str.contains("육", na=False)
-        print("[DEBUG] specimen 필터링:", mask.value_counts().to_dict())
-        print(df.loc[mask, new_column_name])
-        df[new_column_name] = df[new_column_name].mask(mask)
+        # "육"이 포함된 행: "검 체 :"만 삭제
+        df.loc[mask, report_column] = df.loc[mask, report_column].str.replace(r'검\s*체\s*:', '', regex=True)
+        # "육"이 포함되지 않은 행: 정규식으로 삭제
+        df.loc[~mask, report_column] = df.loc[~mask, report_column].str.replace(regex, '', regex=True, flags=re.M)
+        # 디버깅 로그
+        log_debug(f"[extract_targets] specimen '육' 포함 mask: {mask.value_counts().to_dict()}")
+        log_debug(f"[extract_targets] specimen '육' 포함 행:\n{df.loc[mask, new_column_name]}")
 
-    # 로그 출력 (치환 후 데이터 기준)
+    else:
+        df[report_column] = df[report_column].str.replace(regex, '', regex=True, flags=re.M)
+
+    ###로그 출력 (치환 후 데이터 기준)
     print("\n")  # 단순 줄바꿈 출력
     log_debug(
-        f"[extract_targets] {target_key} 추출: "
-        f"{len(df[report_column])}행, {len(extracted_all)}회\n"
-        f"정규식 {regex}\n"
-        f"각보고서 첫번째 추출결과:\n{df[new_column_name].to_string()}"
+       f"[extract_targets] {target_key} 추출: "
+       f"{len(df[report_column])}행, {len(extracted_all)}회\n"
+       f"정규식 {regex}\n"
+       f"각보고서 첫번째 추출결과:{df[new_column_name].to_string()}"
     )
-
+    # with pd.option_context('display.max_colwidth', None):
+    #     log_debug(f"[extract_targets] '{target_key}' 삭제 후 전문:\n{df[report_column].head(2).to_string()}")
+    log_debug(f"[extract_targets] '{target_key}' 삭제 후 전문:\n{df[report_column].iloc[1]}")
     return df
 
-
-
-def structure_pathology_reports(df: pd.DataFrame, report_column_name: str, structuring_config: dict) -> pd.DataFrame:
+def validation_extraction(df, report_column):
     """
-    STAGE 1: 비정형 병리보고서를 정형화된 데이터베이스 구조로 변환
-    
-    매개변수:
-        df: DataFrame
-        report_column_name: 병리보고서 텍스트가 있는 컬럼명
-        structuring_config: 구조화 설정 딕셔너리
-    
-    반환값:
-        구조화된 컬럼들이 추가된 DataFrame
-        
-    기능:
-        1. 원본 텍스트 백업
-        2. 각 구성요소별 순차 파싱
-        3. 파싱된 부분을 임시 복사본에서 제거
-        4. 파싱 완료 검증 (남은 내용 체크)
+    모든 텍스트 추출이 완료된 후, report_column에 줄바꿈(\n, \r, \r\n) 이외의 문자가 남아있는지 검사.
+    남아있으면 경고 메시지, 모두 줄바꿈만 남았으면 성공 메시지 출력.
     """
-    
-    if not structuring_config.get("enabled", False):
-        log_debug("[structure_pathology_reports] 구조화 단계가 비활성화됨")
-        return df
-    
-    # 원본 보관
-    if structuring_config.get("preserve_original", True):
-        df[f"original_{report_column_name}"] = df[report_column_name].copy()
-    
-    # 파싱 대상들 추출 및 정렬
-    parsing_targets = structuring_config.get("parsing_targets", {})
-    sorted_targets = sorted(parsing_targets.items(), 
-                          key=lambda x: x[1].get("extraction_order", 999))
-    
-    extraction_stats = {}
-    
-    for target_name, target_config in sorted_targets:
-        pattern = target_config.get("regular_expression", "")
-        required = target_config.get("required", False)
-        
-        if not pattern:
-            log_debug(f"[structure_pathology_reports] 경고: '{target_name}' 패턴이 비어있음")
-            continue
-            
-        # 패턴 추출
-        extracted_series = df[report_column_name].str.extract(pattern, flags=re.DOTALL, expand=False)
-        
-        # 새 컬럼 생성
-        df[f"structured_{target_name}"] = extracted_series
-        
-        # 추출된 부분을 임시 복사본에서 제거 (단순화된 접근)
-        df[f"temp_{report_column_name}"] = df.get(f"temp_{report_column_name}", df[report_column_name].copy())
-        
-        # 통계 수집
-        extracted_count = extracted_series.notna().sum()
-        extraction_stats[target_name] = {
-            "extracted": extracted_count,
-            "required": required,
-            "total_rows": len(df)
-        }
-        
-        log_debug(f"[structure_pathology_reports] {target_name}: {extracted_count}개 추출")
-    
-    # 파싱 완료 검증
-    if structuring_config.get("validate_complete_parsing", True):
-        validate_parsing_completeness(df, f"temp_{report_column_name}", extraction_stats)
-    
-    return df
-
-def validate_parsing_completeness(df: pd.DataFrame, temp_column: str, stats: dict) -> None:
-    """
-    파싱 완료 여부를 검증하는 함수
-    
-    매개변수:
-        df: DataFrame
-        temp_column: 임시 컬럼명
-        stats: 추출 통계
-    """
-    
-    if temp_column not in df.columns:
-        log_debug("[validate_parsing] 임시 컬럼이 존재하지 않음 - 검증 생략")
-        return
-    
-    # 필수 항목 체크
-    missing_required = []
-    for target_name, stat in stats.items():
-        if stat["required"] and stat["extracted"] < stat["total_rows"]:
-            missing_count = stat["total_rows"] - stat["extracted"]
-            missing_required.append(f"{target_name}({missing_count}개 누락)")
-    
-    if missing_required:
-        log_debug(f"[validate_parsing] 경고: 필수 항목 누락 - {', '.join(missing_required)}")
-    
-    # TODO: 임시 컬럼의 남은 내용 체크 (향후 구현)
-    # remaining_content = df[temp_column].str.strip().str.len().sum()
-    # if remaining_content > 0:
-    #     log_debug(f"[validate_parsing] 경고: 파싱되지 않은 내용이 {remaining_content}자 남아있음")
-
-def extract_pathology_sections(df: pd.DataFrame, report_column_name: str, report_column_config: dict) -> pd.DataFrame:
-    """
-    병리보고서에서 육안소견(gross_findings)과 병리진단(pathologic_diagnosis) 섹션을 추출하여 별도 컬럼으로 분리
-    YAML 설정의 정규식 패턴을 사용합니다.
-    
-    매개변수:
-        df: DataFrame
-        report_column_name: 병리보고서 텍스트가 있는 컬럼명
-        report_column_config: report_column 설정 딕셔너리
-    
-    반환값:
-        gross_findings, pathologic_diagnosis 컬럼이 추가된 DataFrame
-    """
-    
-    # YAML 설정에서 패턴 추출
-    gross_config = report_column_config.get("gross_findings", {})
-    diagnosis_config = report_column_config.get("pathologic_diagnosis", {})
-    
-    # 육안소견 추출
-    gross_pattern = gross_config.get("regular_expression", "")
-    if gross_pattern:
-        df['gross_findings'] = df[report_column_name].str.extract(gross_pattern, flags=re.DOTALL, expand=False)
+    import re
+    # 줄바꿈 문자만 남은 행은 True, 그 외는 False
+    only_newline = df[report_column].fillna("").apply(
+        lambda x: re.sub(r'[\r\n]', '', x).strip() == ""
+    )
+    if only_newline.all():
+        log_debug("[validation_extraction] 모든 리포트 컬럼이 줄바꿈 문자 이외에는 비어 있습니다. (정상)")
     else:
-        log_debug("[extract_pathology_sections] 경고: gross_findings 정규식이 설정되지 않음")
-        df['gross_findings'] = None
-    
-    # 병리진단 추출  
-    diagnosis_pattern = diagnosis_config.get("regular_expression", "")
-    if diagnosis_pattern:
-        df['pathologic_diagnosis'] = df[report_column_name].str.extract(diagnosis_pattern, flags=re.DOTALL, expand=False)
-    else:
-        log_debug("[extract_pathology_sections] 경고: pathologic_diagnosis 정규식이 설정되지 않음")
-        df['pathologic_diagnosis'] = None
-    
-    # 추출 결과 로그
-    gross_count = df['gross_findings'].notna().sum()
-    diagnosis_count = df['pathologic_diagnosis'].notna().sum()
-    
-    log_debug(f"[extract_pathology_sections] 육안소견 추출: {gross_count}개")
-    log_debug(f"[extract_pathology_sections] 병리진단 추출: {diagnosis_count}개")
-    
-    return df
-
-#########################################
-# 리포트 페이지 머릿글/바닥글 제거
-##########################################
-def remove_page_headers_footers(content: str) -> str:
-    """
-    병리보고서에서 페이지 머릿글, 바닥글 및 기관 정보가 포함된 라인을 제거합니다.
-    
-    매개변수:
-        content (str): 처리할 텍스트 내용
-    
-    반환값:
-        str: 페이지 머릿글/바닥글이 제거된 텍스트
-    
-    기능:
-        - 한국원자력의학원과 같은 기관명이 포함된 라인을 대시(-)로 대체
-        - 페이지 번호, 날짜, 기관 로고 등 시스템 생성 콘텐츠 정리
-        - 보고서의 개인정보 보호 및 문서 표준화를 위한 후처리
-    
-    확장 가능:
-        - 향후 다른 기관이나 시스템 메타데이터 패턴도 쉽게 추가 가능
-        - 정규식 패턴을 YAML 설정으로 외부화 가능
-    """
-    pattern = r'.*한국원자력의학원.*'
-    def replace_line(match):
-        return "--------------------------------------------"
-    result = re.sub(pattern, replace_line, content)
-    return result
-
-
+        remain_idx = only_newline[~only_newline].index.tolist()
+        log_debug(f"[validation_extraction][경고] 줄바꿈 이외의 문자가 남아있는 행이 {len(remain_idx)}개 있습니다. index: {remain_idx}")
 
 
 ##############################
@@ -545,7 +402,7 @@ def deidentify_columns(df: pd.DataFrame, targets: dict, cipher_alphanumeric: Any
 
     return df
 
-def deidentify_report_column(df: pd.DataFrame, report_column_name: str, targets: dict, cipher_alphanumeric: Any, cipher_numeric: Any) -> pd.DataFrame:
+def deidentify_report_column(df: pd.DataFrame, report_column: str, targets: dict, cipher_alphanumeric: Any, cipher_numeric: Any) -> pd.DataFrame:
     """
     리포트 텍스트 컬럼 내부의 개인정보를 비식별화하는 함수
     targets 딕셔너리에서 키들을 자동으로 추출하여 처리
@@ -558,11 +415,11 @@ def deidentify_report_column(df: pd.DataFrame, report_column_name: str, targets:
         if policy == "pseudonymization":
             pseudo_policy = targets[key].get("pseudonymization_policy", "")
             if pseudo_policy == "fpe_numeric":
-                df[report_column_name] = df[report_column_name].apply(lambda x: replace_with_pseudonymized_id(x, targets[key]["regular_expression"], cipher_numeric))
-                df = extract_target_to_column(df, report_column_name, key, targets[key]["regular_expression"])
+                df[report_column] = df[report_column].apply(lambda x: replace_with_pseudonymized_id(x, targets[key]["regular_expression"], cipher_numeric))
+                df = extract_target_to_column(df, report_column, key, targets[key]["regular_expression"])
             elif pseudo_policy == "fpe_alphanumeric":
-                df[report_column_name] = df[report_column_name].apply(lambda x: replace_with_pseudonymized_id(x, targets[key]["regular_expression"], cipher_alphanumeric))
-                df = extract_target_to_column(df, report_column_name, key, targets[key]["regular_expression"])
+                df[report_column] = df[report_column].apply(lambda x: replace_with_pseudonymized_id(x, targets[key]["regular_expression"], cipher_alphanumeric))
+                df = extract_target_to_column(df, report_column, key, targets[key]["regular_expression"])
             elif pseudo_policy in ("year_to_january_first", "month_to_first_day"):
                 df[report_column_name] = df[report_column_name].apply(lambda x: replace_with_pseudonymized_date(x, targets[key]["regular_expression"], pseudo_policy))
                 df = extract_target_to_column(df, report_column_name, key, targets[key]["regular_expression"])
@@ -595,17 +452,3 @@ def deidentify_report_column(df: pd.DataFrame, report_column_name: str, targets:
     log_debug(f"[deidentify_report_column] 페이지 머릿글/바닥글 제거 완료")
 
     return df
-
-def debug_regex_match(df, report_column, regex, target_key, n=5):
-    """정규식 매칭 결과를 앞 n개 행에 대해 디버깅 출력"""
-    pattern = re.compile(regex, flags=re.M)
-
-    for i, text in enumerate(df[report_column].head(n)):
-        print("=" * 50)
-        print(f"[{target_key}] 행 {i} 원본 텍스트 (repr): {repr(text)}")
-
-        # 줄 단위로 확인
-        lines = text.splitlines()
-        for j, line in enumerate(lines):
-            m = pattern.search(line)
-            print(f"  줄 {j}: {repr(line)} → 매치: {m.groups() if m else None}")

@@ -33,6 +33,10 @@ if __name__ == "__main__":
     existing_column_mapping = config_pathology_report.get("existing_column_mapping", {})
     report_column = existing_column_mapping.get("report_column", None)
 
+    # non-target 추출
+    non_targets = config_pathology_report.get("non_targets", {})
+    non_targets_keys = list(non_targets.keys())
+
     # 타겟 추출
     targets = config_pathology_report.get("targets", {})
     targets_keys = list(targets.keys())
@@ -40,6 +44,15 @@ if __name__ == "__main__":
 
     dfs = read_excels(input_dir)
     for fname, df in dfs.items():
+        for key in non_targets_keys:
+            non_target_conf = non_targets.get(key, {})
+            remove_non_targets(
+                df=df,
+                report_column=report_column,
+                target_key=key,
+                target_conf=non_target_conf
+            )
+
         for key in targets_keys:
             target_conf = targets.get(key, {})
             extract_targets(
@@ -48,6 +61,9 @@ if __name__ == "__main__":
                 target_key=key,
                 target_conf=target_conf
             )
-            dfs[fname] = df 
+            dfs[fname] = df
 
+        log_debug(f"[main] 삭제 후 전문:\n{df[report_column]}")
+        validation_extraction(df=df, report_column=report_column)
+        
     save_excels(structured_dir, dfs)
