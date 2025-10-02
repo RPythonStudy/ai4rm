@@ -257,28 +257,28 @@ def remove_non_targets(df, report_column, target_key, target_conf):
     extracted_all = df[report_column].str.extractall(regex, flags=re.M)
     df[report_column] = df[report_column].str.replace(regex, '', regex=True, flags=re.M)
 
-    # 캡처 그룹 검증
-    if extracted_all.shape[1] != 1:
-        raise ValueError(
-            f"[ remvoe_non] '{target_key}' 정규식은 반드시 캡처 그룹 하나만 포함해야 합니다. "
-            f"현재 컬럼 수={extracted_all.shape[1]}, regex={regex}"
-        )
+    # # 캡처 그룹 검증
+    # if extracted_all.shape[1] != 1:
+    #     raise ValueError(
+    #         f"[ remvoe_non] '{target_key}' 정규식은 반드시 캡처 그룹 하나만 포함해야 합니다. "
+    #         f"현재 컬럼 수={extracted_all.shape[1]}, regex={regex}"
+    #     )
 
-    colname = extracted_all.columns[0]
+    # colname = extracted_all.columns[0]
 
-    # 각 행당 첫 번째 매치만 사용
-    first_matches = (
-        extracted_all.groupby(level=0)[colname]
-        .first()
-        .reindex(df.index)
-    )
+    # # 각 행당 첫 번째 매치만 사용
+    # first_matches = (
+    #     extracted_all.groupby(level=0)[colname]
+    #     .first()
+    #     .reindex(df.index)
+    # )
 
-    # 새로운 컬럼 추가
-    new_column_name = f"extracted_{target_key}"
-    df[new_column_name] = first_matches
+    # # 새로운 컬럼 추가
+    # new_column_name = f"extracted_{target_key}"
+    # df[new_column_name] = first_matches
+    print("\n****************************************************************************************************************")  # 단순 줄바꿈 출력
+    log_debug(f"[remove_non_targets] '{target_key}' 삭제 후 리포트 전문 1례:\n{df[report_column].iloc[0]}")
 
-#    log_debug(f"[extract_targets] '{target_key}' 삭제 후 전문:\n{df[report_column].iloc[1]}")
-    
     return df
 
 def extract_targets(df, report_column, target_key, target_conf):
@@ -331,24 +331,77 @@ def extract_targets(df, report_column, target_key, target_conf):
     )
     # with pd.option_context('display.max_colwidth', None):
     #     log_debug(f"[extract_targets] '{target_key}' 삭제 후 전문:\n{df[report_column].head(2).to_string()}")
+    print("\n*****************************************************************************************************************")  # 단순 줄바꿈 출력
     log_debug(f"[extract_targets] '{target_key}' 삭제 후 전문:\n{df[report_column].iloc[1]}")
+
     return df
 
-def validation_extraction(df, report_column):
+def validation_extraction(df, report_column, existing_column_mapping):
     """
     모든 텍스트 추출이 완료된 후, report_column에 줄바꿈(\n, \r, \r\n) 이외의 문자가 남아있는지 검사.
-    남아있으면 경고 메시지, 모두 줄바꿈만 남았으면 성공 메시지 출력.
+    남아있으면 경고 메시지, 모두 줄바꿈만 남았으면 성공 메시지 출력 및 컬럼 삭제.
+    추가: existing_column_mapping에 존재하는 컬럼들과 extracted_ 접두사 컬럼의 값을 비교.
+    - patient_id는 8자리 제로패딩 후 비교
+    - 날짜형식 컬럼은 yyyy-mm-dd로 변환 후 비교
+    - 모든 값이 일치하면 extracted_ 컬럼 삭제
+    - report_column은 비교하지 않고, 줄바꿈만 남으면 삭제
     """
-    import re
-    # 줄바꿈 문자만 남은 행은 True, 그 외는 False
+
+    df['extracted_specimen'] = df['extracted_specimen'].replace(to_replace=r'.*육.*', value='', regex=True)
+    print("\n*****************************************************************************************************************")  # 단순 줄바꿈 출력
+    log_debug("[validation_extraction] specimen에 '육'이 포함되어 공백으로 대체합니다. (오류정정)")
+
+    df['extracted_gross_findings'] = df['extracted_gross_findings'].replace(to_replace=r'\[[가-힣]+\]', value='', regex=True)
+    print("\n*****************************************************************************************************************")  # 단순 줄바꿈 출력
+    log_debug("[validation_extraction] gross_findings에 '[병리의사명]' 패턴이 포함되어 공백으로 대체합니다. (오류정정)")
+
+
+    # 1. report_column: 줄바꿈만 남았는지 검사
     only_newline = df[report_column].fillna("").apply(
         lambda x: re.sub(r'[\r\n]', '', x).strip() == ""
     )
     if only_newline.all():
-        log_debug("[validation_extraction] 모든 리포트 컬럼이 줄바꿈 문자 이외에는 비어 있습니다. (정상)")
+        print("\n*****************************************************************************************************************")  # 단순 줄바꿈 출력
+        log_debug("[validation_extraction] 모든 타겟들을 리포트 컬럼에서 삭제 후 줄바꿈만 남았습니다. 리포트 컬럼을 삭제합니다. (정상)")
+        df.drop(columns=[report_column], inplace=True)
     else:
         remain_idx = only_newline[~only_newline].index.tolist()
-        log_debug(f"[validation_extraction][경고] 줄바꿈 이외의 문자가 남아있는 행이 {len(remain_idx)}개 있습니다. index: {remain_idx}")
+        log_debug(f"[validation_extraction][경고] 모든 타겟들을 리포트 컬럼에서 삭제 후 줄바꿈 이외의 문자가 남아있는 행이 {len(remain_idx)}개 있습니다. index: {remain_idx} (비정상)")
+
+    # 2. existing_column_mapping 컬럼과 extracted_ 컬럼 비교 (report_column은 비교하지 않음)
+    for logical_col, physical_col in existing_column_mapping.items():
+        extracted_col = f"extracted_{logical_col}"
+        if extracted_col in df.columns and physical_col in df.columns:
+            # patient_id: 8자리 제로패딩
+            if 'patient_id' in logical_col:
+                left = df[physical_col].fillna("").apply(lambda x: str(x).zfill(8))
+                right = df[extracted_col].fillna("").apply(lambda x: str(x).zfill(8))
+            # 날짜형식: yyyy-mm-dd 변환
+            elif any(key in logical_col for key in ['date', '날짜']):
+                def to_ymd(val):
+                    try:
+                        return pd.to_datetime(val).strftime('%Y-%m-%d')
+                    except Exception:
+                        return str(val)
+                left = df[physical_col].fillna("").apply(to_ymd)
+                right = df[extracted_col].fillna("").apply(to_ymd)
+            else:
+                left = df[physical_col].fillna("").astype(str).str.strip()
+                right = df[extracted_col].fillna("").astype(str).str.strip()
+            # 비교
+            mismatch = ~(left == right)
+            if mismatch.any():
+                mismatch_idx = mismatch[mismatch].index.tolist()
+                log_debug(f"[validation_extraction][불일치] {physical_col} vs {extracted_col} 불일치 행: {mismatch_idx}")
+            else:
+                print("\n*****************************************************************************************************************")  # 단순 줄바꿈 출력
+                log_debug(f"[validation_extraction] {physical_col} vs {extracted_col} 모든 값이 일치합니다. extracted_ 컬럼을 삭제합니다. (정상)")
+                df.drop(columns=[extracted_col], inplace=True)
+        else:
+            print("\n*****************************************************************************************************************")  # 단순 줄바꿈 출력
+            log_debug(f"[validation_extraction][INFO] {physical_col} 또는 {extracted_col} 컬럼이 존재하지 않아 비교를 건너뜁니다.")
+
+    return df
 
 
 ##############################
@@ -362,46 +415,55 @@ def deidentify_columns(df: pd.DataFrame, targets: dict, cipher_alphanumeric: Any
     log_debug(f"[deidentify_columns] 처리할 타겟: {len(target_keys)}개 - {target_keys}")
     
     for key in target_keys:
-        if key not in df.columns:
-            log_debug(f"[deidentify_columns] 컬럼 '{key}'가 DataFrame에 존재하지 않음. 건너뜀.")
+        extracted_key = f"extracted_{key}"
+        if extracted_key in df.columns:
+            col_to_use = extracted_key
+        elif key in df.columns:
+            col_to_use = key
+        else:
+            log_debug(f"[deidentify_columns] 컬럼 '{key}' 또는 '{extracted_key}'가 DataFrame에 존재하지 않음. 건너뜀.")
             continue
         policy = targets[key].get("deidentification_policy", "no_apply")
         if policy == "pseudonymization":
             pseudo_policy = targets[key].get("pseudonymization_policy", "")
             if pseudo_policy == "fpe_numeric":
-                df[key] = df[key].apply(lambda x: pseudonymize_id(x, cipher_numeric))
-                log_debug(f"[deidentify_columns] 컬럼 '{key}''{ pseudo_policy }' → 1st result: {df[key].iloc[0] if len(df) > 0 else 'N/A'}")
+                df[col_to_use] = df[col_to_use].apply(lambda x: pseudonymize_id(x, cipher_numeric))
+                log_debug(f"[deidentify_columns] 컬럼 '{col_to_use}''{ pseudo_policy }' → 1st result: {df[col_to_use].iloc[0] if len(df) > 0 else 'N/A'}")
             elif pseudo_policy == "fpe_alphanumeric":
-                df[key] = df[key].apply(lambda x: pseudonymize_id(x, cipher_alphanumeric))
-                log_debug(f"[deidentify_columns] 컬럼 '{key}''{ pseudo_policy }' → 1st result: {df[key].iloc[0] if len(df) > 0 else 'N/A'}")
+                df[col_to_use] = df[col_to_use].apply(lambda x: pseudonymize_id(x, cipher_alphanumeric))
+                log_debug(f"[deidentify_columns] 컬럼 '{col_to_use}''{ pseudo_policy }' → 1st result: {df[col_to_use].iloc[0] if len(df) > 0 else 'N/A'}")
             elif pseudo_policy in ("year_to_january_first", "month_to_first_day"):
-                df[key] = df[key].apply(lambda x: pseudonymize_date(x, pseudo_policy))
-                log_debug(f"[deidentify_columns] 컬럼 '{key}''{ pseudo_policy }' → 1st result: {df[key].iloc[0] if len(df) > 0 else 'N/A'}")    
+                df[col_to_use] = df[col_to_use].apply(lambda x: pseudonymize_date(x, pseudo_policy))
+                log_debug(f"[deidentify_columns] 컬럼 '{col_to_use}''{ pseudo_policy }' → 1st result: {df[col_to_use].iloc[0] if len(df) > 0 else 'N/A'}")    
             elif pseudo_policy in ("age_to_5year_group", "age_to_10year_group"):
-                df[key] = df[key].apply(lambda x: pseudonymize_age(x, pseudo_policy))
-                log_debug(f"[deidentify_columns] 컬럼 '{key}''{ pseudo_policy }' → 1st result: {df[key].iloc[0] if len(df) > 0 else 'N/A'}")    
+                df[col_to_use] = df[col_to_use].apply(lambda x: pseudonymize_age(x, pseudo_policy))
+                log_debug(f"[deidentify_columns] 컬럼 '{col_to_use}''{ pseudo_policy }' → 1st result: {df[col_to_use].iloc[0] if len(df) > 0 else 'N/A'}")    
             else:
-                log_debug(f"[deidentify_columns] 경고: 지원하지 않는 pseudonymization_policy '{pseudo_policy}' (컬럼: '{key}'). 처리를 건너뜁니다.")
+                log_debug(f"[deidentify_columns] 경고: 지원하지 않는 pseudonymization_policy '{pseudo_policy}' (컬럼: '{col_to_use}'). 처리를 건너뜁니다.")
 
         elif policy == "anonymization":
             anonymization_policy = targets[key].get("anonymization_policy", "")
             anonymization_value = targets[key].get("anonymization_value", "")
             if anonymization_policy == "serial_number":
-                df[key] = df[key].apply(lambda x: serialize_id(x) if pd.notnull(x) else x)
-                log_debug(f"[deidentify_columns] 컬럼 '{key}''{ anonymization_policy }' → 1st result: {df[key].iloc[0] if len(df) > 0 else 'N/A'}")
+                df[col_to_use] = df[col_to_use].apply(lambda x: serialize_id(x) if pd.notnull(x) else x)
+                log_debug(f"[deidentify_columns] 컬럼 '{col_to_use}''{ anonymization_policy }' → 1st result: {df[col_to_use].iloc[0] if len(df) > 0 else 'N/A'}")
             elif anonymization_policy == "masking":
-                df[key] = df[key].apply(lambda x: anonymization_value if pd.notnull(x) else x)
-                log_debug(f"[deidentify_columns] 컬럼 '{key}''{ anonymization_policy }' → 1st result: {df[key].iloc[0] if len(df) > 0 else 'N/A'}")
+                df[col_to_use] = df[col_to_use].apply(lambda x: anonymization_value if pd.notnull(x) else x)
+                log_debug(f"[deidentify_columns] 컬럼 '{col_to_use}''{ anonymization_policy }' → 1st result: {df[col_to_use].iloc[0] if len(df) > 0 else 'N/A'}")
             else:
-                log_debug(f"[deidentify_columns] 경고: 지원하지 않는 anonymization_policy '{anonymization_policy}' (컬럼: '{key}'). 처리를 건너뜁니다.")
+                log_debug(f"[deidentify_columns] 경고: 지원하지 않는 anonymization_policy '{anonymization_policy}' (컬럼: '{col_to_use}'). 처리를 건너뜁니다.")
         elif policy == "no_apply":
             pass
         else:
-            log_debug(f"[deidentify_columns] 지원하지 않는 정책: {policy} (컬럼: {key})")
+            log_debug(f"[deidentify_columns] 지원하지 않는 정책: {policy} (컬럼: {col_to_use})")
 
 
     return df
 
+
+#################################################
+# 불용처리함수- 로직이 수정되어 더이상 사용하지 않음
+#################################################
 def deidentify_report_column(df: pd.DataFrame, report_column: str, targets: dict, cipher_alphanumeric: Any, cipher_numeric: Any) -> pd.DataFrame:
     """
     리포트 텍스트 컬럼 내부의 개인정보를 비식별화하는 함수
@@ -421,11 +483,11 @@ def deidentify_report_column(df: pd.DataFrame, report_column: str, targets: dict
                 df[report_column] = df[report_column].apply(lambda x: replace_with_pseudonymized_id(x, targets[key]["regular_expression"], cipher_alphanumeric))
                 df = extract_target_to_column(df, report_column, key, targets[key]["regular_expression"])
             elif pseudo_policy in ("year_to_january_first", "month_to_first_day"):
-                df[report_column_name] = df[report_column_name].apply(lambda x: replace_with_pseudonymized_date(x, targets[key]["regular_expression"], pseudo_policy))
-                df = extract_target_to_column(df, report_column_name, key, targets[key]["regular_expression"])
+                df[report_column] = df[report_column].apply(lambda x: replace_with_pseudonymized_date(x, targets[key]["regular_expression"], pseudo_policy))
+                df = extract_target_to_column(df, report_column, key, targets[key]["regular_expression"])
             elif pseudo_policy in ("age_to_5year_group", "age_to_10year_group"):
-                df[report_column_name] = df[report_column_name].apply(lambda x: replace_with_pseudonymized_age(x, targets[key]["regular_expression"], pseudo_policy))
-                df = extract_target_to_column(df, report_column_name, key, targets[key]["regular_expression"])
+                df[report_column] = df[report_column].apply(lambda x: replace_with_pseudonymized_age(x, targets[key]["regular_expression"], pseudo_policy))
+                df = extract_target_to_column(df, report_column, key, targets[key]["regular_expression"])
             else:
                 log_debug(f"[deidentify_report_column] 경고: 지원하지 않는 pseudonymization_policy '{pseudo_policy}' (키: '{key}'). 처리를 건너뜁니다.")
 
@@ -434,12 +496,12 @@ def deidentify_report_column(df: pd.DataFrame, report_column: str, targets: dict
             anonymization_value = targets[key].get("anonymization_value", "")
             if anonymization_policy == "serial_number":
                 if key not in df.columns:
-                    df[report_column_name] = df[report_column_name].apply(lambda x: replace_with_serialized_id(x, targets[key]["regular_expression"]))
-                    df = extract_target_to_column(df, report_column_name, key, targets[key]["regular_expression"])
+                    df[report_column] = df[report_column].apply(lambda x: replace_with_serialized_id(x, targets[key]["regular_expression"]))
+                    df = extract_target_to_column(df, report_column, key, targets[key]["regular_expression"])
                 else:  # key in df.columns
-                    df[report_column_name] = df[report_column_name].apply(lambda x: replace_with_masked_id(x, targets[key]["regular_expression"], anonymization_value) if pd.notnull(x) else x)
+                    df[report_column] = df[report_column].apply(lambda x: replace_with_masked_id(x, targets[key]["regular_expression"], anonymization_value) if pd.notnull(x) else x)
             elif anonymization_policy == "masking":
-                df[report_column_name] = df[report_column_name].apply(lambda x: replace_with_masked_id(x, targets[key]["regular_expression"], anonymization_value) if pd.notnull(x) else x)
+                df[report_column] = df[report_column].apply(lambda x: replace_with_masked_id(x, targets[key]["regular_expression"], anonymization_value) if pd.notnull(x) else x)
             else:
                 log_debug(f"[deidentify_report_column] 경고: 지원하지 않는 anonymization_policy '{anonymization_policy}' (컬럼: '{key}'). 처리를 건너뜁니다.")
         elif policy == "no_apply":
@@ -448,7 +510,7 @@ def deidentify_report_column(df: pd.DataFrame, report_column: str, targets: dict
             log_debug(f"[deidentify_report_column] 지원하지 않는 정책: {policy} (컬럼: {key})")
 
     # 모든 개별 비식별화 작업 완료 후, 페이지 머릿글/바닥글 제거
-    df[report_column_name] = df[report_column_name].apply(lambda x: remove_page_headers_footers(x) if pd.notnull(x) else x)
+    df[report_column] = df[report_column].apply(lambda x: remove_page_headers_footers(x) if pd.notnull(x) else x)
     log_debug(f"[deidentify_report_column] 페이지 머릿글/바닥글 제거 완료")
 
     return df

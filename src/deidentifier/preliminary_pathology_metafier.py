@@ -62,8 +62,12 @@ if __name__ == "__main__":
                 target_conf=target_conf
             )
             dfs[fname] = df
-
+            
+        print("\n****************************************************************************************************************")  # 단순 줄바꿈 출력
         log_debug(f"[main] 삭제 후 전문:\n{df[report_column]}")
-        validation_extraction(df=df, report_column=report_column)
         
-    save_excels(structured_dir, dfs)
+        validation_extraction(df=df, report_column=report_column, existing_column_mapping=existing_column_mapping)
+
+    save_excels(output_dir=structured_dir, 
+                dataframes_dict=dfs, 
+                prefix="structured_")
