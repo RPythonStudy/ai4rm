@@ -10,7 +10,7 @@ valid:
 	python src/deidentifier/validate_depseudonymization.py
 
 excel:
-	python src/deidentifier/pseudonymizer_excel.py
+	python src/deidentifier/excel_deidentifier.py data/raw/pet/ data/raw/pet/deidentification.yml data/deidentified/pet/
 
 patho:
 	python -m src.deidentifier.pathology_deidentifier
