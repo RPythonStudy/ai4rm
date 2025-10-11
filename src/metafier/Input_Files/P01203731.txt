@@ -1,0 +1,53 @@
+【병리번호】S17-15025
+
+【확 인 자】박선후 / 고재수
+
+【 Gross  】
+
+#1: Right lung.  Received is a right upper lobectomy specimen, measuring 16.5x14.0x4.8cm, and 246.4gm.  The external suface of apical area shows raggedness and tumor exposure. Diffuse anthracotic pigmentation is noted on pleura.  On section along the bronchus, there is a well circumscribed tan gray firm tumor, measuring 4.4x1.8cm.  The tumor involves pleura.  Bronchial resection margin is grossly clear, 7.0cma apart from the tumor.  Remaining parenchyma is grossly unremarkable.  Representative sections are embedded.
+<A: bronchial resection margin, B: peribronchial lymph node, C~E: tumor one plane, F,G: tumor, H: remaining>
+#2: Right pleura.  Received is a flat soft tissue, measuring 4.3x3.0x0.8cm.  On serial section, it is tan gray fibrotic.  Representative section is embedded.
+#3: Subcarinal lymph node.  Entirely embedded.
+#4: Hilar lymph node.  Entirely embedded.
+#5: Pulmonary ligament lymph node.  Entirely embedded.
+#6: Interlobar lymph node.  Entirely embedded.
+#7: Upper paratracheal lymph node.  Entirely embedded.
+#8: Lower paratracheal lymph node.  Entirely embedded.
+
+** Frozen section diagnosis **
+<Frozen #1> Received is a lump of fresh soft tissue, measuring 0.7x0.6cm.  Entirely embedded.
+   Chest wall endothoracic fascia ; No tumor involvement [설혜실]
+<Frozen #2> Received is a lymph node.  Entirely embedded.
+   Lymph node #7 ; No tumor involvement [설혜실]
+<Frozen #3> Received is a lymph node.  Entirely embedded.
+   Lymph node #4 ; No tumor involvement [설혜실]
+
+【확인결과】
+
+Lung, right upper lobe, lobectomy (#1):
+     1. Squamous cell carcinoma, poorly differentiated
+        (status post-neoadjuvant chemotherapy)
+             with 1) size of invasion; 4.4x1.8cm
+                    2) involvement of parietal pleura (PL3)
+                    3) ly(-), n(-), v(-)
+                    4) clear bronchial resection margin
+        [pathologic stage: ypT3]
+     2. No abnormal findings in the background lung
+
+Tissue labeled "right pleura", excision (#2):
+     Involvement of squamous cell carcinoma
+
+Lymph node, dissection:
+     No metastasis in all 18 lymph nodes
+     (peribronchial; 0/4, subcarinal: 0/2, hilar: 0/1, pulmonary ligament: 0/1, interlobar: 0/2, 
+      upper paratracheal: 0/1, lower paratracheal: 0/5, #7(frozen #2): 0/1, #4(frozen #3): 0/1)
+     [pathologic stage: ypN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+*관련병리번호 :
+   I17-11747   Alk1 ( Anaplastic Lymphoma Kinase1 ) [D]  -  Negative(-)
+   I17-11748   PD-L1(SP263) [D]  -  Positive(+), strong, 30%

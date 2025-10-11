@@ -1,0 +1,53 @@
+【병리번호】S24-8910
+
+【확 인 자】고재수 / 고재수
+
+【 Gross  】
+
+#1: Left lower lobe. Received is a LLL lobectomy specimen, measuring 16x5x3cm. Pleural surface shows focal dimpling area. On section, there is a 1.9x1.0cm graysh white rubbery tumor at peripheral area. Adjacent visceral pleura is thickened and invasion is suspected. Remaining lung is unremarkable. Bronchial resection margin is 4cm apart from the tumor. Total tumor and representative sections are embedded. 
+#2: Lymph node #5. Entirely embedded.
+#3: Lymph node #7. Entirely embedded.
+#4: Lymph node #9. Entirely embedded.
+#5: Lymph node #10. Entirely embedded.
+#6: Lymph node #12. Entirely embedded.
+
+
+
+** Frozen section diagnosis **
+1.  Resection margin ; No tumor involvement [박선후]
+       Received is a lump of fresh soft tissue, measuring 2cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, left lower lobe, lobectomy:
+     1. Invasive adenocarcinoma, micropapillary predominant
+         (acinar(cribriform): 30%, micropapillary: 50%, solid: 10%, lepidic: 10%), grade 3
+             with 1) size of invasion; 1.9x1.0cm
+                       (total extent including lepidic pattern: 1.9cm)
+                    2) involvement of visceral pleura (PL1)
+                    3) lymphatic invasion: present
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): present
+                    7) clear bronchial resection margin
+        [pathologic stage: pT2a]
+
+     2. No abnormal findings in the background lung
+
+Lymph node, dissection:
+     No metastasis in 21 lymph nodes
+     (peribronchial; 0/4, #5: 0/3, #7: 0/4, #9: 0/6, #10: 0/3, #12: 0/1)
+     [pathologic stage: pN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   SP24-542    Elastic Fiber Stain [A]  - Pleural invasion(+)

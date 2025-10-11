@@ -1,0 +1,41 @@
+【병리번호】S17-4085
+
+【확 인 자】이보인 / 고재수
+
+【 Gross  】
+
+# Lung (Right upper lobe).  Received fresh is a product of right lower lobectomy, measuring 17x11x5cm. It is previously bisected. The cut surface shows an irregular, ill-defined, yellow to tan, firm mass, measuring 1.7x1.3x1.2cm. It is 5.5cm apart from bronchial resection margin. And no pleural involvement is present. Seperately submitted specimen labeled “RUL” is a pulmonary tissue, measuring 4.5x1.3x1cm. It is unremarkable.
+Representative sections are embedded.
+# Lymph node 2, 4, 7, 9, 10, 11.
+<A : peribronchial lymph node, B ~ D : tumor, serial section, E : background, F, G : “right upper lobe”(E/E)>
+
+
+** Frozen section diagnosis **
+<Frozen> Received is a lump of fresh soft tissue, measuring 0.9x0.5cm.  Entirely embedded.
+   Bronchial resection margin ; No tumor involvement [명재경]
+
+【확인결과】
+
+Lung, right lower lobe, lobectomy:
+     1. Invasive adenocarcinoma, acinar predominant 
+         (acinar: 90%, lepidic: 10%)
+             with 1) tumor size; 1.7x1.3x1.2cm
+                    2) no involvement of visceral pleura (PL0)
+                    3) ly(-), n(-), v(-)
+                    4) clear bronchial resection margin
+       (pathologic stage: pT1a)
+     2. organizing pneumonia in the background lung
+
+Tissue labeled "right upper lobe", excision:
+     No tumor involvement
+
+Lymph node, dissection:
+     No metastasis in all 31 lymph nodes
+     (peribronchial; 0/9, #2: 0/2, #4: 0/4, #7: 0/11, #9: 0/2, #10: 0/1, #11: 0/2)
+     (pathologic stage: pN0)
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura

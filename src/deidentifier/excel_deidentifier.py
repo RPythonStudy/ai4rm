@@ -1,8 +1,9 @@
-#!/usr/bin/env python3
-# filepath: /home/ben/projects/ai4rm/src/deidentifier/excel_deidentifier.py
 """
-Excel 컬럼 범용 비식별화 모듈
+파일명: src/deindentifier/excel_deidentifier.py
+목적: Excel 컬럼 범용 비식별화 모듈
 사용법: python excel_deidentifier.py <excel_path> <yml_path> <output_path>
+변경이력:
+  - 2025-10-10: 최초 구현 (BenKorea)
 """
 
 import warnings

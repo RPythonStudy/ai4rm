@@ -1,0 +1,29 @@
+【병리번호】S19-13203
+
+【확 인 자】명재경 / 명재경
+
+【 Gross  】
+
+#1: Left lung.  Received specimen is left lung pneumoectomy specimen, measuring 28x20x10.5cm.  The pleura is diffusely pigmented by anthracotic pigmentation.  On section along the bronchus, a 4.2x4.1cm-sized poorly demarcated solid whitish tumor is noted.  Tumor is related with bronchial mucosa and 0.1cm apart from bronchial resection margin.  The lung tissue around the tumor is consolidated.  Bronchial resection margin is grossly apose to tumorous lesion.  Representative sections are embedded.
+<A; peribronchial lymph node, B; bronchus resection margin, C~F; 합쳐서 한단면, G~J; 합쳐서 또다른단면, K; normal>
+# Lymph node #5, #7, #9, #10.  Entirely embedded.
+
+** Frozen section diagnosis **
+1.  Bronchial resection margin ; No tumor involvement [이승숙]
+       Received is a lump of fresh soft tissue, measuring 1 cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, left, pneumonectomy:
+   Squamous cell carcinoma, moderately differentiated, left upper lobe
+       with  1) tumor size; 4.2x4.1cm (T2b)
+               2) no involvement of left main bronchus
+               3) ly(-), n(-), v(-)
+               4) invasion to major vessel (-)
+               5) no involvement of visceral pleura
+               6) clear bronchial resection margin
+
+Lymph node, regional, dissection:
+   Metastasis in 1 ou of 13 regional lymph nodes
+    (peribronchial; 1/9, #5:0/1, #7: 0/2, #9: 0/0, #10:0/1)
+

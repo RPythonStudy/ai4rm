@@ -1,0 +1,72 @@
+01353586 염달수
+【병리번호】S24-8536
+
+【확 인 자】박선후 / 박선후
+
+【 Gross  】
+
+#1: Left lower lobe. Received is left lower lobe lobectomy specimen, measuring 20x8x6cm and 132gm. Mass is palpatied at the upper mid. Probing along the main bronchus, no obstructive lesion is identified. Cut section reveals white, relatively well demarcated and granular lesion, measuring 2.1x1.8cm. It is 2.5cm apart from the bronchial resection margin. Pleura or bronchial involvement is not identified. Serial section reveals no other abnormal lesion is identified. <1-1: BRM, LN, 1-2, 1-3/1-4,1-5: tumor serial,1.6: normal>
+#2: Left upper lobe wedge resection. Received is wedge resected lung, measuring 10x5x4.0cm. It is previously sectioned for frozen diagnosis. Cut section reveals an ill defined infiltrative gray and granular lesion, measuring 1.7x1cm. Pleura involvement is not identified. Pulmonary resection margin is grossly clear. Lesion is near totally embedded.  <2-1~2-4: tumor, 2-5: resection margin>
+#3: Lymph node #4. Entirely embedded.
+#4: Lymph node #5. Entirely embedded.
+#5: Lymph node #7. Entirely embedded.
+#6: Lymph node #9. Entirely embedded.
+#7: Lymph node #11. Entirely embedded.
+
+** Frozen section diagnosis **
+1. LUL ; Adenocarcinoma [고재수]
+       Received is a lump of fresh soft tissue, measuring 0.8x0.8cm.  Entirely embedded.
+2. Bronchial resection margin ; No tumor involvement [고재수]
+       Received is a lump of fresh soft tissue, measuring 3x0.3cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, left lower lobe, lobectomy:
+     1. Invasive adenocarcinoma, solid and cribriform predominant with micropapillary growt pattern
+         (solid and cribriform:60%, acinar(cribriform):20%, micropapillary(filiform):15%, lepidic:5%), grade 3
+             with 1) size of invasion; 2.1x1.8cm
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: present
+                    4) vascular invasion: absent
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): present
+                    7) intrapulomnary metastatic nodule
+                    8) clear bronchial resection margin
+        [pathologic stage: pT3]
+     2. No abnormal findings in the background lung
+
+Lung, left upper lobe, wedge resection:
+     1. Invasive adenocarcinoma, acinar predomant
+         (acinar(cribriform):60%, lepidic:40%), grade 1
+             with 1) size of invasion; 1.7x1cm
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: absent
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): absent
+                    7) clear parenchymal resection margin
+        [pathologic stage: pT1b]
+         < See note>
+
+Lymph node, dissection:
+     Metastatic adenocarcinoma in out of lymph nodes
+     (peribronchial;1/1 , #4:0/2, #5:0/5, #7:0/3, #9:0/1, #11:0/2)
+     (without extranodal extension)
+     [pathologic stage: pN1]
+
+Note> Left upper 와 lower lobe 병변은 전이성 병변이 아니라 두개의 원발성 병변으로 판단됩니다.
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   I24-9502    D2-40(Podoplanin) [1-5]  -  Endolymphatic tumor emboli
+
+

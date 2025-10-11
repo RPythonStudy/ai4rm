@@ -1,0 +1,66 @@
+【병리번호】S24-1433
+
+【확 인 자】박선후 / 박선후
+
+【 Gross  】
+
+# Right lower lobe. Received is right lower lobe, measuring 15x10x5cm. There is a pleural dimpling at the lower lateral surface. Cut section reveals well demarcated, not encapsulated, partly infiltrative nodular lesion, measuring 5.5x3cm. It is 4.0cm apart from the bronchial resection margin. Enlarged metastatic lymph nodes are noted at the hilar portion. Remaining lung parenchyme is grossly clear. Representative sections are embedded.
+# Lymph node #4, #7, #9, #11, #12, #13. Entirely embedded.
+
+【확인결과】
+
+Lung, right lower lobe, lobectomy:
+       Invasive adenocarcinoma, acinar predominant 
+         (acinar(cribriform):70%, micropapillary(filiform):30%), grade 3
+             with 1) size of invasion; 5.5x3cm
+                    2) tumor invasion beyond the elastic layer  (PL1)
+                    3) lymphatic invasion: present
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): present
+                    7) clear bronchial parenchymal resection margin
+        [pathologic stage: pT2b]
+
+Lymph node, dissection:
+     Metastatic carcinoma in 10 out of 27 lymph nodes
+     (peribronchial;2/2, #4:0/2, #7:1/10, #9:0/1, #11:0/1, #12:7/8, #13:0/3)
+     (with extranodal extension; #11)
+     [pathologic stage: pN2]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   I24-1696    PD-L1(SP142) [F]  - 【검사결과】
+Lung, aspiration cytology, / excision, / biopsy :
+
+PD-L1(SP142) immunohistochemistry (For Non-small cell lung cancer (NSCLC)); 
+    Approximate number of viable tumor cells:≥50
+    Control evaluation:Acceptable
+     -Tumor cell (TC) staining assessment: 90%
+      Category: TC3 (TC≥50%)
+     -Tumor infitrating immune cell (IC) staining assessment: 0%1%
+      Category: IC0 (IC<1%)
+
+
+<NOTE>
+  This process is performing using VENTANA Benchmark XT automated staining instrument. 
+
+   I24-1695    PD-L1(SP263) [F]  - 【검사결과】
+Lung, aspiration cytology, / excision, / biopsy :
+
+PD-L1 immunohistochemistry (SP263); 
+
+    Positive (Positive percentage of viable tumor cells: 100%)
+
+
+
+   I24-1693    ALK D5F3 CDx [F]  -  Negative(-)
+   SP24-84     Elastic Fiber Stain [F]  - Tumor invades beyond the elastic layer 

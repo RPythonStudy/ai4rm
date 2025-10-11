@@ -1,0 +1,43 @@
+﻿Filename|Patho Number|Resection Method|Cell Type|Size|T Stage|N Stage|Meta LN|Total LN
+P00862499.txt|S24-3784|lobectomy|Invasive adenocarcinoma|3.1x1.5cm|pT2a|pN0|0.0|8.0
+P00883814.txt|S15-3730|wedge resection|Adenocarcinoma in situ|0.6x0.6cm|||0.0|7.0
+P00907260.txt|S20-2581|segmentectomy|Squamous cell carcinoma|3.1x2.9x2.5cm|pT2a|||
+P00912360.txt|S24-1433|lobectomy|Invasive adenocarcinoma|5.5x3cm|pT2b|pN2|10.0|27.0
+P00964294.txt|S16-2211|lobectomy|Invasive mucinous adenocarcinoma|4.5x2.0x2.0cm|pT3|pN0|0.0|38.0
+P00989382.txt|S22-11161|thoracoscopic wedge resection|Minimally invasive adenocarcinoma|0.3cm|pTmi|pN0|0.0|7.0
+P01086311.txt|S12-7517|lobectomy|Squamous cell carcinoma|4.5x4.0cm|pT2a|pN1|2.0|34.0
+P01107342.txt|S19-13203|pneumonectomy|Squamous cell carcinoma|4.2x4.1cm|T2b||1.0|13.0
+P01117777.txt|S13-13939|lobectomy|Large cell carcinoma|5.5x5.0x4.0cm|pT2b|pN0|0.0|16.0
+P01117868.txt|S13-13839|pneumonectomy|Sarcomatoid carcinoma|6.8x6.0x5.0cm|pT2b|pN2|6.0|26.0
+P01118305.txt|S13-14039|lobectomy|Microinvasive adenocarcinoma, lepidic predominant|2.3x2.1cm|pT1b|pN0|0.0|14.0
+P01122443.txt|S14-689|lobectomy|Invasive adenocarcinoma, lepidic predominant|2.6x2.5cm|pT3|pN0|0.0|18.0
+P01129937.txt|S14-6475|lobectomy|Invasive adenocarcinoma, lepidic predominant|2.5x2.0cm|pT1b|pN0|0.0|8.0
+P01130720.txt|S24-7889|lobectomy and chest wall resection|adenosquamous carcinoma|6cm|pT3|pN0|0.0|19.0
+P01153426.txt|S15-5618|lobectomy|Non-keratinizing squamous cell carcinoma|4.2x2.5x3.0cm|pT2a|pN1|2.0|22.0
+P01189766.txt|S17-1926|pneumonectomy|Squamous cell carcinoma|2.0x1.0cm|pT1a|pN0|0.0|26.0
+P01190449.txt|S17-2953|segmentectomy|Invasive adenocarcinoma, acinar predominant|3.2x2.5cm|pT2a|pN1|4.0|25.0
+P01192548.txt|S17-4085|lobectomy|Invasive adenocarcinoma, acinar predominant|1.7x1.3x1.2cm|pT1a|pN0|0.0|31.0
+P01192606.txt|S17-4219|lobectomy|Invasive adenocarcinoma, acinar predominant|2.5x2.0cm|pT1b|pN1|1.0|26.0
+P01192791.txt|S17-4150|lobectomy|Squamous cell carcinoma|2.5x2.4x1.5cm|pT1b|pN0|0.0|12.0
+P01193764.txt|S17-4855|pneumonectomy|Squamous cell carcinoma|2.4x2.0cm|pT?|pN?|2|31
+P01203731.txt|S17-15025|lobectomy|Squamous cell carcinoma|4.4x1.8cm|ypT3|ypN0|0|18
+P01239418.txt|S19-13342|wedge resection|Invasive adenocarcinoma|1.1x0.5cm|pT1b|pN?|-|-
+P01252315.txt|S19-13416|lobectomy|Invasive adenocarcinoma|3.7x3.8x3.5cm|pT2a|pN0|0|10
+P01253357.txt|S19-13474|lobectomy|Pleomorphic carcinoma with adenocarcinoma|2.6x1.0cm|pT1c|pN0|0|18
+P01274950.txt|S24-3021|lobectomy|Squamous cell carcinoma|5.5x5cm|pT3|pN0|0|45
+P01312805.txt|S24-10403|wedge resection and segmentectomy|Invasive adenocarcinoma|1.8x1.2cm|pT1b|pN0|0|26
+P01327517.txt|S24-10622|lobectomy|Small cell carcinoma|2.5x2.5cm|pT3|pN1|2|14
+P01335041.txt|S24-171|lobectomy|Invasive adenocarcinoma|2.8x2.0x2.4cm|pT1c|pN0|0|7
+P01337742.txt|S24-1960|lobectomy|Squamous cell carcinoma|8.7x7.0x5.5cm|pT4|pN0|0|12
+P01340266.txt|S24-3367|Wedge resection and segmentectomy|Minimally invasive adenocarcinoma|1.0x0.6x0.4cm|pT1mi||0|
+P01341373.txt|S24-3412|Wedge resection|Invasive adenocarcinoma|1.4cm|pT2a||0|
+P01344205.txt|S24-6606|Lobectomy|Large cell carcinoma|6x4x5cm|pT3|pN1|3|22.0
+P01345120.txt|S24-6512|Lobectomy|Carcinoid tumor (Typical carcinoid)|3.0x3.0x2.6cm|pT1c|pN0|0|13.0
+P01348893.txt|S24-8154|Lobectomy|Large cell neuroendocrine carcinoma|2.6x2.4cm|pT1c|pN2|1|22.0
+P01352361.txt|S24-10382|Lobectomy|Invasive adenocarcinoma|2x1.2cm|pT1b|pN0|0|16.0
+P01352706.txt|S24-7268|Lobectomy|Invasive adenocarcinoma|1.75x1.3x1.0cm||pN0|0|15.0
+P01353586.txt|S24-8536|Lobectomy, Wedge resection|Invasive adenocarcinoma|2.1x1.8cm, 1.7x1cm|pT3, pT1b|pN1|1|14.0
+P01353782.txt|S24-8771|Lobectomy|Invasive adenocarcinoma|2.5x2cm|pT1c|pN2|3|19.0
+P01354875.txt|S24-8910|Lobectomy|Invasive adenocarcinoma|1.9x1.0cm|pT2a|pN0|0|21.0
+P01367068.txt|S24-10982|lobectomy|Squamous cell carcinoma, poorly differentiated|5.7x3.2x2.3cm|pT3|pN2|9|19
+P01368869.txt|S24-11532|lobectomy|Squamous cell carcinoma, moderately differentiated|12x3cm|pT4|pN0|0|18

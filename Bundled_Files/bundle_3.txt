@@ -1,0 +1,538 @@
+Filename: P01193764.txt
+【병리번호】S17-4855
+
+【확 인 자】이승숙 / 고재수
+
+【 Gross  】
+
+#1 Left pneumonectomy.  Received is a left pneumonectomy specimen, meassuring 23x12x5cm and 426gm.  Subpleural parenchyma of left upper lobe shows a relatively well demarcated tannish gray solid tumor measuring 5.0x4.3x3.0cm.  It is very close to thickened parietal pleura with suspicious invasion.  The tumor is not directly connected with main bronchus.  The tumor is about 4cm apart from bronchial resection margin. Peribronchial lymph nodes are enlarged with tumor invasion. Bronchial resection margin is clear.
+  <G: pleural invasion, J: LLL>
+# Lymph node 4, 5, 6, 7, 9, 10, 11, 12.
+ 
+
+** Frozen section diagnosis **
+<Frozen> Received are is lymph node s.  Entirely embedded.
+   Lymph node #7; No tumor involvement [이보인]
+
+【확인결과】
+
+Lung, left, pneumonectomy:
+   Squamous cell carcinoma, moderately differentiated, left upper lobe
+       with  1) tumor size; 2.4x2.0cm
+               2) involvement of parietal pleura (PL3)
+               3) no involvement of main bronchus
+               4) no involvement of left lower lobe
+               5) ly(-), n(-), v(-)
+               6) invasion to major vessel (-)
+               7) clear bronchial resection margin
+
+Lymph node, peribronchial and regional node dissection:
+   Metastatic squamous cell carcinoma in two out of 31 lymph nodes
+    (peribronchial; 2/6, #4: 0/1, #5: 0/4, #6: 0/2, #7: 0/5, #9: 0/1, #10: 0/4, 
+     #11: 0/6, #12: 0/1, #7(frozen): 0/1)
+
+
+
+
+
+---
+
+Filename: P01203731.txt
+【병리번호】S17-15025
+
+【확 인 자】박선후 / 고재수
+
+【 Gross  】
+
+#1: Right lung.  Received is a right upper lobectomy specimen, measuring 16.5x14.0x4.8cm, and 246.4gm.  The external suface of apical area shows raggedness and tumor exposure. Diffuse anthracotic pigmentation is noted on pleura.  On section along the bronchus, there is a well circumscribed tan gray firm tumor, measuring 4.4x1.8cm.  The tumor involves pleura.  Bronchial resection margin is grossly clear, 7.0cma apart from the tumor.  Remaining parenchyma is grossly unremarkable.  Representative sections are embedded.
+<A: bronchial resection margin, B: peribronchial lymph node, C~E: tumor one plane, F,G: tumor, H: remaining>
+#2: Right pleura.  Received is a flat soft tissue, measuring 4.3x3.0x0.8cm.  On serial section, it is tan gray fibrotic.  Representative section is embedded.
+#3: Subcarinal lymph node.  Entirely embedded.
+#4: Hilar lymph node.  Entirely embedded.
+#5: Pulmonary ligament lymph node.  Entirely embedded.
+#6: Interlobar lymph node.  Entirely embedded.
+#7: Upper paratracheal lymph node.  Entirely embedded.
+#8: Lower paratracheal lymph node.  Entirely embedded.
+
+** Frozen section diagnosis **
+<Frozen #1> Received is a lump of fresh soft tissue, measuring 0.7x0.6cm.  Entirely embedded.
+   Chest wall endothoracic fascia ; No tumor involvement [설혜실]
+<Frozen #2> Received is a lymph node.  Entirely embedded.
+   Lymph node #7 ; No tumor involvement [설혜실]
+<Frozen #3> Received is a lymph node.  Entirely embedded.
+   Lymph node #4 ; No tumor involvement [설혜실]
+
+【확인결과】
+
+Lung, right upper lobe, lobectomy (#1):
+     1. Squamous cell carcinoma, poorly differentiated
+        (status post-neoadjuvant chemotherapy)
+             with 1) size of invasion; 4.4x1.8cm
+                    2) involvement of parietal pleura (PL3)
+                    3) ly(-), n(-), v(-)
+                    4) clear bronchial resection margin
+        [pathologic stage: ypT3]
+     2. No abnormal findings in the background lung
+
+Tissue labeled "right pleura", excision (#2):
+     Involvement of squamous cell carcinoma
+
+Lymph node, dissection:
+     No metastasis in all 18 lymph nodes
+     (peribronchial; 0/4, subcarinal: 0/2, hilar: 0/1, pulmonary ligament: 0/1, interlobar: 0/2, 
+      upper paratracheal: 0/1, lower paratracheal: 0/5, #7(frozen #2): 0/1, #4(frozen #3): 0/1)
+     [pathologic stage: ypN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+*관련병리번호 :
+   I17-11747   Alk1 ( Anaplastic Lymphoma Kinase1 ) [D]  -  Negative(-)
+   I17-11748   PD-L1(SP263) [D]  -  Positive(+), strong, 30%
+
+---
+
+Filename: P01239418.txt
+
+【병리번호】S19-13342
+
+【확 인 자】이승숙 / 이승숙
+
+【 Gross  】
+
+# Right upper lobe posterior segment.  Received is a wedge-resected lung tissue, measuring 7.0x2.0x1.4cm.  There is a previous incision and shows a poorlycircumscribed subpleural thickening measuring about 1.3x0.5cm. Serially sectioned and almost entirely embedded.
+
+   ** Frozen section diagnosis **
+Right lower lobe ; Adenocarcinoma (AIS or minimally invasive adenocarcinoma) [설혜실]
+       Received is a lump of fresh soft tissue, measuring 1.0x0.8cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, right upper lobe, posterior segment, wedge resection; 
+
+    1. Invasive adenocarcinoma, acinar predominant 
+         (acinar: 55%, lepidic: 45%)
+           with 1) size of invasion; 1.1x0.5cm
+                       (total extent including lepidic pattern: 1.3x0.6x1.0cm)
+                    2) no invasion beyond elastic layer of visceral pleura (PL0)
+                    3) lymphatic invasion: absent
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent 
+                    6) clear bronchial resection margin
+        [pathologic stage: pT1b]
+
+     2. No abnormal findings in the background lung
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+*관련병리번호 :
+   I19-12684   TTF-1 ( Thyroid Transcription Factor-1 ) [E]  -  Positive(+)
+   I19-12683   Napsin A [E]  -  Positive(+)
+   I19-12699   PD-L1(SP263) [E]  -  Positive(+), 20%
+   I19-12697   ALK D5F3 CDx [E]  -  Negative(-)
+
+---
+
+Filename: P01252315.txt
+【병리번호】S19-13416
+
+【확 인 자】명재경 / 명재경
+
+【 Gross  】
+
+#1: Left upper lobe.  Received specimen is left upper lobectomy specimen, measuring 17x12x4.0cm.  The pleura is diffusely pigmented by anthracotic pigment and there is a dimpling and in upper side.  On  section along the bronchus, a 3.9x3.8x3.5cm-sized well demarcated round satellite gray to whitish tumor is noted.  The tumor is related with bronchial mucosa and 1.0cm apart from bronchial resection margin.  The lung tissue around the tumor is consolidated.  Remaining parenchyma is grossly unrearkable.  Bronchial resection margin is grossly clear.  Representative sections are embedded.
+<A; peribronchial lymph node, B; bronchus resection margin, CD; 합쳐서 한단면, EF; 합쳐서 또다른 단면, GH; pleura 와이 관계, I; normal> 
+#2: Lymph node #5, #6, #7, #9, #10, #11.  Entirely embedded.
+
+** Frozen section diagnosis **
+1. RM ; No tumor involvement [명재경]
+       Received is a lump of fresh soft tissue, measuring cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, left upper lobe, lobectomy:
+         Invasive adenocarcinoma, l papillary predominant 
+         (acinar: 10%, papillary: 80%, lepidic: 5%, micropapillary:5%)
+             with 1) size of invasion; 3.7x3.8x3.5cm
+                       (total extent including lepidic pattern: 3.9cm)
+                    2) involvement of visceral pleura (PL1)
+                    3) lymphatic invasion: absent
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent 
+                    6) clear bronchial resection margin
+        [pathologic stage: pT2a]
+     2. No abnormal findings in the background lung
+
+Lymph node, dissection:
+     No metastasis in lymph nodes 
+     (peribronchial; 0/2, #5: 0/2, #6: 0/3, #7: 0/1, #9: 0/0, #10: 0/1, #11:0/1)
+     [pathologic stage: pN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+
+---
+
+Filename: P01253357.txt
+【병리번호】S19-13474
+
+【확 인 자】설혜실 / 고재수
+
+【 Gross  】
+
+#1: Right upper lobe.  Received is a right upper lobectomy specimen, measurng 13x12x4cm.  There is a tissue defect area due to frozen diagnosis.  On serial section, about 2.5x1.5cm-sized ill defined tumor is identified.  It is 1cm apart from the bronchial resection margin.  The remaining pulmonary parenchyme shows emphysematous change.  Representative sections are embedded.
+<A; bronchial resection margin, BC: one plane of tumor, D~H; tumor, I; remaining parenchyme>
+# Lymph node #2R, #4, #7, #10, #11.  Entirely embedded.
+
+** Frozen section diagnosis **
+1. LN11  ; No tumor involvement [박선후]
+       Received are is a fresh lymph node.  Entirely embedded.
+2. Mass ; Tumor positive [고재수]
+       Received is a lump of fresh soft tissue, measuring 1.5x1.5cm.  Entirely embedded.
+3. Bronchial resection margin ; No tumor involvement [고재수]
+       Received is a lump of fresh soft tissue, measuring 1.5x1.5cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, right upper lobe, lobectomy:
+     1. Pleomorphic carcinoma with adenocarcinoma
+         (pleomorphic carcinoma: 60%, acinar: 5%, lepidic: 35%)
+             with 1) size of invasion; 2.6x1.0cm
+                       (total extent including lepidic pattern: 3.0x1.6cm)
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent
+                    6) clear bronchial resection margin
+        [pathologic stage: pT1c]
+     2. Emphysematous change
+
+Lymph node, dissection:
+     1. No metastasis in 18 lymph nodes
+      (peribronchial; 0/1, #2R: 0/5, #4: 0/1, #7: 0/6, #10: 0/2, #11: 0/2, #11(frozen #1): 0/1)
+      [pathologic stage: pN0]
+     2. Chronic granulomatous inflammation with caseous necrosis ("#7")
+
+
+*관련병리번호 :
+   I19-12793   CK  ( Cytokeratin  Pan ) [B]  -  Positive(+) in adenocarcinoma/ Negative(-) in pleomorphic carcinoma
+   I19-12794   TTF-1 ( Thyroid Transcription Factor-1 ) [B]  -  Positive(+) in adenocarcinoma/ Negative(-) in pleomorphic carcinoma
+   I19-12795   VT(Vimentin) [B]  -  Positive(+) in pleomorphic carcinoma/ Negative(-) in adenocarcinoma
+   SP19-1317   AFB ( Acid Fast Bacilli Stain ) [7]  -  Negative(-)
+
+---
+
+Filename: P01274950.txt
+
+【병리번호】S24-3021
+
+【확 인 자】고재수 / 고재수
+
+【 Gross  】
+
+# Right lower lobe. Received is a RLL lobectomy specimen, measuring 11x112x5cm. Pleural surface shows 5x5cm thickened fibrotic area. On section, there is a 5.5x5cm graysh white granular friable tumor at peripheral area. The tumor is in continuity with pleural lesion. Remaining lung shows pneumonic consolidation. Bronchial resection margin is 1.5cm apart from the tumor. Representative sections are embedded. 
+# Parietal pleural. Received is a 4x4x1cm plate shape fibro-tumorous tissue. Representative sections are embedded. 
+# Lymph node #2, #4, #7, #8, #10, #11, #12. Entirely embedded.
+
+** Frozen section diagnosis **
+1.  Right lower lobe resection margin ; No tumor involvement [설혜실]
+       Received is a lump of fresh soft tissue, measuring 1.5cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, right lower lobe, lobectomy:
+     1. Squamous cell carcinoma, poorly differentiated
+            with 1) size of invasion; 5.5x5cm
+                       (total extent including lepidic pattern: 5.5cm)
+                    2) involvement of parietal pleura and chest wall (PL3)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: present
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): present
+                    7) clear bronchial resection margin
+        [pathologic stage: pT3]
+     2. Obstructive and organizing pneumonia in the background lung
+
+Tissue labeled "palietal pleural", excision:
+     Tumor positive involving whole thickness
+
+Lymph node, dissection:
+     No metastasis in lymph nodes
+     (peribronchial; 0/2, #2: 0/11, #4: 0/12, #7: 0/8, #8: 0/2, #10: 0/2, #11: 0/3, #12: 0/5)
+     [pathologic stage: pN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   I24-3402    Ki-67 [F]  -  70%(high)
+   I24-3399    P63 ( P63 Protein ) [F]  -  Positive(+)
+   I24-3401    TTF-1 ( Thyroid Transcription Factor-1 ) [F]  -  Negative(-)
+   I24-3400    Napsin A [F]  -  Negative(-)
+   I24-3398    P40 [F]  -  Positive(+)
+   I24-3404    PD-L1(SP263) [F]  - 【검사결과】
+Lung, excision :
+
+PD-L1 immunohistochemistry (SP263); 
+
+    Positive (Positive percentage of viable tumor cells: 10%)
+
+
+
+   I24-3397    ALK D5F3 CDx [F]  -  Negative(-)
+   SP24-206    Diastase Periodic Acid Schiff's Stain(D-PAS) [F]  -  Positive(focal)
+   SP24-208    Elastic Fiber Stain [F]  -  Negative(-)
+   SP24-207    Mucicarmine Stain [F]  -  Positive(focal)
+
+---
+
+Filename: P01312805.txt
+【병리번호】S24-10403
+
+【확 인 자】박선후 / 박선후
+
+【 Gross  】
+
+#1: Right upper lobe mass. Received is wedge resected lung, measuring 8x3x2cm. It is previously sectioned for frozen diagnosis. Cut section reveals an ill defined white tan and granular infiltrative mass containing diffuse anthracotic pigmentation. It measures 3.2x2.5cm. Pulmonary resection margin is 0.7cm apart from the lesion. Pleural involvement is suspicious. Representative sections are embedded.
+#2: Right upper lobe segment. Received is wedge resected lung, measuring 6x3x2cm. Serial section reveals no gross abnormality. Representative sections are embedded.
+#3: 2번 lymph node. Entirely embedded.
+#4: 4번 lymph node. Entirely embedded.
+#5: 7번 lymph node. Entirely embedded.
+
+** Frozen section diagnosis **
+1.  Lung, right upper lobe mass ; Non-small cell carcinoma [이승숙]
+       Received is a lump of fresh soft tissue, measuring 1.4x1.0cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, right upper lobe, wedge resection and segmentectomy:
+     1. Invasive adenocarcinoma, acinar predominant
+         (acinar(cribriform):50%, papillary:40%,lepidic:10%), grade 2
+             with 1) size of invasion; 1.8x1.2cm
+                       (total extent including lepidic pattern:2.4x1.3cm)
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent present
+                    4) vascular invasion: absent present
+                    5) perineural invasion: absent present
+                    6) spread through air space(STAS): absent 
+                    7) clear parenchymal resection margin
+        [pathologic stage: pT1b]
+     2. No abnormal findings in the background lung
+
+Lymph node, dissection:
+     No metastasis in 26 lymph nodes
+     (peribronchial;0/2, #2:0/4, #4:0/4, #7:0/18)
+     [pathologic stage: pN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+
+
+---
+
+Filename: P01327517.txt
+【병리번호】S24-10622
+
+【확 인 자】고재수 / 고재수
+
+【 Gross  】
+
+#1: Left upper lobe. Received is a LUL lobectomy specimen, measuring 28x10x3cm. Apical pleural surface shows focal fibrotic area. On serial section, there is a 2.5x2.5cm grayish white glistening rubbery vaguely multinodular tumor at peripheral area. Adjacent visceral pleural invasion is suspected. Remaining lung shows focal yellow calcified lesion near the tumor and bullous change. Bronchial resection margin is 5.5cm apart from the tumor. Representative sections are embedded. 
+#2: Lymph node #4, #5, #7, #12. Entirely embedded. 
+
+** Frozen section diagnosis **
+1.  Resection margin ; No tumor involvement [공준석]
+       Received is a lump of fresh soft tissue, measuring 1cm.  Entirely embedded.
+2.  Resection margin ; No tumor involvement [공준석]
+       Received is a lump of fresh soft tissue, measuring 1cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, left upper lobe, lobectomy:
+     1. Small cell carcinoma
+             with 1) size of invasion; 2.5x2.5cm
+                    2) involvement of visceral pleura (PL1)
+                    3) separate tumor nodules in same lobe
+                    4) lymphatic invasion: present
+                    5) vascular invasion: present
+                    6) perineural invasion: absent 
+                    7) spread through air space(STAS): present
+                    8) clear bronchial resection margin
+        [pathologic stage: pT3]
+     2. 1) Dystrophic calcification with fibrosis, consistent with old Mycobacterial infection
+         2) Bullae in the background lung
+
+Lymph node, dissection:
+     Metastatic carcinoma in 2 out of 14 lymph nodes
+     (peribronchial; 2/4, #4: 0/2, #5: 0/2, #7: 0/1, #12: 0/5)
+     (with extranodal extension)
+      [pathologic stage: pN1]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   I24-11862   CD56 [F]  -  Positive(diffuse)
+   I24-11865   Ki-67 [F]  - 70%
+   I24-11863   P63 ( P63 Protein ) [F]  -  Negative(-)
+   I24-11864   TTF-1 ( Thyroid Transcription Factor-1 ) [F]  -  Positive(partial)
+   SP24-579    Elastic Fiber Stain [F]  - Involvement of visceral pleura
+
+---
+
+Filename: P01335041.txt
+01335041 이정현
+【병리번호】S24-171
+
+【확 인 자】이승숙 / 이승숙
+
+【 Gross  】
+
+# Left upper lobe.  Received is a left upper lobectomy specimen of lung, measuring 22x15x6cm. On serial section, upper pole shows two separate lesions. One is a relatively well circumscribed pale solid tumor with fuzzy margin, measuring 2.8x2.0x2.4cm. It is 4cm apart from bronchial resection margin and 0.5cm apart from pleural surface. Separate from the tumor, another well circumscribed cavitary lesion filled with dark green material, measuring 2.0x1.7x2.0cm. It shows thick capsule. Between the two lesion, poorly circumscribed pneumonic consolidation is noted. Two lesions are about 1cm apart from each other. Remaining lung parenchyma is unremarkable. Several peribronchial lymph nodes are enlarged. Representative sections are embedded.
+<A; peribronchial lymph nodes, B; bronchial resection margin, CD; tumor one plane, G; tumor 옆 pneumonic consolidation + fungus cavity, J; tumor와 fungus 주변 consolidation, K; emphysematous area normal lung>
+# Lymph node. Entirely embedded.
+
+【확인결과】
+
+Lung, left upper lobe, lobectomy:
+     1. Invasive adenocarcinoma, solid predominant
+         (acinar: 40%, solid: 60%), grade 3
+            with 1) size of invasion; 2.8x2.0x2.4cm
+                       (total extent including lepidic pattern: 2.8x2.0x2.4cm)
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: absent
+                    5) perineural invasion: absent
+                    6) spread through air space(STAS): present
+                    7) clear bronchial resection margin
+        [pathologic stage: pT1c]
+     2. Fungal ball, favor aspergilloma (non-invasive)
+     3. Localized post-pneumonic fibrosis, between aspergilloma and cancer
+     4. Peripheral emphysema
+
+Lymph node, dissection:
+     No metastasis in all (seven) lymph nodes
+     (peribronchial; 0/4, #lymph node; 0/3)
+     [pathologic stage: pN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+
+*관련병리번호 :
+   I24-459     CDX2 [C]  -  Negative(-)
+   I24-460     CK7 ( Cytokeratin 7 ) [C]  -  Positive(+)
+   I24-355     P53 ( P53 Protein ) [C]  -  Positive(+) for tumor
+   I24-461     P63 ( P63 Protein ) [C]  -  Negative(-)
+   I24-356     TTF-1 ( Thyroid Transcription Factor-1 ) [C]  -  Negative(-) for tumor
+   I24-462     Napsin A [C]  -  Negative(-)
+   I24-354     P40 [C]  -  Negative(-) for tumor
+   I24-353     PD-L1(SP142) [C]  - PD-L1(SP142) immunohistochemistry (for non-small cell lung cancer (NSCLC)); 
+    Approximate number of viable tumor cells:≥50
+    Control evaluation:Acceptable
+     -Tumor cell (TC) staining assessment: 5%
+      Category: TC2 (TC≥5% and <50%)
+     -Tumor infitrating immune cell (IC) staining assessment: 5%
+      Category: IC2 (IC≥5% and <10%)
+
+<NOTE>
+  This process is performing using VENTANA Benchmark XT automated staining instrument. 
+
+
+   I24-352     PD-L1(SP263) [C]  - PD-L1 immunohistochemistry (SP263); 
+    Positive (Positive percentage of viable tumor cells: 5%)
+
+
+   I24-350     ALK D5F3 CDx [C]  -  Positive(+); 5%
+   SP24-25     Grocott's Metenamine Silver Stain(GMS) [H]  -  Positive(+) for fungal ball
+   SP24-26     Periodic Acid Schiff's Stain(PAS) [H]  -  Positive(+) for fungal ball
+
+
+---
+
+Filename: P01337742.txt
+【병리번호】S24-1960
+
+【확 인 자】공준석 / 공준석
+
+【 Gross  】
+
+#1: Right lower lobe. Received is a right lower lobe lobectomy specimen, measuring 11.5x11.0x9.0cm and weighing 299.5gm. On section, 8.7x7.0x5.5cm-sized ill defined, round, firm, gray to whitish tumor is noted. The tumor invades to visceral pleura. The tumor is 7cm apart from bronchial resection margin. Bronchial resection margin is grossly clear. Remaining parenchyma is grossly unremarkable. There is a 3.0x2.0cm-sized bulla. Bulla is 2.5cm apart from bronchial resection margin. Representative sections are embedded.
+<A; bronchial resection margin and lymph node, B~G; tumor, H; tumor cross section, I; bulla, J; normal>
+#2: Lymph node #7, #9, #11. Entirely embedded.
+
+** Frozen section diagnosis **
+1.  Bronchial resection margin ; No tumor involvement [설혜실]
+       Received is a lump of fresh soft tissue, measuring 1.4x0.9cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, right lower lobe, lobectomy:
+     1. Squamous cell carcinoma, moderately differentiatede
+             with 1) size of invasion;  8.7x7.0x5.5cm
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): absent 
+                    7) clear bronchial parenchymal resection margin
+        [pathologic stage: pT4]
+     2. Pulmonary bulla
+
+Lymph node, dissection:
+     No metastasis in all 12 lymph nodes
+     (peribronchial; 0/1, #7: 0/6, #9: 0/1, #11: 0/4)
+     [pathologic stage: pN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   SP24-112    Elastic Fiber Stain [C]  -  No involvement of visceral plerua
+
+---
+

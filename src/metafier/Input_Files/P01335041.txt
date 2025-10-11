@@ -1,0 +1,72 @@
+01335041 이정현
+【병리번호】S24-171
+
+【확 인 자】이승숙 / 이승숙
+
+【 Gross  】
+
+# Left upper lobe.  Received is a left upper lobectomy specimen of lung, measuring 22x15x6cm. On serial section, upper pole shows two separate lesions. One is a relatively well circumscribed pale solid tumor with fuzzy margin, measuring 2.8x2.0x2.4cm. It is 4cm apart from bronchial resection margin and 0.5cm apart from pleural surface. Separate from the tumor, another well circumscribed cavitary lesion filled with dark green material, measuring 2.0x1.7x2.0cm. It shows thick capsule. Between the two lesion, poorly circumscribed pneumonic consolidation is noted. Two lesions are about 1cm apart from each other. Remaining lung parenchyma is unremarkable. Several peribronchial lymph nodes are enlarged. Representative sections are embedded.
+<A; peribronchial lymph nodes, B; bronchial resection margin, CD; tumor one plane, G; tumor 옆 pneumonic consolidation + fungus cavity, J; tumor와 fungus 주변 consolidation, K; emphysematous area normal lung>
+# Lymph node. Entirely embedded.
+
+【확인결과】
+
+Lung, left upper lobe, lobectomy:
+     1. Invasive adenocarcinoma, solid predominant
+         (acinar: 40%, solid: 60%), grade 3
+            with 1) size of invasion; 2.8x2.0x2.4cm
+                       (total extent including lepidic pattern: 2.8x2.0x2.4cm)
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: absent
+                    5) perineural invasion: absent
+                    6) spread through air space(STAS): present
+                    7) clear bronchial resection margin
+        [pathologic stage: pT1c]
+     2. Fungal ball, favor aspergilloma (non-invasive)
+     3. Localized post-pneumonic fibrosis, between aspergilloma and cancer
+     4. Peripheral emphysema
+
+Lymph node, dissection:
+     No metastasis in all (seven) lymph nodes
+     (peribronchial; 0/4, #lymph node; 0/3)
+     [pathologic stage: pN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+
+*관련병리번호 :
+   I24-459     CDX2 [C]  -  Negative(-)
+   I24-460     CK7 ( Cytokeratin 7 ) [C]  -  Positive(+)
+   I24-355     P53 ( P53 Protein ) [C]  -  Positive(+) for tumor
+   I24-461     P63 ( P63 Protein ) [C]  -  Negative(-)
+   I24-356     TTF-1 ( Thyroid Transcription Factor-1 ) [C]  -  Negative(-) for tumor
+   I24-462     Napsin A [C]  -  Negative(-)
+   I24-354     P40 [C]  -  Negative(-) for tumor
+   I24-353     PD-L1(SP142) [C]  - PD-L1(SP142) immunohistochemistry (for non-small cell lung cancer (NSCLC)); 
+    Approximate number of viable tumor cells:≥50
+    Control evaluation:Acceptable
+     -Tumor cell (TC) staining assessment: 5%
+      Category: TC2 (TC≥5% and <50%)
+     -Tumor infitrating immune cell (IC) staining assessment: 5%
+      Category: IC2 (IC≥5% and <10%)
+
+<NOTE>
+  This process is performing using VENTANA Benchmark XT automated staining instrument. 
+
+
+   I24-352     PD-L1(SP263) [C]  - PD-L1 immunohistochemistry (SP263); 
+    Positive (Positive percentage of viable tumor cells: 5%)
+
+
+   I24-350     ALK D5F3 CDx [C]  -  Positive(+); 5%
+   SP24-25     Grocott's Metenamine Silver Stain(GMS) [H]  -  Positive(+) for fungal ball
+   SP24-26     Periodic Acid Schiff's Stain(PAS) [H]  -  Positive(+) for fungal ball

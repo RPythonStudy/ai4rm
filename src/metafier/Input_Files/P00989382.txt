@@ -1,0 +1,45 @@
+
+【병리번호】S22-11161
+
+【확 인 자】고재수 / 고재수
+
+【 Gross  】
+
+#1: Right lower lobe. Received is a wedge resection specimen, measuring6x3x3cm. It shows focal grayish white rubbery nodule. Resection margin is grossly clear. Total nodule is embedded. 
+#2: Lymph node #4, #7, #11.  Entirely embedded.
+
+** Frozen section diagnosis **
+1.  Right lower lobe nodule ; Adenocarcinoma [설혜실]
+       Received is a lump of fresh soft tissue, measuring 1.2cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, right lower lobe, thoracoscopic wedge resection of the RLL posterior basal segment:
+     1. Minimally invasive adenocarcinoma, nonmucinous
+             with 1) size of invasion; 0.3cm
+                       (total extent including lepidic pattern: 1.0cm)
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent
+                    4) vascular invasion: absent
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): absent
+                    7) clear parenchymal resection margin
+        [pathologic stage: pTmi]
+     2. No abnormal findings in the background lung
+
+Lymph node, dissection:
+     No metastasis in lymph nodes
+     (peribronchial; 0/0, #4: 0/3, #7: 0/2, #11: 0/2)
+     [pathologic stage: pN0]
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   I22-9902    ALK D5F3 CDx [A]  -  Negative(-)

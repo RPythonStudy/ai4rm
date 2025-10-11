@@ -1,0 +1,47 @@
+【병리번호】S14-6475
+
+【확 인 자】설혜실 / 고재수
+
+【 Gross  】
+
+# Right upper lobe. Received is a lung right upper lobectomy specimen, measuring 13.5x8.5x3cm and weighing 80gm.  On section, a 2.5x2cm-sized whitish tumor is identified.  It is 2cm apart from the bronchial resection margin and close to visceral pleura.  On serial section of the remaining parenchyma, a 1.2x0.8cm-sized black anthracotic pigmented nodule is identified.   Representative sections are embedded.
+<AB; 합하여 한단면, C/D; 다른 단면, E; remaining parenchyma, F; bronchial resection margin>
+# Lymph node 2, 4, 7.
+
+** Frozen section diagnosis **
+<Frozen> Received is a lymph node.  Entirely embedded.
+LN12 ; No tumor involvement [박선후]
+
+【확인결과】
+
+Lung, right upper lobe, lobectomy:
+     1. Invasive adenocarcinoma, lepidic predominant 
+       (lepidic: 85%, acinar:15%) 
+             with 1) tumor size; 2.5x2.0cm
+                    2) no involvement of visceral pleura (PL0)
+                    3) ly(-), n(-), v(-)
+                    4) clear bronchial resection margin
+      (pathologic stage: pT1b)
+     2. Anthracofibrosis with focal granulomatous inflammation and necrosis
+
+Lymph node, dissection:
+     No metastasis in all eight lymph nodes
+     (#2: 0/1, #4: 0/1, #7: 0/5, #12(Frozen): 0/1)
+     (pathologic stage: pN0)
+
+
+*관련병리번호 :
+   I14-6743    Alk1 ( Anaplastic Lymphoma Kinase1 ) [B]  -  Negative(-)
+   I14-6745    Ki-67 [B]  -  Positive(+), 10%
+   I14-6744    P53 ( P53 Protein ) [B]  -  A few positive cells
+   M14-1087    MTB & NTM real-time PCR [E]  - Lung, right upper lobe, lobectomy, MTB & NTM real-time PCR:
+
+     Negative(-) for MTB and NTM
+【검사방법】
+
+* 핵산 추출
+조직이나 세포에서 Biosewoom Real-Q MTB&NTM kit 내 DNA extraction resin buffer를 사용하여 DNA를 추출한다.
+-조직의 크기 : 1×1 cm 이상
+-병변분포 : 전체 면적의 80% 이상
+* Real-time PCR
+Biosewoom Real-Q MTB&NTM kit 내 각각의 probe와 primer를 사용하여 MTB(IS6110),NTM(16srRNA) 유전자를 증폭하고 반응 후 증폭 curve와 cycle threshold값을 통해 증폭 여부를 확인한다.

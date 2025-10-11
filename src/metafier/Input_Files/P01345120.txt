@@ -1,0 +1,48 @@
+
+【병리번호】S24-6512
+
+【확 인 자】설혜실 / 설혜실
+
+【 Gross  】
+
+# Right mid lobe.   Received is a right middle lobectomy specimen, measuring 15.5x12x4cm. On serial section, a 3x3x2.6cm sized well-demarcated round tumor is identified. It is 1.5cm apart from the bronchial resection margin and 0.3cm apart from the visceral pleura. Representative sections are embedded. 
+<A: bronchial resection margin and peribronchial lymph nodes, B~E: tumor representative secion, F/G/H: tumor, I: remaining parenchyme>
+# Lymph node #2, #7, #11. Entirely embedded.
+
+【확인결과】
+
+Lung, right middle lobe, lobectomy:
+     1. Carcinoid tumor (Typical carcinoid) 
+             with 1) size of invasion; 3.0x3.0x2.6cm
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent
+                    4) vascular invasion: present 
+                    5) perineural invasion: absent 
+                    6) clear bronchial resection margin
+        [pathologic stage: pT1c]
+     2. No abnormal findings in the background lung
+
+Lymph node, dissection:
+     No metastasis in 13 lymph nodes
+     (peribronchial; 0/2, #2: 0/6 , #7: 0/4, #11: 0/1)
+     [pathologic stage: pN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   I24-7475    CD34 [G]  -  Positive(+) in endothelial cells
+   I24-7468    CD56 [F]  -  Positive(+), diffuse strong
+   I24-7469    Chromogranin A [F]  -  Positive(+), focal weak
+   I24-7474    Ki-67 [F]  -  Positive(+), 1%
+   I24-7470    Synaptophysin [F]  -  Positive(+), weak
+   I24-7473    TTF-1 ( Thyroid Transcription Factor-1 ) [F]  -  Negative(-)
+   I24-7472    PAX8 [F]  -  Negative(-)
+   I24-7471    INSM1 [F]  -  Positive(+), focal

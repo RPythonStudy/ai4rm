@@ -1,0 +1,33 @@
+【병리번호】S15-3730
+
+【확 인 자】설혜실 / 고재수
+
+【 Gross  】
+
+# Right lower lobe.  Received is a wedge resection specimen, measuring 7.4x5.0x3.8cm and 25.2gm.  It was previously bisected due to frozen diagnosis.  On serial section, there is a 1.6x1.2cm-sized ill circumscribed vaguely whitish lesion beside the tissue defect (probably for the frozen diagnosis).  Resection margin is grossly clear, 0.3cm apart from the lesion.  Remaining parenchyma is grossly unremarkable.  Representative section is embedded.
+<A~C; 각각 다른단면, D; remaining>
+# Lymph node 7, 10.
+
+** Frozen section diagnosis **
+<Frozen #1> Received is a lump of fresh soft tissue, measuring 0.5x0.4cm.  Entirely embedded.
+   Right lower lobe mass-1 ; Adenocarcinom in situ vs Adenocarcinoma [설혜실]
+<Frozen #2> Received is a lump of fresh soft tissue, measuring 0.5x0.5cm.  Entirely embedded.
+   Right lower lobe mass-2 ; Benign [설혜실]
+<Frozen #3> Received is a lump of fresh soft tissue, measuring 0.4x0.2cm.  Entirely embedded.
+   Right lower lobe mass-3 ; Benign [설혜실]
+
+【확인결과】
+
+Lung, right lower lobe, wedge resection;
+     1. Adenocarcinoma in situ, non-mucinous 
+             with 1) tumor size; 0.6x0.6cm
+                    2) no involvement of visceral pleura (PL0)
+                    3) ly(-), n(-), v(-)
+                    4) clear bronchial resection margin
+     2. No abnormal findings in the background lung
+
+
+Lymph node, excision: 
+     No metastatsis in all seven lymph nodes node
+     (#7: 0/2, #10: 0/5)
+  

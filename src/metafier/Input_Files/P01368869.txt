@@ -1,0 +1,45 @@
+【병리번호】S24-11532
+
+【확 인 자】박선후 / 박선후
+
+【 Gross  】
+
+#7: Left lower lobe. Received is excised left lower lobe, measuring 16x7x4cm. It is previously transversely sectioned at the lower lateral part. The pleura is firm and fibrotic. Cut section reveals ill defined infiltrative granular, and gray lesion involving two third of specimen (measuring 12x3cm). Pleura involvement is not evaluable due to previous tissu fragmentation. Representative sections are embedded. 
+#1: Lymph node 4번. Entirely embedded.
+#2: Lymph node 5번. Entirely embedded.
+#3: Lymph node 6번. Entirely embedded.
+#4: Lymph node 7번. Entirely embedded.
+#5: Lymph node 8번. Entirely embedded.
+#6: Lymph node 9번. Entirely embedded.
+#8: Lymph node 11번. Entirely embedded.
+#9: Lymph node 12번. Entirely embedded.
+
+** Frozen section diagnosis **
+1.  Bronchial resection margin ; No tumor involvement [고재수]
+       Received is a lump of fresh soft tissue, measuring 1.5x1.5cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, left lower lobe, lobectomy:
+     1. Squamous cell carcinoma, moderately differentiated
+              with 1) size of invasion; 12x3cm
+                    2) involvement of visceral pleura : not evaluable
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): absent 
+                    7) clear bronchial parenchymal resection margin
+        [pathologic stage: pT4]
+     2. Pneumonic consolidation
+
+Lymph node, dissection:
+     No metastasis in 18 lymph nodes
+     (peribronchial;0/3, #4:0/3, #5:0/1, #6:0/1, #7:0/2, #8:0/2, #9:0/1, #11:0/3, #12:0/2)
+     [pathologic stage: pN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+

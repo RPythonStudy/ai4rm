@@ -1,0 +1,47 @@
+【병리번호】S24-3367
+
+【확 인 자】공준석 / 고재수
+
+【 Gross  】
+
+#1: Left upper lobe mass (frozen remnant). Received are two lumps of left upper lobe wedge resection specimen, measuring 5.0x2.4x1.0cm and 6.0x2.5x1.7cm. It is previously dissected due to frozen diagnosis. On section, there is an ill-defined nodular tumor, measuring 1.0x0.6x0.4cm. Representative sections are embedded.
+<1-1~1-4, MG1-1~1-8: near total embedded>
+#2: Left upper lobe segmentectomy mass. Received is a left upper lobe segmentectomy specimen, measuring 5.7x3.5x2.7cm. On section, there is no definite tumor-like lesion. Representative sections are embedded.
+<2-1~2-4, MG2-1~2-9: near total embedded>
+#3: Mediastinal fibrotic cyst. Received are multiple lumps of soft tissue, measuring 4.4x3.5x1.0cm in aggregate. Serially sectioned and representative sections are embedded.
+
+** Frozen section diagnosis **
+1. LUL ; No mass [고재수]
+        Received is a lump of fresh soft tissue, measuring 1.6x1.0cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, left upper lobe, wedge resection and segmentectomy (#1 and #2):
+     1. Minimally invasive adenocarcinoma, nonmucinous 
+        (lepidic: 70%, acinar: 30%)
+             with 1) size of invasion; 0.3cm in greatest dimension
+                       (total extent including lepidic pattern: 1.0x0.6x0.4cm)
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): absent 
+                    7) clear resection margin
+        [pathologic stage: pT1mi]
+     2. No abnormal findings in the background lung
+
+Tissue labeled "mediastinal fibrotic cyst", excision (#3):
+     Consistent with thymic cyst
+
+
+<Note> 본 증례는 과내 자문을 거쳐 진단되었습니다. (자문의: 고재수)
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)

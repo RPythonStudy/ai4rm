@@ -1,0 +1,47 @@
+
+【병리번호】S24-3784
+
+【확 인 자】설혜실 / 설혜실
+
+【 Gross  】
+
+# Left upper lobe. Received is a left upper lobectomy specimen, measuring 17x10x4cm. On serial section, a 3.7x1.5x4cm-sized ill defined whitish tumor is identified. It is 0.5cm apart from the bronchial resection margin. Representative sections are embedded.
+<AB/CD/E/F/G; tumor, H; bronchial resection margin. I; remaining parenchyme>
+# Lymph node #7, #9, #10, #11. Entirely embedded.
+
+** Frozen section diagnosis **
+1.  Bronchial resection margin ; No tumor involvement [고재수]
+       Received is a lump of fresh soft tissue, measuring 0.5x0.5cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, left upper lobe, lobectomy:
+     1. Invasive adenocarcinoma, acinar predominant
+         (acinar: 90%, lepidic: 10%), grade 2
+             with 1) size of invasion; 3.1x1.5cm
+                       (total extent including lepidic pattern: 3.1x2cm)
+                    2) no involvement of visceral pleura (PL0) (See NOTE)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): absent 
+                    7) clear bronchial resection margin
+        [pathologic stage: pT2a]
+     2. No abnormal findings in the background lung
+
+Lymph node, dissection:
+     No metastasis in 8 lymph nodes
+     (peribronchial; 0/1, #7: 0/1, #9: 0/2, #10: 0/2, #11: 0/2)
+     [pathologic stage: pN0]
+
+<NOTE> 종양에 인접한 흉막이 이전 수술에 의한 유착 등으로 손상되어 있어 흉막 침윤여부를 정확하게 판단하기 어려우나,
+평가가 가능한 부분에 한해서는 흉막 침윤이 관찰되지 않습니다. 
+
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   SP24-262    Elastic Fiber Stain [E]  -  No visceral pleural invasion
+   SP24-263    Elastic Fiber Stain [F]  -  No visceral pleural invasion

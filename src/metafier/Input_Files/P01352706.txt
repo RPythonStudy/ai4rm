@@ -1,0 +1,51 @@
+【병리번호】S24-7268
+
+【확 인 자】이승숙 / 이승숙
+
+【 Gross  】
+
+#1: Left lower lobe. Received is a left lower lobe lobectomy specimen of lung, measuring 11.5x14x6cm and 139gm. Bronchial resection margin is grossly clear. There is a relatively well circumscribed tannish yellow solid lobulating tumor with anthracotic pigments, measuring 1.75x1.3x1.0cm. It is about 4cm apart from bronchial resection margin. It does not involve pleura. It is 0.1cm apart from pleural surface. Entire tumor is embedded. Backgroud lung is unremarkable. 
+<A; peribronchial lymph nodes, B~D; tumor serial sections, E; normal>
+#2: Lymph node #4, #5, #7, #9, #10. Entirely embedded.
+
+   ** Frozen section diagnosis **
+ Bronchial resection margin ; No tumor involvement [박선후]
+       Received is a lump of fresh soft tissue, measuring 1.3x0cm. Entirely embedded.
+
+【확인결과】
+
+Lung, left lower lobe, lobectomy:
+     1. Invasive adenocarcinoma, acinar predominant 
+         (acinar; 70%, micropapillary; 30%), grade 3
+             with 1) size of invasion; 1.75x1.3x1.0cm
+                       (total extent including lepidic pattern: 1.75x1.3x1.0cm)
+                     2) no involvement of visceral pleura (PL0)
+                     3) lymphatic invasion: absent 
+                     4) vascular invasion: absent 
+                     5) perineural invasion: absent
+                     6) spread through air space(STAS): absent
+                     7) clear bronchial resection margin
+
+     2. Invasive adenocarcinoma, acinar predominant 
+         (acinar: 70%, lepidic: 30%), grade 2
+             with 1) size of invasion; 0.2x0.1cm
+                       (total extent including lepidic pattern: 0.3x0.2cm)
+                     2) no involvement of visceral pleura (PL0)
+
+     3. No abnormal findings in the background lung
+
+Lymph node, dissection:
+     No metastasis in all (15) lymph nodes
+     (peribronchial; 0/1, #4: 0/4, #5: 0/3, #7: 0/5, #9: 0/1, #10: 0/1)
+     [pathologic stage: pN0]
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+

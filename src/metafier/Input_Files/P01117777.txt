@@ -1,0 +1,72 @@
+【병리번호】S13-13939
+
+【확 인 자】박선후 / 고재수
+
+【 Gross  】
+
+# Left upper lobe.  Received is left upper lobe lobectomy specimen, measuring 15x11x8cm, 246gm. It is previously bisected.  There is a huge well demarcated not encapsulated mass, measuring 5x4x5.5cm.  The cut surface of the lesion is yellow tan, soft.  Bronchial resection margin is 3cm apart from the tumor.  Pleura involvement is suspicious.  Hilar lymph node dissected.  Representative sections are embedded.
+<C~G; tumor 한단면, HI; pleura와의 관계, J; bronchus와의 관계, K; normal>
+# Left adrenal.  Received is an enlarged adrenal tissue, measuring 6x3.0x1.5cm.  A white firm fibrotic mass, measuring 1.5x1.5cm, is noted at the medullar of adrenal gland.  
+# Lymph node 5, 7, 10, 11.  
+
+** Frozen section diagnosis **
+1. RM ; No tumor involvement [명재경]
+2. Lt. adrenal ; Tumor positive [명재경]
+
+【확인결과】
+
+Lung, left upper lobe, lobectomy:
+   1. Large cell carcinoma 
+         with 1) tumor size; 5.5x5.0x4.0cm
+                2) involvement of visceral pleura (PL1)
+                3) ly(-), n(-), v(+)
+                4) clear bronchial resection margin
+     (pathologic stage: pT2b)
+   2. No specific abnormal findings in the remaining lung
+
+Lymph node, dissection:
+     No metastasis in all 16 lymph nodes
+     (peribronchial: 0/4, #5; 0/4, #7; 0/1, #10; 0/5, #11; 0/2)
+     (pathologic stage: pN0)
+
+Adrenal, left, adrenalectomy;
+     Metastatic large cell carcinoma
+
+*관련병리번호 :
+   I13-10836   Alk1 ( Anaplastic Lymphoma Kinase1 ) [C]  -  Negative(-)
+   I13-10841   CD34 [ADRENAL2]  -  Negative(-)
+   I13-10840   Chromogranin A [ADRENAL2]  -  Negative(-)
+   I13-10838   CK20 ( Cytokeratin 20 ) [C]  -  Negative(-)
+   I13-10834   HMB45 [C]  -  Negative(-)
+   I13-10839   S100 ( S100 protein ) [ADRENAL2]  -  Negative(-)
+   I13-10835   TTF-1 ( Thyroid Transcription Factor-1 ) [C]  -  Negative(-)
+   I13-10837   VT(Vimentin) [C]  -  Negative(-)
+   M13-2406    EGFR 염기서열검사(병리) [C]  - Lung, excision, EGFR Mutation Analysis :
+
+      EGFR gene Exon18,19,20,21을 분석한 결과
+      발견된  mutation 이 없습니다.
+
+Note> 
+1. EGFR 유전자 변이는 약 25~50 %의 폐선암종에서 보인다. 주로 Exon 18 ~21에 걸쳐 잘 나타나며, 그 중 Exon19 유전자 Deletion 이 약 45 % 로 빈도수가 가장 높고, Exon21 nucleotide 2573의 point mutation (CTG>CGG, L858R)이 약 41%로 다발한다. 
+이외 Exon 18, 20 의 유전자 변이가 알려져 있다. 
+2. EGFR 유전자 변이의 형태에 따라  EGFR-targeted therapy에서 약제 감수성 또는 약제 저항성을 유발하는 것으로 보고되고 있다.
+
+
+참고 문헌>
+1. Chen YM. J Chin Med Assoc. 2013 ;76(5):249-57 
+2. Hirsch FR et al. J Thorac Oncol. 2013;8(3):373-84. 
+3. Langer CJ.P & T. 2011;36:263-279.
+4. Okamoto I, Mitsudomi T, Nakagawa K, Fukuoka M.Ther Adv Med Oncol. 2010;2(5):301-307.
+【검사방법】
+ 
+* 핵산추출
+조직이나 세포에서 QIAGEN DNA extraction kit column을 사용하여 genomic DNA를 추출한다.
+-조직의 크기 : 1×1 cm 이상
+-종양분포 : 전체 면적의 80% 이상
+* PCR
+EGFR gene exon18,19,20,21부위를 Sequencing 용으로 증폭한다.
+* Sequencing
+Biotage사의 PyroMark ID를 이용하여 EGFR gene exon18,19,20,21의 Point mutation 및 Deletion 유무를 분석한다.
+   
+   SP13-1378   Elastic Fiber Stain [H]  -  Involvement of visceral pleura
+   SP13-1377   Masson's Trichrome Stain [H]  -  Involvement of visceral pleura

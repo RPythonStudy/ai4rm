@@ -1,0 +1,10 @@
+이 텍스트는 여러 명의 병리 리포트 결과이다. 각 리포트의 첫 줄에는 해당 리포트의 파일명이 포함되어 있다. 
+각 결과에서 **파일명**, 병리 번호, resection 방법, Cell type, Size, T stage, N stage, Metastatic LN 갯수 , 전체 LN 갯수의 값을 읽어서 
+다음과 같은 **표 형식**으로 출력해 주세요. 
+예시: 
+
+| Filename | Patho Number | Resection Method | Cell Type | Size | T Stage | N Stage |Meta LN| Total LN|
+|----------|--------------|------------------|-----------|------|---------|---------|---|----|
+| report_1.txt | 12345        | Biopsy           | Adeno     | 1.5cm| T1      | N0      | 1 | 5 |
+
+출력 형식에는 내가 지정한 컬럼만 포함하고, 마크다운 형식의 표로 출력해주세요

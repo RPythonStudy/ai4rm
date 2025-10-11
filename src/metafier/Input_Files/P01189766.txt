@@ -1,0 +1,38 @@
+【병리번호】S17-1926
+
+【확 인 자】명재경 / 고재수
+
+【 Gross  】
+
+#1 Left lung.  Received specimen is left pneumonectomy specimen, measuring 25x18x12cm. Outer surface shows grossly unremarkable.  Cross section reveals ill defined peri and endobroncial tumorous lesion in left lower lobe bronchus, measuring 2.0x1.0cm.  Distal part of left lower lobe bronchus shows consolidation in lung.  This area measures 4.0x3.0cm.  Bronchial resection margin shows grossly unremarkable. The tumorous lesion, it is 1.0cm apart from bronchial resection margin.  Representative sections are embedded.
+<A; bronchial resection margin, B/C; tumor, D~F; 한단면, G; normal>
+# Lymph node 4, 5, 6, 7, 9, 10, 12.
+
+** Frozen section diagnosis **
+<Frozen #1> Received is a lymph node.  Entirely embedded.
+   Lymph node, #4 ; No tumor involvement (0/1) [고재수]
+<Frozen #2> Received is a lump of fresh soft tissue, measuring 0.7x0.6cm.  Entirely embedded.
+   Resection margin ; No tumor involvement [고재수]
+
+【확인결과】
+
+Lung, left, pneumonectomy:
+     Squamous cell carcinoma, moderately differentiated, left lower lobe
+            with  1) tumor size; 2.0x1.0cm 
+                    2) ly(-), n(-), v(-)
+                    3) direct invasion to left lower lobe lobar bronchus 
+                    4) direct invasion to tunica adventitia of pulmonary artery
+                    5) no involvement of visceral pleura (PL0)
+                    6) clear bronchial resection margin
+        (pathologic stage: pT1a)
+    
+
+Lymph node, regional, dissection:
+     No metastasis in all 26 lymph nodes
+     (peribronchial; 0/6, #4: 0/2, #5: 0/6, #6: 0/2, #7: 0/4, #9: 0/1, #10: 0/2, #12: 0/2, #4(frozen #1): 0/1)
+     (pathologic stage: pN0)
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura

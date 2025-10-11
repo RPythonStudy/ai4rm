@@ -1,0 +1,53 @@
+【병리번호】S24-6606
+
+【확 인 자】박선후 / 박선후
+
+【 Gross  】
+
+#1: Left lower lobe. Received is left lower lung, measuring 18x10x6cm. It is previously sectioned. Probing along the bronchial tree reveals bronchial obstructive lesion. It is 5.0cm apart from the bronchial resection margin. Cut section reveals yellow, partly solid and partly necrotic, lobulating and not encapsulated mass, measuring 6x4x5cm. It is 4.5cm apart from the bronchial resection margin. The lesion extends to pleura. Remaining parenchyme shows inflammatory change. Pleura is diffusely thickened. Representative sections are embedded. <A: lymph node, B-F: normal, GH: normal
+#2: Lymph node #5, #7, #9, #10, #11, #12. Entirely embedded.
+
+** Frozen section diagnosis **
+1.  Bronchial resection margin ; No tumor involvement [고재수]
+       Received is a lump of fresh soft tissue, measuring 1.5cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, left lower lobe, lobectomy:
+     Large cell carcinoma
+             with 1) size of invasion; 6x4x5cm
+                    2) tumor invasion to the pleural surface  (PL1)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: present
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): present
+                    7) clear bronchial resection margin
+        [pathologic stage: pT3]
+     2. No abnormal findings in the background lung
+
+Lymph node, dissection:
+     Metastatic carcinoma in three out of 22 lymph nodes
+     (peribronchial;0/1, #5:0/2, #7:0/5, #9:0/2, #10:0/1, #11:3/10, #12:0/1)
+     (with extranodal extension; #11)
+     [pathologic stage: pN1]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   I24-7554    P63 ( P63 Protein ) [B]  -  Positive(+), focal
+   I24-7555    TTF-1 ( Thyroid Transcription Factor-1 ) [B]  -  Negative(-)
+   I24-7552    Napsin A [B]  -  Negative(-)
+   I24-7553    P40 [B]  -  Negative(-)
+   M24-2627    EBV 동소교잡반응 [B]  - 【검사결과】
+  - EBV in situ hybridization : Negative
+  
+
+   SP24-468    Elastic Fiber Stain [B]  - Tumor invades beyond the elastic layer 

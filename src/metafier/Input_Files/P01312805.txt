@@ -1,0 +1,47 @@
+【병리번호】S24-10403
+
+【확 인 자】박선후 / 박선후
+
+【 Gross  】
+
+#1: Right upper lobe mass. Received is wedge resected lung, measuring 8x3x2cm. It is previously sectioned for frozen diagnosis. Cut section reveals an ill defined white tan and granular infiltrative mass containing diffuse anthracotic pigmentation. It measures 3.2x2.5cm. Pulmonary resection margin is 0.7cm apart from the lesion. Pleural involvement is suspicious. Representative sections are embedded.
+#2: Right upper lobe segment. Received is wedge resected lung, measuring 6x3x2cm. Serial section reveals no gross abnormality. Representative sections are embedded.
+#3: 2번 lymph node. Entirely embedded.
+#4: 4번 lymph node. Entirely embedded.
+#5: 7번 lymph node. Entirely embedded.
+
+** Frozen section diagnosis **
+1.  Lung, right upper lobe mass ; Non-small cell carcinoma [이승숙]
+       Received is a lump of fresh soft tissue, measuring 1.4x1.0cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, right upper lobe, wedge resection and segmentectomy:
+     1. Invasive adenocarcinoma, acinar predominant
+         (acinar(cribriform):50%, papillary:40%,lepidic:10%), grade 2
+             with 1) size of invasion; 1.8x1.2cm
+                       (total extent including lepidic pattern:2.4x1.3cm)
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent present
+                    4) vascular invasion: absent present
+                    5) perineural invasion: absent present
+                    6) spread through air space(STAS): absent 
+                    7) clear parenchymal resection margin
+        [pathologic stage: pT1b]
+     2. No abnormal findings in the background lung
+
+Lymph node, dissection:
+     No metastasis in 26 lymph nodes
+     (peribronchial;0/2, #2:0/4, #4:0/4, #7:0/18)
+     [pathologic stage: pN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)

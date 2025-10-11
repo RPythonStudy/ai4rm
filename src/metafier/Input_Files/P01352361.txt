@@ -1,0 +1,40 @@
+【병리번호】S24-10382
+
+【확 인 자】설혜실 / 설혜실
+
+【 Gross  】
+
+# Left lower lobe. Received is a lung left lower lobe lobectomy specimen, measuring 14x11x5cm. On serial section, about 2.1x1.2x1.5cm-sized whitish tumor is identified. It is very close to visceral pleura and 2cm apart from the bronchial resection margin. Representative sections are embedded.
+<A~D; tumor, E; remaining parenchyme, F; bronchial resection margin>
+# Lymph node #4, #5, #6, #7, #9, #11, #12. Entirely embedded.
+
+** Frozen section diagnosis **
+1.  Bronchial resection margin ; No tumor involvement [공준석]
+       Received is a lump of fresh soft tissue, measuring 2x1cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, left lower lobe, lobectomy:
+     1. Invasive adenocarcinoma, papillary predominant
+         (acinar: 20%, papillary: 60%, lepidic: 20%), grade 2
+             with 1) size of invasion; 1.8x1.2cm
+                       (total extent including lepidic pattern: 2x1.2cm)
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): absent 
+                    7) clear bronchial resection margin
+        [pathologic stage: pT1b]
+     2. No abnormal findings in the background lung
+
+Lymph node, dissection:
+     No metastasis in 16 lymph nodes
+     (#4: 0/2, #5: 0/5, #6: 0/2, #7: 0/3, #9: 0/1, #11: 0/2, #12: 0/1)
+     [pathologic stage: pN0]
+
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)

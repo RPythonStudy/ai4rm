@@ -1,0 +1,37 @@
+【병리번호】S17-4150
+
+【확 인 자】설혜실 / 고재수
+
+【 Gross  】
+
+# Right upper lobe.  Received is a right upper lobectomy specimen, measuring 16x11x4cm.  On serial section, a 2.5x2.4x1.5cm-sized whitish tumor is identified.  It is 1cm and 1.5cm apart from the bronchial resection margin and visceral pleura.  The remaining parenchyma shows emphysematous change.  Representative sections are embedded.
+<A; bronchial resection margin, B~E; tumor, F; tumor 에서 가까운 visceral pleura, 
+G, H; remaining parenchyme> 
+# Lymph node 2, 7.
+
+【확인결과】
+
+Lung, right upper lobe, lobectomy:
+     1. Squamous cell carcinoma, moderately differentiated
+             with 1) tumor size; 2.5x2.4x1.5cm
+                    2) no involvement of visceral pleura (PL0)
+                    3) ly(-), n(-), v(-)
+                    4) clear bronchial resection margin
+       (pathologic stage: pT1b)
+     2. Bullae and emphysematous change
+
+Lymph node, dissection:
+     No metastasis in all 12 lymph nodes
+     (peribronchial; 0/1, #2: 0/7, #7: 0/4)
+     (pathologic stage: pN0)
+
+
+
+*관련병리번호 :
+   I17-3735    Alk1 ( Anaplastic Lymphoma Kinase1 ) [E]  -  Negative(-)
+   I17-3736    CK5/6 ( Cytokeratin 5/6 ) [E]  -  Positive(+)
+   I17-3740    Ki-67 [E]  -  Positive(+), 50%
+   I17-3738    P53 ( P53 Protein ) [E]  -  Negative(-)
+   I17-3739    TTF-1 ( Thyroid Transcription Factor-1 ) [E]  -  Negative(-)
+   I17-3737    p40 [E]  -  Positive(+), weak
+   SP17-346    Elastic Fiber Stain [E]  -  No visceral pleural invasion

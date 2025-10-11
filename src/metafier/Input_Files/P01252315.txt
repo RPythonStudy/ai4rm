@@ -1,0 +1,39 @@
+【병리번호】S19-13416
+
+【확 인 자】명재경 / 명재경
+
+【 Gross  】
+
+#1: Left upper lobe.  Received specimen is left upper lobectomy specimen, measuring 17x12x4.0cm.  The pleura is diffusely pigmented by anthracotic pigment and there is a dimpling and in upper side.  On  section along the bronchus, a 3.9x3.8x3.5cm-sized well demarcated round satellite gray to whitish tumor is noted.  The tumor is related with bronchial mucosa and 1.0cm apart from bronchial resection margin.  The lung tissue around the tumor is consolidated.  Remaining parenchyma is grossly unrearkable.  Bronchial resection margin is grossly clear.  Representative sections are embedded.
+<A; peribronchial lymph node, B; bronchus resection margin, CD; 합쳐서 한단면, EF; 합쳐서 또다른 단면, GH; pleura 와이 관계, I; normal> 
+#2: Lymph node #5, #6, #7, #9, #10, #11.  Entirely embedded.
+
+** Frozen section diagnosis **
+1. RM ; No tumor involvement [명재경]
+       Received is a lump of fresh soft tissue, measuring cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, left upper lobe, lobectomy:
+         Invasive adenocarcinoma, l papillary predominant 
+         (acinar: 10%, papillary: 80%, lepidic: 5%, micropapillary:5%)
+             with 1) size of invasion; 3.7x3.8x3.5cm
+                       (total extent including lepidic pattern: 3.9cm)
+                    2) involvement of visceral pleura (PL1)
+                    3) lymphatic invasion: absent
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent 
+                    6) clear bronchial resection margin
+        [pathologic stage: pT2a]
+     2. No abnormal findings in the background lung
+
+Lymph node, dissection:
+     No metastasis in lymph nodes 
+     (peribronchial; 0/2, #5: 0/2, #6: 0/3, #7: 0/1, #9: 0/0, #10: 0/1, #11:0/1)
+     [pathologic stage: pN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura

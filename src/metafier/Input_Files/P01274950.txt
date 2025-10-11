@@ -1,0 +1,67 @@
+
+【병리번호】S24-3021
+
+【확 인 자】고재수 / 고재수
+
+【 Gross  】
+
+# Right lower lobe. Received is a RLL lobectomy specimen, measuring 11x112x5cm. Pleural surface shows 5x5cm thickened fibrotic area. On section, there is a 5.5x5cm graysh white granular friable tumor at peripheral area. The tumor is in continuity with pleural lesion. Remaining lung shows pneumonic consolidation. Bronchial resection margin is 1.5cm apart from the tumor. Representative sections are embedded. 
+# Parietal pleural. Received is a 4x4x1cm plate shape fibro-tumorous tissue. Representative sections are embedded. 
+# Lymph node #2, #4, #7, #8, #10, #11, #12. Entirely embedded.
+
+** Frozen section diagnosis **
+1.  Right lower lobe resection margin ; No tumor involvement [설혜실]
+       Received is a lump of fresh soft tissue, measuring 1.5cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, right lower lobe, lobectomy:
+     1. Squamous cell carcinoma, poorly differentiated
+            with 1) size of invasion; 5.5x5cm
+                       (total extent including lepidic pattern: 5.5cm)
+                    2) involvement of parietal pleura and chest wall (PL3)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: present
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): present
+                    7) clear bronchial resection margin
+        [pathologic stage: pT3]
+     2. Obstructive and organizing pneumonia in the background lung
+
+Tissue labeled "palietal pleural", excision:
+     Tumor positive involving whole thickness
+
+Lymph node, dissection:
+     No metastasis in lymph nodes
+     (peribronchial; 0/2, #2: 0/11, #4: 0/12, #7: 0/8, #8: 0/2, #10: 0/2, #11: 0/3, #12: 0/5)
+     [pathologic stage: pN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   I24-3402    Ki-67 [F]  -  70%(high)
+   I24-3399    P63 ( P63 Protein ) [F]  -  Positive(+)
+   I24-3401    TTF-1 ( Thyroid Transcription Factor-1 ) [F]  -  Negative(-)
+   I24-3400    Napsin A [F]  -  Negative(-)
+   I24-3398    P40 [F]  -  Positive(+)
+   I24-3404    PD-L1(SP263) [F]  - 【검사결과】
+Lung, excision :
+
+PD-L1 immunohistochemistry (SP263); 
+
+    Positive (Positive percentage of viable tumor cells: 10%)
+
+
+
+   I24-3397    ALK D5F3 CDx [F]  -  Negative(-)
+   SP24-206    Diastase Periodic Acid Schiff's Stain(D-PAS) [F]  -  Positive(focal)
+   SP24-208    Elastic Fiber Stain [F]  -  Negative(-)
+   SP24-207    Mucicarmine Stain [F]  -  Positive(focal)

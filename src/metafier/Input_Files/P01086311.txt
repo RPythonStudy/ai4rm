@@ -1,0 +1,37 @@
+【병리번호】S12-7517
+
+【확 인 자】이승숙 / 고재수
+
+【 Gross  】
+
+# Left lower lobe.  Received is a left lower lobectomy specimen, measuring 15x9x9cm. On section, a relatively well circumscribed whitish tan granular solid tumor, measuring 4.5x4.0cm, is noted.  It extends to main bronchus and peribronchial lymph nodes.  Bronchial resection margin is grossly clear but very close to tumor (safety margin; 0.1cm).  The distal bronchioles are dilated and contains mucus. Remaining parenchyma is consolidated.  Representative sections are embedded.
+<A; peribronchial LN, B~E;tumor 한단면, F~H;tumor 다른단면, I;main bronchus 와 tumor와의 관계, J;bronchiole, K;normal>
+# Lymph node 4, 5, 7, 9, 10 and 12.
+# 12번, upper lobe.
+
+** Frozen section diagnosis **
+1. Lymph node #9 ; No tumor involvement (0/2) [고재수]
+2. Lymph node #7 ; No tumor involvement (0/1) [고재수]
+3. Right upper lobe resection margin ; No tumor involvement [고재수]
+4. Left main bronchus resection margin ; No tumor involvement [고재수]
+
+
+
+
+【확인결과】
+
+Lung, left lower lobe, lobectomy:
+     Squamous cell carcinoma, moderately differentiated
+         with 1) tumor size; 4.5x4.0cm
+                2) extension to peribronchial soft tissue
+                3) no involvement of visceral pleura (PL0)
+                4) ly(+), n(+), v(-)
+                5) clear bronchial resection margin
+     <pathologic stage: pT2a>
+
+Lymph node, dissection:
+     Metastatic carcinoma in two out of 34 lymph nodes
+       (peribronchial; 2/6 (direct invasion), #4: 0/1, #5: 0/2, #7: 0/11, #9: 0/3, 
+        #10: 0/5, #12: 0/1, #12 upper; 0/1, Fro#1: 0/2, Fro#2; 0/1)
+     <pathologic stage: pN1>
+

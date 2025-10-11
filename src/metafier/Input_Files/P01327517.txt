@@ -1,0 +1,53 @@
+【병리번호】S24-10622
+
+【확 인 자】고재수 / 고재수
+
+【 Gross  】
+
+#1: Left upper lobe. Received is a LUL lobectomy specimen, measuring 28x10x3cm. Apical pleural surface shows focal fibrotic area. On serial section, there is a 2.5x2.5cm grayish white glistening rubbery vaguely multinodular tumor at peripheral area. Adjacent visceral pleural invasion is suspected. Remaining lung shows focal yellow calcified lesion near the tumor and bullous change. Bronchial resection margin is 5.5cm apart from the tumor. Representative sections are embedded. 
+#2: Lymph node #4, #5, #7, #12. Entirely embedded. 
+
+** Frozen section diagnosis **
+1.  Resection margin ; No tumor involvement [공준석]
+       Received is a lump of fresh soft tissue, measuring 1cm.  Entirely embedded.
+2.  Resection margin ; No tumor involvement [공준석]
+       Received is a lump of fresh soft tissue, measuring 1cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, left upper lobe, lobectomy:
+     1. Small cell carcinoma
+             with 1) size of invasion; 2.5x2.5cm
+                    2) involvement of visceral pleura (PL1)
+                    3) separate tumor nodules in same lobe
+                    4) lymphatic invasion: present
+                    5) vascular invasion: present
+                    6) perineural invasion: absent 
+                    7) spread through air space(STAS): present
+                    8) clear bronchial resection margin
+        [pathologic stage: pT3]
+     2. 1) Dystrophic calcification with fibrosis, consistent with old Mycobacterial infection
+         2) Bullae in the background lung
+
+Lymph node, dissection:
+     Metastatic carcinoma in 2 out of 14 lymph nodes
+     (peribronchial; 2/4, #4: 0/2, #5: 0/2, #7: 0/1, #12: 0/5)
+     (with extranodal extension)
+      [pathologic stage: pN1]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   I24-11862   CD56 [F]  -  Positive(diffuse)
+   I24-11865   Ki-67 [F]  - 70%
+   I24-11863   P63 ( P63 Protein ) [F]  -  Negative(-)
+   I24-11864   TTF-1 ( Thyroid Transcription Factor-1 ) [F]  -  Positive(partial)
+   SP24-579    Elastic Fiber Stain [F]  - Involvement of visceral pleura

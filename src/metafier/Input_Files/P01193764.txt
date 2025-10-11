@@ -1,0 +1,34 @@
+【병리번호】S17-4855
+
+【확 인 자】이승숙 / 고재수
+
+【 Gross  】
+
+#1 Left pneumonectomy.  Received is a left pneumonectomy specimen, meassuring 23x12x5cm and 426gm.  Subpleural parenchyma of left upper lobe shows a relatively well demarcated tannish gray solid tumor measuring 5.0x4.3x3.0cm.  It is very close to thickened parietal pleura with suspicious invasion.  The tumor is not directly connected with main bronchus.  The tumor is about 4cm apart from bronchial resection margin. Peribronchial lymph nodes are enlarged with tumor invasion. Bronchial resection margin is clear.
+  <G: pleural invasion, J: LLL>
+# Lymph node 4, 5, 6, 7, 9, 10, 11, 12.
+ 
+
+** Frozen section diagnosis **
+<Frozen> Received are is lymph node s.  Entirely embedded.
+   Lymph node #7; No tumor involvement [이보인]
+
+【확인결과】
+
+Lung, left, pneumonectomy:
+   Squamous cell carcinoma, moderately differentiated, left upper lobe
+       with  1) tumor size; 2.4x2.0cm
+               2) involvement of parietal pleura (PL3)
+               3) no involvement of main bronchus
+               4) no involvement of left lower lobe
+               5) ly(-), n(-), v(-)
+               6) invasion to major vessel (-)
+               7) clear bronchial resection margin
+
+Lymph node, peribronchial and regional node dissection:
+   Metastatic squamous cell carcinoma in two out of 31 lymph nodes
+    (peribronchial; 2/6, #4: 0/1, #5: 0/4, #6: 0/2, #7: 0/5, #9: 0/1, #10: 0/4, 
+     #11: 0/6, #12: 0/1, #7(frozen): 0/1)
+
+
+

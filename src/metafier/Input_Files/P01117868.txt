@@ -1,0 +1,59 @@
+【병리번호】S13-13839
+
+【확 인 자】이승숙 / 고재수
+
+【 Gross  】
+
+# Received is a left pneumonectomy specimen, measuring 20x9x7cm-sized left upper lobe with 10x8x4cm-sized left lower lobe, and weighing 610gm in total.  On opening along the bronchus, a 6.8x5x6cm-sized well circumscribed grayish and partly tan, partly hemorrhagic, round, firm tumor is noted at left upper lobe.  It obstructs bronchus and 2.5cm apart from bronchial resection margin.  Representative sections are embedded.
+<A; bronchial RM, B; peribronchial LN, C~G; tumor one plane, HI; visceral pleura, JK; tumor, L; LLL, M; LUL>
+#1. Lymph node 5.         #2. Lymph node 6.        #3. Lymph node 7.        #4. Lymph node 9.
+
+** Frozen section diagnosis **
+1. Lymph node 7 ; tumor positive [박선후]
+2. Broncheal resection margin ; no tumor [박선후]
+
+【확인결과】
+
+Lung, left, pneumonectomy: 
+
+   1. Sarcomatoid carcinoma (pleomprphic carcinoma), left upper lobe <See NOTE-1>
+       with  1) tumor size; 6.8x6.0x5.0cm
+               2) no involvement of main bronchus
+               3) ly(+), n(-), v(-)
+               4) no involvement of visceral pleura (P0)
+               5) clear bronchial resection margin   
+     (pathologic stage: pT2b)
+   2. No specific non-neoplastic abnormal findings in the remaining lung
+
+Lymph node, regional, dissection:
+     Metastasis in six out of 26 lymph nodes <See NOTE-2>
+     (peribronchial; 3/7, LN5; 1/10, LN6; 0/3, LN7; 1/1, LN9; 0/4, LN7(frozen); 1/1)
+     (pathologic stage: pN2)
+
+<NOTE>
+1. 종양의 구성:
+   * 본 환자의 종양은 하나의 종괴 내에 두 종류의 악성세포 성분이 공존하는 형태입니다.
+      Mucin을 함유하는 adenocarcinoma(10%)와 poorly differentiated round cell sarcoma(90%)로
+     구성되며, 두 성분 간의 경계가 지워지는 편입니다.
+   * 면역염색 및 특수염색 결과,
+       adenocarcinoma component : CK(+), CK7(+), CK20(-), TTF-1(+), CK5/6(focal), mucicarmin(+)
+                                                        vimentin(-), desmin(-), ALK(+, weak)
+       poorly differentiated round cell: CK(-), CK7(-), CK20(-), TTF-1(-), CK5/6(-), mucicarmin(-)
+                                                           vimentin(+), desmin(-), ALK(+, weak)
+
+2. 림프절 전이 양상: 
+   * peribronchial lymph node metastasis(3/7)은 adenocarcinoma component의 전이이며,
+   * regional lymph node metastasis (3/19)는 poorly differentiated round cell의 전이입니다.
+
+
+
+*관련병리번호 :
+   I13-10954   Alk1 ( Anaplastic Lymphoma Kinase1 ) [I]  -  Weak positive(+) in both compenents
+   I13-10960   CK  ( Cytokeratin  Pan ) [I]  -  Positive(+) for only carcinoma component
+   I13-10959   CK5/6 ( Cytokeratin 5/6 ) [I]  -  Focally positive for carcinoma area
+   I13-10958   CK7 ( Cytokeratin 7 ) [I]  -  Positive(+) for carcnoma, Negative for P/D 
+   I13-10953   CK20 ( Cytokeratin 20 ) [I]  -  Negative(-) for both components
+   I13-10955   Desmin [I]  -  Negative(-) for both components
+   I13-10957   TTF-1 ( Thyroid Transcription Factor-1 ) [I]  -  Positive(+) for only carcinoma area
+   I13-10956   VT(Vimentin) [I]  -  Partly positive(+) for poorly differentiated area
+   SP13-1384   Mucicarmine Stain [F]  -  Positive(+) for carcinoma, Negati

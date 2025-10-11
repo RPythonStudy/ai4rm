@@ -1,0 +1,37 @@
+
+【병리번호】S20-2581
+
+【확 인 자】공준석 / 고재수
+
+【 Gross  】
+
+# Right lower lobe superior segment.  Received is a right lower lobe superior segmentectomy specimen, measuring 7.4x4.5x3.6cm.  On section, there is a well circumscribed tan gray firm and necrotic tumor, measuring 3.1x2.9x2.5cm.  Resection margin is grossly clear, 0.2cm apart from the tumor.  Representative sections are embedded.
+<A~D; tumor one plane, E; remaining lung parenchyma>
+(green; parenchymal resection margin)
+
+【확인결과】
+
+Lung, right lower lobe, superior segment, segmentectomy:
+     1. Squamous cell carcinoma, poorly differentiated <See note>
+        (status post concurrent chemoradiation therapy and wedge resection for invasive adenocarcinoma of 
+         right middle lobe and right lower lobe; S12-9100)
+             with 1) size of invasion; 3.1x2.9x2.5cm
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent 
+                    6) clear parenchymal resection margin
+        [pathologic stage: pT2a]
+     2. No abnormal findings in the background lung
+
+<Note> 조직학적 형태와 면역조직화학 염색 결과(p40: positive, TTF-1: negative) squamous cell carcinoma에 
+합당한 소견입니다.
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+*관련병리번호 :
+   I20-2299    TTF-1 ( Thyroid Transcription Factor-1 ) [D]  -  Negative(-)
+   I20-2188    TTF-1 ( Thyroid Transcription Factor-1 ) [B]  -  Negative(-)
+   I20-2187    P40 [B]  -  Positive(+)

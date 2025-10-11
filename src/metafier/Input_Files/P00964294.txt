@@ -1,0 +1,47 @@
+【병리번호】S16-2211
+
+【확 인 자】명재경 / 고재수
+
+【 Gross  】
+
+# Right upper lobe.  Received is right upper lobe lobectomy specimen, measuring 16x10x5.0cm.  Attached fibrous adipose tissue in pleural side is noted and there is other linear incision.  Cross section along the bronchus, there is poorly  demarcated whitish mass lesion, measuring 5.0x2.0x2.0cm in peripheral side.  This mass does not related with bronchus. It is 5.0cm apart from bronchial resection margin.  This mass suspicious invaded into attached fibroadipose tissue. There is another calcified nodule, measuring 3.0x1.0cm.  Remaining parenchyma shows grossly unremarkable. Representative sections are embedded.
+<A; bronchial resection margin, BC; 한단면, DE; pleura와의 관계, F; another calcified nodule>
+# Lymph node 2R, 7, 10, 11.
+
+
+** Frozen section diagnosis **
+<Frozen #1> Received is a lymph node.  Entirely embedded.
+   Lymph node #11 ; No tumor involvement (0/1) [설혜실]
+<Frozen #2> Received is a lump of fresh soft tissue, measuring 1.0x1.0cm.  Entirely embedded.
+   Resection margin ; No tumor involvement [설혜실]
+
+【확인결과】
+
+Lung, right upper lobe, lobectomy:
+     1. Invasive mucinous adenocarcinoma 
+             with 1) tumor size; 4.5x2.0x2.0cm
+                    2) involvement of parietal pleura (PL3)
+                    3) ly(-), n(-), v(-)
+                    4) clear bronchial resection margin
+     (pathologic stage: pT3) 
+     2. Chronic granulomatous inflammation with necrosis
+
+Lymph node, dissection:
+     No metastasis in 38 lymph nodes
+     (peribronchial; 0/1, #2R: 0/14, #7: 0/16, #10: 0/5, #11: 0/1,#11(frozen #1): 0/1)
+     (pathologic stage: pN0)
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+*관련병리번호 :
+   I16-2610    Alk1 ( Anaplastic Lymphoma Kinase1 ) [E]  -  Negative(-)
+   I16-2611    CDX2 [E]  -  Negative(-)
+   I16-2614    CK7 ( Cytokeratin 7 ) [E]  -  Positive(+)
+   I16-2612    CK20 ( Cytokeratin 20 ) [E]  -  Negative(-)
+   I16-2613    Muc-2 ( Muc-2 glycoprotein ) [E]  -  Positive(+), focal
+   I16-2615    TTF-1 ( Thyroid Transcription Factor-1 ) [E]  -  Negative(-)
+   SP16-246    AFB ( Acid Fast Bacilli Stain ) [F]  -  Negative(-)
+   SP16-245    Elastic Fiber Stain [E]  -  Negative(-)

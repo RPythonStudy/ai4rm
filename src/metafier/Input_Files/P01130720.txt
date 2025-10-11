@@ -1,0 +1,66 @@
+
+【병리번호】S24-7889
+
+【확 인 자】고재수 / 고재수
+
+【 Gross  】
+
+#1: Left upper lobe lobectomy. Received is a part of LUL lobectomy specimen, measuring 10x14x5cm. Pleural surface shows irregular ragged appearance. On section, there is a 2.2x1.6cm graysh white rubbery tumor at peripheral area. Adjacent visceral pleural invasion is suspected. Remaining lung shows multiple collapsed bullae. Bronchial resection margin is 2cm apart from the tumor. Representative sections are embedded. 
+#2: Left upper lobe wedge resection and rib. Received is a part of LUL lobectomy specimen with attached two pieces of resected 10cm-long rib, measuring 9x14x8cm in total. Pleural surface shows irregular ragged appearance. There is a 6x3cm graysh white rubbery nodular tumor at peripheral chest wall area. It is exposed and shows chest wall invasion. Remaining lung shows multiple collapsed bullae. Representative sections are embedded. 
+#3: Left uppe robe mass. Entirely embedded.
+#4: Pleural nodule. Entirely embedded.
+#5: Bone resection margin. Entirely embedded.
+#6: Bone invasion. Entirely embedded.
+#7: Lymph node #5, #7, #9, #10, #11. Entirely embedded.
+
+** Frozen section diagnosis **
+1.  Left upper lobe bronchial resection margin ; No tumor involvement [공준석]
+       Received is a lump of fresh soft tissue, measuring 1.5cm. Entirely embedded.
+
+【확인결과】
+
+Lung, left upper lobe and rib, lobectomy and chest wall resection(#1 and #2):
+     1. Consistent with adenosquamous carcinoma
+         (adenocarcinoma: 45%, (possibly)squamous cell carcinoma: 55%)
+             with 1) size of invasion; 6cm
+                       (total extent including lepidic pattern: 6cm)
+                    2) involvement of chest wall and rib(focal)(PL3)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: present
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): absent 
+                    7) clear bronchial resection margin
+        [pathologic stage: pT3]
+     2. Bullae in the background lung
+
+Tissue labeled "left upper lobe mass", excision:
+    Tumor positive
+
+Tissue labeled "pleural nodule", excision:
+    1. No tumor involvement
+    2. Consistent with bullae
+
+Tissue labeled "bone resection margin", excision:
+    No tumor involvement
+
+Tissue labeled "bone invasion", excision:
+    1. No tumor involvement
+    2. Chronic inflammation
+
+Lymph node, dissection:
+     No metastasis in lymph nodes
+     (peribronchial; 0/19, #5: 0/3, #7: 0/1, #9: 0/1, #10: 0/2, #11: 0/6)
+     [pathologic stage: pN0]
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   I24-8829    P63 ( P63 Protein ) [2-6]  -  Positive(focal)
+   I24-8830    TTF-1 ( Thyroid Transcription Factor-1 ) [2-6]  -  Negative(-)

@@ -1,0 +1,45 @@
+【병리번호】S19-13474
+
+【확 인 자】설혜실 / 고재수
+
+【 Gross  】
+
+#1: Right upper lobe.  Received is a right upper lobectomy specimen, measurng 13x12x4cm.  There is a tissue defect area due to frozen diagnosis.  On serial section, about 2.5x1.5cm-sized ill defined tumor is identified.  It is 1cm apart from the bronchial resection margin.  The remaining pulmonary parenchyme shows emphysematous change.  Representative sections are embedded.
+<A; bronchial resection margin, BC: one plane of tumor, D~H; tumor, I; remaining parenchyme>
+# Lymph node #2R, #4, #7, #10, #11.  Entirely embedded.
+
+** Frozen section diagnosis **
+1. LN11  ; No tumor involvement [박선후]
+       Received are is a fresh lymph node.  Entirely embedded.
+2. Mass ; Tumor positive [고재수]
+       Received is a lump of fresh soft tissue, measuring 1.5x1.5cm.  Entirely embedded.
+3. Bronchial resection margin ; No tumor involvement [고재수]
+       Received is a lump of fresh soft tissue, measuring 1.5x1.5cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, right upper lobe, lobectomy:
+     1. Pleomorphic carcinoma with adenocarcinoma
+         (pleomorphic carcinoma: 60%, acinar: 5%, lepidic: 35%)
+             with 1) size of invasion; 2.6x1.0cm
+                       (total extent including lepidic pattern: 3.0x1.6cm)
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent
+                    6) clear bronchial resection margin
+        [pathologic stage: pT1c]
+     2. Emphysematous change
+
+Lymph node, dissection:
+     1. No metastasis in 18 lymph nodes
+      (peribronchial; 0/1, #2R: 0/5, #4: 0/1, #7: 0/6, #10: 0/2, #11: 0/2, #11(frozen #1): 0/1)
+      [pathologic stage: pN0]
+     2. Chronic granulomatous inflammation with caseous necrosis ("#7")
+
+
+*관련병리번호 :
+   I19-12793   CK  ( Cytokeratin  Pan ) [B]  -  Positive(+) in adenocarcinoma/ Negative(-) in pleomorphic carcinoma
+   I19-12794   TTF-1 ( Thyroid Transcription Factor-1 ) [B]  -  Positive(+) in adenocarcinoma/ Negative(-) in pleomorphic carcinoma
+   I19-12795   VT(Vimentin) [B]  -  Positive(+) in pleomorphic carcinoma/ Negative(-) in adenocarcinoma
+   SP19-1317   AFB ( Acid Fast Bacilli Stain ) [7]  -  Negative(-)

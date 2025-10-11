@@ -1,0 +1,62 @@
+【병리번호】S13-14039
+
+【확 인 자】고재수 / 고재수
+
+【 Gross  】
+
+# Right upper lobe.  Received is a right upper lobe lobectomy specimen, measuring 13x7x3cm.  The apical segment shows umbilicated pleura.  On section, there is a 2.3x2.1cm-sized grayish white rubbery tumor. The tumor extends to the visceral pleura.  Bronchial resection margin is 6cm apart from the tumor.  Remaining lung is unremarkable.  Representative sections are embedded.
+# Lymph nodes 2, 4, 7, 10, 11.
+
+** Frozen section diagnosis **
+  Right upper lobe resection margin ; No tumor involvement [명재경]
+
+【확인결과】
+
+Lung, right upper lobe, lobectomy:
+   1. Microinvasive adenocarcinoma, lepidic predominant (lepidic:95%, acinar:5%)
+         with 1) tumor size; 2.3x2.1cm
+                2) no involvement of visceral pleura (PL0)
+                3) ly(-), n(-), v(-)
+                4) clear bronchial resection margin
+     (pathologic stage: pT1b)
+   2. No specific abnormal findings in the remaining lung
+
+Lymph node, dissection:
+     No metastasis in all 14 lymph nodes
+     (peribronchial: 0/2, #2; 0/3, #4; 0/2, #7; 0/2, #10; 0/3, #11; 0/2)
+     (pathologic stage: pN0)
+*관련병리번호 :
+   I13-11009   Alk1 ( Anaplastic Lymphoma Kinase1 ) [B]  -  Negative(-)
+   I13-11008   CD34 [B]  -  Negative(-)
+   I13-11010   CK  ( Cytokeratin  Pan ) [B]  -  Positive(+)
+   I13-11011   Ki-67 [B]  - 2%
+   I13-11012   P53 ( P53 Protein ) [B]  -  Negative(-)
+   M13-2438    EGFR 염기서열검사(병리) [B]  - Lung, radical operation, EGFR Mutation Analysis :
+
+        EGFR gene Exon18,19,20,21을 분석한 결과
+        exon21 Leu858Arg(2573T>G 변이가 발견됨
+        ; EGFR c.2573T>G p.L858R 
+          
+
+Note> 
+1. EGFR 유전자 변이는 약 25~50 %의 폐선암종에서 보인다. 주로 Exon 18 ~21에 걸쳐 잘 나타나며, 그 중 Exon19 유전자 Deletion 이 약 45 % 로 빈도수가 가장 높고, Exon21 nucleotide 2573의 point mutation (CTG>CGG, L858R)이 약 41%로 다발한다. 
+이외 Exon 18, 20 의 유전자 변이가 알려져 있다. 
+2. EGFR 유전자 변이의 형태에 따라  EGFR-targeted therapy에서 약제 감수성 또는 약제 저항성을 유발하는 것으로 보고되고 있다.
+
+참고 문헌>
+1. Chen YM. J Chin Med Assoc. 2013 ;76(5):249-57 
+2. Hirsch FR et al. J Thorac Oncol. 2013;8(3):373-84. 
+3. Langer CJ.P & T. 2011;36:263-279.
+4. Okamoto I, Mitsudomi T, Nakagawa K, Fukuoka M.Ther Adv Med Oncol. 2010;2(5):301-307.
+【검사방법】
+ 
+* 핵산추출
+조직이나 세포에서 QIAGEN DNA extraction kit column을 사용하여 genomic DNA를 추출한다.
+-조직의 크기 : 1×1 cm 이상
+-종양분포 : 전체 면적의 80% 이상
+* PCR
+EGFR gene exon18,19,20,21부위를 Sequencing 용으로 증폭한다.
+* Sequencing
+Biotage사의 PyroMark ID를 이용하여 EGFR gene exon18,19,20,21의 Point mutation 및 Deletion 유무를 분석한다.
+   
+   SP13-1393   Elastic Fiber Stain [B,D]  -  Positive(+)

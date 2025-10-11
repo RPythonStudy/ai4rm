@@ -1,0 +1,51 @@
+【병리번호】S24-8154
+
+【확 인 자】고재수 / 고재수
+
+【 Gross  】
+
+# Left lower lobe. Received is a LLL lobectomy specimen, measuring 11x19x4cm. Pleural surface shows mild fibrotic appearance. On serial section, there is a well demarcated 2.6x2.4cm graysh white soft friable  tumor at peripheral area. Visceral pleural invasion is not suspected. Remaining lung is unremarkable. Bronchial resection margin is 4cm apart from the tumor. Representative sections are embedded. 
+# Lymph node #4, #5, #7, #11. Entirely embedded.
+
+** Frozen section diagnosis **
+1.  LLL bronchial resection margin ; No tumor involvement [설혜실]
+       Received is a lump of fresh soft tissue, measuring 1cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, left lower lobe, lobectomy:
+     Large cell neuroendocrine carcinoma
+             with 1) size of invasion; 2.6x2.4cm
+                       (total extent including lepidic pattern: 2.6x2.4cm)
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): present
+                    7) clear bronchial resection margin
+        [pathologic stage: pT1c]
+
+     2. Bullae, focal
+
+Lymph node, dissection:
+     Metastatic carcinoma in one out of lymph nodes
+     (peribronchial; 0/4, #4: 0/2, #5: 0/8, #7: 1/5, #11: 0/3)
+     (with no extranodal extension)
+     [pathologic stage: pN2]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   I24-9112    CD56 [F]  -  Positive(+)
+   I24-9113    Chromogranin A [F]  -  Positive(+)
+   I24-9116    Ki-67 [F]  - 80%
+   I24-9115    TTF-1 ( Thyroid Transcription Factor-1 ) [F]  -  Positive(partial)
+   I24-9114    Napsin A [F]  -  Negative(-)

@@ -1,0 +1,39 @@
+【병리번호】S24-3412
+
+【확 인 자】고재수 / 고재수
+
+【 Gross  】
+
+# Left lower lobe. Received is a wedge resection specimen, measuring 5x2x1cm. It shows poorly demarcated about 1x1cm grayish white rubbery nodule. Resection margin is grossly clear. Total nodule is embedded. 
+
+** Frozen section diagnosis **
+1.  LLL mass ; Adenocarcinoma [설혜실]
+        Received is a lump of fresh soft tissue, measuring 0.4cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, left lower lobe, wedge resection;
+     Invasive adenocarcinoma, acinar predominant
+         (acinar: 50%, micropapillary: 40%, lepidic: 10%), grade 3
+             with 1) size of invasion; 1.3cm
+                       (total extent including lepidic pattern: 1.4cm)
+                    2) involvement of visceral pleura (PL1)
+                    3) lymphatic invasion: absent
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent
+                    6) spread through air space(STAS): absent 
+                    7) clear parenchymal resection margin
+        [pathologic stage: pT2a]
+  
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   I24-3968    TTF-1 ( Thyroid Transcription Factor-1 ) [B]  -  Positive(+)
+   I24-3965    ALK D5F3 CDx [B]  -  Negative(-)

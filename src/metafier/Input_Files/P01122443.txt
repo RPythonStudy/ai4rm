@@ -1,0 +1,36 @@
+【병리번호】S14-689
+
+【확 인 자】고재수 / 고재수
+
+【 Gross  】
+
+# Right lower lobe.  Received is a right lower lobe lobectomy specimen, measuring 9x15x6cm.  The  pleural shows 2.5x2cm-sized adipose tissue attached to the visceral pleura.  On section, there is a 2.6x2.5cm-sized well demarcated grayish white rubbery tumor at lung parenchyma peripheral area.  Remaining lung is unremarkable. Bronchial resection margin is 5cm apart from the tumor.  Representative sections are embedded.
+<A; peri, B; RM>
+# Lymph node 7, 8, 11.
+
+** Frozen section diagnosis **
+1. #11 lymph node ; No tumor involvement [고재수]
+2. #11 lymph node ; No tumor involvement [설혜실]
+
+【확인결과】
+
+Lung, right lower lobe, lobectomy:
+     Invasive adenocarcinoma, lepidic predominant (lepidic; 90%, acinar; 10%)
+         with 1) tumor size; 2.6x2.5cm
+                2) involvement of visceral pleura and parietal pleura (PL3)
+                3) ly(-), n(-), v(-)
+                4) clear bronchial resection margin
+     (pathologic stage: pT3)
+
+Lymph node, dissection:
+     No metastasis in all 18 lymph nodes
+     (peribronchial; 0/6, #7; 0/5, #8; 0/1, #11; 0/4, #11(frozen #1); 0/1, #11(frozen #2); 0/1)
+     (pathologic stage: pN0)
+*관련병리번호 :
+   I14-1091    Alk1 ( Anaplastic Lymphoma Kinase1 ) [E]  -  Negative(-)
+   I14-1094    Ki-67 [E]  - 5%
+   I14-1092    P53 ( P53 Protein ) [E]  -  Positive(+)
+   I14-1093    P63 ( P63 Protein ) [E]  -  Negative(-)
+   I14-1095    TTF-1 ( Thyroid Transcription Factor-1 ) [E]  -  Positive(+)
+   I14-1096    VT(Vimentin) [E]  -  Positive(+)
+   SP14-98     Elastic Fiber Stain [C]  -  Positive(+)

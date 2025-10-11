@@ -17,4 +17,8 @@ patho:
 
 meta:
 	python -m src.deidentifier.preliminary_pathology_metafier
+
+metafier:
+	python src/metafier/metafier_cli.py data/raw/Input_Files src/metafier/prompt_lung_patho.txt
+
 	

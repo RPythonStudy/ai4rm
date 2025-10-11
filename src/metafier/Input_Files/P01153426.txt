@@ -1,0 +1,65 @@
+【병리번호】S15-5618
+
+【확 인 자】고재수 / 고재수
+
+【 Gross  】
+
+# Left lung.  Received is a left upper lobectomy specimen, measuring 18x9.5x5.5cm and weighing 540gm. Grayish fimr tumor is exposed at bronchial resection margin.  The lung is previously perforated at supero-posterior side.  Perforation site measures 3.8x2cm.  Outer surface is covered with necrotic materials.  There is a second perforation site at antero-lateral portion, measuring 3x0.8cm.  On section along the bronchus, a 4.2x2.5x3cm-sized relatively well circumscribed grayish white firm and polygonal tumor is noted at peribronchial portion.  It is very close (0.4cm) to bronchial resection margin.  A hematoma, measuring 4x2.5cm is noted at visceral side of the tumor.  The bronchiole is filled with mucoid materials.  Representative sections are embedded.
+<A; bronchus and vessel RM, B; peribronchial LN, CDEF; one plane tumor, G; tumor, H; perforation site, I; hematoma, J; remaining>
+#1 Presacral lesion mass.  Received is an excised soft tissue, measuring 3x2.8x2.7cm.  A 2x1.5cm-sized peritoneum is attached.  On section, it is totally replaced by tan and partly hemorrhagic fish fleshy round tumor.  It is marginally resected.   Representative sections are embedded.
+<1-1,1-2/1-3> 
+#2 Peritoneum.  Received is an excised soft tissue, measuring 0.5x0.3x0.3cm.  Entirely embedded.
+#3 Pericardium.  Received is an excised membranous tissue, measuring 2.2x1x0.2cm.  Serially sectioned and totally embedded.   
+#4 Empyema. Received are multiple fragmented soft tissue, measuring 5x3x1cm.  They are yellowish and necrotic.  Representative sections are embedded.
+# Lymph node #5, #7, #10, #11.  Entirely embedded.
+
+
+** Frozen section diagnosis **
+<Frozen #1> Received is a lymph node.  Entirely embedded.
+   10번 lymph node ; No tumor involvement [명재경]
+<Frozen #2> Received is a lymph node.  Entirely embedded.
+   11번 lymph node ; No tumor involvement [명재경]
+<Frozen #3> Received is a lump of fresh soft tissue, measuring 1.6x0.9cm.  Entirely embedded.
+   Resection margin ; No tumor involvement [명재경]
+
+【확인결과】
+
+Lung, left upper lobe, lobectomy:
+     1. Non-keratinizing squamous cell carcinoma, poorly differentiated
+             with 1) tumor size; 4.2x2.5x3.0cm
+                    2) no involvement of visceral pleura (PL0)
+                    3) ly(-), n(-), v(-)
+                    4) clear bronchial resection margin
+     (pathologic stage: pT2a)
+     2. Empyema perforation and hematoma
+     3. No another abnormal findings in the remaining lung
+
+Lymph node, dissection:
+     Metastatic squamous cell carcinoma in two out of 22 lymph nodes
+     (peribronchial; 2/3, #5: 0/8, #7: 0/2, #10: 0/5, #11: 0/2, #10(frozen #1): 0/1, #11(frozen #2): 0/1)
+     (pathologic stage: pN1)
+
+Tissue labeled "presacral lesion mass", excision:
+     Paraganglioma
+        with 1) tumor size: 3.0x2.8x2.7cm
+               2) clear resection margin
+
+Tissue labeled "peritoneum", excision:
+     No tumor involevement
+
+Tissue labeled "pericardium", excision:
+     No tumor involevement
+
+Tissue labeled "empyema", excision:
+     No tumor involevement
+
+*관련병리번호 :
+   I15-5119    CD56 [C]  -  Positive(+), focal
+   I15-5122    Chromogranin A [1-1]  -  Positive(+)
+   I15-5121    Ki-67 [C]  - 80%
+   I15-5125    Ki-67 [1-1]  - 1%>
+   I15-5120    P53 ( P53 Protein ) [C]  -  Positive(+)
+   I15-5124    S100 ( S100 protein ) [1-1]  -  Positive(+)
+   I15-5123    Synaptophysin [1-1]  -  Positive(+)
+   SP15-645    Elastic Fiber Stain [C]  -  Negative(-)
+   SP15-646    RETICULIN fiber stain [1-1]  -  Negative(-)

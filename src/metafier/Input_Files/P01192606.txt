@@ -1,0 +1,43 @@
+【병리번호】S17-4219
+
+【확 인 자】이보인 / 고재수
+
+【 Gross  】
+
+#1 Right upper lobe.  Received is a right upper  lobectomy specimen, measuring 16.3x12.0x5.6cm.  The pleura is diffusely pigmented by anthracotic pigmentation.  On section along the bronchus, there is a well demarcated tan gray stellate firm tumor, measuring 2.5x2.0cm.  The tumor is not related with bronchial mucosa and 3.0cm apart from bronchial resection margin.  The tumor is 1.5cm is apart from viseral pleura. Remaining parenchyma is grossly unremarkable. Bronchial resection margin is grossly clear. Representative sections are embedded. 
+<A: bronchial resection margin, B: peribronchial lymph node, CD/EF: tumor, G: remaining>
+#2 Lymph node 2, 4, 7, 8, 10, 11, 11(lower).
+
+
+
+** Frozen section diagnosis **
+<Frozen #1> Received is a lump of fresh soft tissue, measuring 0.7x0.5cm.  Entirely embedded.
+   Bronchial resection margin ; No tumor involvement [고재수]
+<Frozen #2> Received is a lymph node.  Entirely embedded.
+   Lymph node #11 ; No tumor involvement [고재수]
+<Frozen #3> Received are three lymph nodes.  Entirely embedded.
+   Lymph node #7 ; No tumor involvement [고재수]
+
+【확인결과】
+
+Lung, right upper lobe, lobectomy:
+     1. Invasive adenocarcinoma, acinar predominant 
+        (acinar: 60%, papillary: 35%, micropapillary: 5%)
+             with 1) tumor size; 2.5x2.0cm
+                    2) no involvement of visceral pleura (PL0)
+                    3) ly(-), n(-), v(-)
+                    4) clear bronchial resection margin.
+       (pathologic stage: pT1b)
+     2. No abnormal findings in the background lung
+
+Lymph node, dissection:
+     Metastatic adenocarcinoma in one out of 26 lymph nodes
+     (peribronchial; 0/3, #2: 0/2, #4: 0/3, #7: 0/6, #8: 0/2, #10: 0/3, 
+      #11: 1/1, #11(lower): 0/2, #11(frozen #2): 0/1, #7(frozen #3): 0/3)
+     (pathologic stage: pN1)
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura

@@ -1,0 +1,45 @@
+【병리번호】S24-1960
+
+【확 인 자】공준석 / 공준석
+
+【 Gross  】
+
+#1: Right lower lobe. Received is a right lower lobe lobectomy specimen, measuring 11.5x11.0x9.0cm and weighing 299.5gm. On section, 8.7x7.0x5.5cm-sized ill defined, round, firm, gray to whitish tumor is noted. The tumor invades to visceral pleura. The tumor is 7cm apart from bronchial resection margin. Bronchial resection margin is grossly clear. Remaining parenchyma is grossly unremarkable. There is a 3.0x2.0cm-sized bulla. Bulla is 2.5cm apart from bronchial resection margin. Representative sections are embedded.
+<A; bronchial resection margin and lymph node, B~G; tumor, H; tumor cross section, I; bulla, J; normal>
+#2: Lymph node #7, #9, #11. Entirely embedded.
+
+** Frozen section diagnosis **
+1.  Bronchial resection margin ; No tumor involvement [설혜실]
+       Received is a lump of fresh soft tissue, measuring 1.4x0.9cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, right lower lobe, lobectomy:
+     1. Squamous cell carcinoma, moderately differentiatede
+             with 1) size of invasion;  8.7x7.0x5.5cm
+                    2) no involvement of visceral pleura (PL0)
+                    3) lymphatic invasion: absent 
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent 
+                    6) spread through air space(STAS): absent 
+                    7) clear bronchial parenchymal resection margin
+        [pathologic stage: pT4]
+     2. Pulmonary bulla
+
+Lymph node, dissection:
+     No metastasis in all 12 lymph nodes
+     (peribronchial; 0/1, #7: 0/6, #9: 0/1, #11: 0/4)
+     [pathologic stage: pN0]
+
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+
+<Proposed grading of resected early-stage invasive non-mucinous lung adenocarcinoma>
+Grade 1: Lepidic-predominant with no or <20% high-grade pattern
+Grade 2: Acinar or papillary-predominant with no or <20% high-grade pattern
+Grade 3: Any tumor with ≥20% high-grade pattern (solid, micropapillary, cribriform, or complex glandular pattern)
+*관련병리번호 :
+   SP24-112    Elastic Fiber Stain [C]  -  No involvement of visceral plerua

@@ -1,0 +1,39 @@
+
+【병리번호】S19-13342
+
+【확 인 자】이승숙 / 이승숙
+
+【 Gross  】
+
+# Right upper lobe posterior segment.  Received is a wedge-resected lung tissue, measuring 7.0x2.0x1.4cm.  There is a previous incision and shows a poorlycircumscribed subpleural thickening measuring about 1.3x0.5cm. Serially sectioned and almost entirely embedded.
+
+   ** Frozen section diagnosis **
+Right lower lobe ; Adenocarcinoma (AIS or minimally invasive adenocarcinoma) [설혜실]
+       Received is a lump of fresh soft tissue, measuring 1.0x0.8cm.  Entirely embedded.
+
+【확인결과】
+
+Lung, right upper lobe, posterior segment, wedge resection; 
+
+    1. Invasive adenocarcinoma, acinar predominant 
+         (acinar: 55%, lepidic: 45%)
+           with 1) size of invasion; 1.1x0.5cm
+                       (total extent including lepidic pattern: 1.3x0.6x1.0cm)
+                    2) no invasion beyond elastic layer of visceral pleura (PL0)
+                    3) lymphatic invasion: absent
+                    4) vascular invasion: absent 
+                    5) perineural invasion: absent 
+                    6) clear bronchial resection margin
+        [pathologic stage: pT1b]
+
+     2. No abnormal findings in the background lung
+
+PL0
+PL1; Tumor invades beyond the elastic layer 
+PL2; Tumor invade to the pleural surface 
+PL3; Tumor invade into any component of the parietal pleura
+*관련병리번호 :
+   I19-12684   TTF-1 ( Thyroid Transcription Factor-1 ) [E]  -  Positive(+)
+   I19-12683   Napsin A [E]  -  Positive(+)
+   I19-12699   PD-L1(SP263) [E]  -  Positive(+), 20%
+   I19-12697   ALK D5F3 CDx [E]  -  Negative(-)
